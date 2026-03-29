@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 265 28% 93%;
+    --secondary-foreground: 0 0% 8%;
+
+    --muted: 265 14% 96%;
+    --muted-foreground: 0 0% 42%;
+
+    --accent: 330 65% 80%;
+    --accent-foreground: 0 0% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 8%;
+
+    --radius: 0.75rem;
+
+    /* Hero: soft lavender → lilac */
+    --hero-gradient-start: 268 40% 84%;
+    --hero-gradient-mid:   285 32% 88%;
+    --hero-gradient-end:   310 35% 89%;
+
+    /* About: warm rose-pink (matches reference screenshot) */
+    --about-gradient-start: 338 58% 72%;
+    --about-gradient-mid:   330 52% 78%;
+    --about-gradient-end:   322 46% 83%;
+
+    --pink-accent:  335 60% 76%;
+    --lavender:     268 40% 84%;
+    --tag-violet:   258 68% 56%;    /* filled tag colour */
+    --teal-spark:   174 72% 56%;    /* sparkle accent */
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-heading: "Space Grotesk", system-ui, sans-serif;
+    --font-body: "Space Grotesk", system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Space Grotesk display headers — geometric, tight, editorial-tech */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    font-feature-settings: "ss01" 1, "ss02" 1;
+    font-variant-ligatures: none;
+  }
+
+  h1 {
+    letter-spacing: -0.055em;
+    line-height: 0.92;
+  }
+
+  h2 {
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+  }
+
+  h3, h4 {
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  h5, h6 {
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: hsl(var(--pink-accent) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(140, 95,  215, 1)  0%,    /* deep violet — hero top */
+      rgba(162, 112, 228, 1) 12%,    /* soft purple */
+      rgba(188, 128, 235, 1) 25%,    /* lavender */
+      rgba(210, 128, 228, 1) 38%,    /* purple → pink crossover */
+      rgba(225, 128, 218, 1) 50%,    /* mauve — hero bottom / marquee */
+      rgba(232, 140, 210, 1) 62%,    /* warm pink-purple */
+      rgba(236, 158, 212, 1) 74%,    /* clear pink — recent work mid */
+      rgba(240, 185, 222, 1) 87%,    /* soft rose */
+      rgba(244, 210, 232, 1) 100%    /* blush — bottom of recent work */
+    );
+  }
+
+  /* Warm rose-pink gradient used by the About section */
+  .about-gradient {
+    background: linear-gradient(
+      155deg,
+      hsl(var(--about-gradient-start)) 0%,
+      hsl(var(--about-gradient-mid))   50%,
+      hsl(var(--about-gradient-end))   100%
+    );
+  }
+
+  /* Pink gradient used by the Experience section */
+  .experience-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(234, 113, 196, 1) 0%,
+      rgba(234, 195, 216, 1) 60%,
+      rgba(240, 213, 225, 1) 100%
+    );
+  }
+
+  .text-hero {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.86;
+    font-feature-settings: "ss01" 1, "ss02" 1;
+    font-variant-ligatures: none;
+    text-rendering: geometricPrecision;
+  }
+
+  .pink-scribble {
+    color: hsl(var(--pink-accent));
+  }
+
+  .skill-pill {
+    @apply px-4 py-2 rounded-full border border-border text-sm font-medium;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    font-feature-settings: "ss01" 1, "ss02" 1;
+    font-variant-ligatures: none;
+  }
+
+  /* Extra-tight mega display (Experience, About, etc.) */
+  .font-heading-display {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.92;
+    font-feature-settings: "ss01" 1, "ss02" 1;
+    font-variant-ligatures: none;
+    text-rendering: geometricPrecision;
+  }
+}
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: hsl(var(--foreground));
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid hsl(var(--foreground) / 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Marquee — horizontal scroll */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Wavy marquee — per-character vertical wave */
+@keyframes wave-char {
+  0%   { transform: translateY(0px)   rotate(-6deg); }
+  25%  { transform: translateY(-36px) rotate(0deg);  }
+  50%  { transform: translateY(0px)   rotate(6deg);  }
+  75%  { transform: translateY(36px)  rotate(0deg);  }
+  100% { transform: translateY(0px)   rotate(-6deg); }
+}
+
+/* Horizontal scroll sized for the wave marquee text */
+@keyframes marquee-wave {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-wave {
+  animation: marquee-wave 26s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* Fade in up */
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Slide in from left */
+@keyframes slide-in-left {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Page transition */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: page-enter 0.5s ease-out forwards;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--pink-accent)), hsl(268 50% 60%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tools marquee (slower than text marquee) */
+@keyframes marquee-tools {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-tools-reverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-tools {
+  animation: marquee-tools 22s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-tools-reverse {
+  animation: marquee-tools-reverse 22s linear infinite;
+  will-change: transform;
+}
+
+/* Edge vignette mask for full-bleed marquees — works on any background */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Noise texture overlay for depth */
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+}
