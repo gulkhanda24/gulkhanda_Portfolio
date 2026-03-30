@@ -1,23 +1,61 @@
-import { motion, useScroll, useSpring, useVelocity, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useSpring, useVelocity, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 /* ─── Scattered tags ──────────────────────────────────────────────────── */
-// filled = deep violet pill  |  outlined = solid-white pill
-// x / y are % positions inside the absolute container (desktop only)
-const skills = [
-  // initSpin = dramatic initial rotation before springing to `rotate` value
-  { text: "Information Architecture", x: "2%",  y: "10%", rotate: -9,  filled: false, delay: 0.04, initSpin: -38 },
-  { text: "Wireframing",              x: "20%", y: "50%", rotate:  0,  filled: true,  delay: 0.18, initSpin:  26 },
-  { text: "Communication",            x: "2%",  y: "70%", rotate:  0,  filled: false, delay: 0.08, initSpin: -22 },
-  { text: "Critical Thinking",        x: "30%", y: "72%", rotate:  0,  filled: false, delay: 0.24, initSpin:  18 },
-  { text: "Prototyping",              x: "43%", y: "50%", rotate:  0,  filled: false, delay: 0.30, initSpin: -30 },
-  { text: "Business Needs",           x: "55%", y: "65%", rotate:  0,  filled: true,  delay: 0.36, initSpin:  24 },
-  { text: "User Research",            x: "63%", y: "10%", rotate:  7,  filled: true,  delay: 0.12, initSpin: -16 },
-  { text: "Visuals & UI",             x: "78%", y: "48%", rotate:  0,  filled: false, delay: 0.40, initSpin:  32 },
-  { text: "User Flow",                x: "82%", y: "26%", rotate:  0,  filled: true,  delay: 0.14, initSpin: -28 },
-  { text: "Empathy",                  x: "84%", y: "65%", rotate:  0,  filled: false, delay: 0.26, initSpin:  20 },
+// blue = accent gradient | white = solid pill | outline = glass + white stroke | lavender = solid blue
+type SkillVariant = "blue" | "white" | "outline" | "lavender";
+
+type SkillDatum = {
+  text: string;
+  rotate: number;
+  variant: SkillVariant;
+  delay: number;
+  initSpin: number;
+};
+
+const skills: SkillDatum[] = [
+  { text: "Information Architecture", rotate: -17, variant: "outline",  delay: 0.03, initSpin: -26 },
+  { text: "Wireframing",              rotate:  -2, variant: "blue",     delay: 0.08, initSpin:  12 },
+  { text: "Communication",            rotate:   0, variant: "white",    delay: 0.05, initSpin: -10 },
+  { text: "Prototyping",              rotate:   1, variant: "white",    delay: 0.11, initSpin:  -8 },
+  { text: "Critical Thinking",        rotate:   0, variant: "lavender", delay: 0.14, initSpin:   8 },
+  { text: "Business Needs",           rotate:   4, variant: "outline",  delay: 0.10, initSpin:  10 },
+  { text: "User Research",            rotate:  -3, variant: "white",    delay: 0.16, initSpin: -12 },
+  { text: "Visuals & UI",             rotate:   2, variant: "white",    delay: 0.18, initSpin:   6 },
+  { text: "User Flow",                rotate:  -4, variant: "outline",  delay: 0.12, initSpin:  10 },
+  { text: "Empathy",                  rotate:   5, variant: "white",    delay: 0.20, initSpin:  -8 },
 ];
+
+function skillSurfaceClass(variant: SkillVariant): string {
+  switch (variant) {
+    case "blue":
+      return [
+        "border border-white/40 text-white shadow-[0_10px_32px_rgba(20,70,160,0.32)]",
+        "bg-gradient-to-br from-[hsl(210_85%_62%)] via-[hsl(218_72%_50%)] to-[hsl(228_65%_38%)]",
+      ].join(" ");
+    case "white":
+      return [
+        "bg-white text-neutral-800 border border-white/95",
+        "shadow-[0_4px_0_rgba(255,255,255,0.65)_inset,0_10px_36px_rgba(40,20,60,0.12)]",
+      ].join(" ");
+    case "outline":
+      return [
+        "border-2 border-white text-white",
+        "bg-white/[0.12] backdrop-blur-md",
+        "shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_8px_32px_rgba(30,15,50,0.12)]",
+      ].join(" ");
+    case "lavender":
+      return [
+        "border border-white/40 text-white shadow-[0_8px_28px_rgba(25,75,170,0.28)]",
+        "bg-[hsl(218_62%_48%)]",
+      ].join(" ");
+  }
+}
+
+function skillPillClass(): string {
+  return "inline-block whitespace-nowrap px-8 py-2 md:px-10 md:py-2.5 rounded-full text-base md:text-lg font-semibold tracking-tight leading-snug";
+}
 
 /* ─── Tool icons ──────────────────────────────────────────────────────── */
 // We repeat the list once → CSS -50% loop works seamlessly
@@ -135,8 +173,6 @@ const TealSparkle = () => (
 );
 
 /* ─── SkillTag ────────────────────────────────────────────────────────── */
-type SkillDatum = (typeof skills)[0];
-
 /**
  * Each tag owns its own IntersectionObserver via `whileInView`.
  * This ensures the drop animation plays exactly when the tag
@@ -157,11 +193,9 @@ const SkillTag = ({ skill }: { skill: SkillDatum }) => (
     style={{ rotate: skill.rotate }}
     whileHover={{ scale: 1.07, y: -3, transition: { duration: 0.16 } }}
     className={[
-      "inline-block whitespace-nowrap select-none cursor-default",
-      "px-5 py-2.5 rounded-full text-sm font-semibold",
-      skill.filled
-        ? "bg-[hsl(258_68%_56%)] text-white"
-        : "border-2 border-white bg-white text-[#1a1a1a]",
+      "select-none cursor-default font-semibold",
+      skillPillClass(),
+      skillSurfaceClass(skill.variant),
     ].join(" ")}
   >
     {skill.text}
@@ -171,10 +205,6 @@ const SkillTag = ({ skill }: { skill: SkillDatum }) => (
 /* ─── Main section ────────────────────────────────────────────────────── */
 const AboutSection = () => {
   const { ref, isInView } = useScrollAnimation({ once: true, margin: "-60px" });
-
-  /* Dedicated ref for the mobile tag container — fires when tags scroll into view */
-  const mobileTagsRef = useRef<HTMLDivElement>(null);
-  const mobileTagsInView = useInView(mobileTagsRef, { once: true, margin: "-40px" });
 
   /* Scroll velocity → horizontal parallax on tools strip */
   const { scrollY } = useScroll();
@@ -231,63 +261,50 @@ const AboutSection = () => {
           className="text-white/75 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium"
         >
           A multidisciplinary designer specialized in digital product design.
-          Currently based in India.
+          Currently based in Pakistan.
         </motion.p>
       </div>
 
       {/* ── Tags ─────────────────────────────────────────────────── */}
       <div className="relative pb-4">
-        {/*
-          Mobile — flex-wrap layout.
-          The container ref fires `mobileTagsInView` when this div scrolls
-          into view. Each tag then plays its drop animation with stagger.
-        */}
-        <motion.div
-          ref={mobileTagsRef}
-          className="md:hidden flex flex-wrap gap-3 justify-center px-6 py-4"
-        >
+        {/* Mobile — flex-wrap; each tag uses whileInView for scroll-triggered drop */}
+        <div className="md:hidden flex flex-wrap gap-2 justify-center w-full px-4 sm:px-6 md:px-8 py-4">
           {skills.map((skill, i) => (
             <motion.span
               key={skill.text}
-              initial={{ opacity: 0, y: 22 }}
-              animate={mobileTagsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: -36, scale: 0.92 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2, margin: "0px 0px -60px 0px" }}
               transition={{
-                duration: 0.58,
-                delay: i * 0.07,
-                ease: [0.22, 1, 0.36, 1],
+                delay: i * 0.06,
+                opacity: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                y: { type: "spring", stiffness: 320, damping: 20, mass: 0.85 },
+                scale: { type: "spring", stiffness: 400, damping: 26, mass: 0.8 },
               }}
-              whileHover={{ scale: 1.07, y: -3, transition: { duration: 0.16 } }}
+              style={{ rotate: skill.rotate }}
+              whileHover={{ scale: 1.06, y: -2, transition: { type: "spring", stiffness: 420, damping: 26 } }}
               className={[
-                "inline-block whitespace-nowrap select-none cursor-default",
-                "px-5 py-2.5 rounded-full text-sm font-semibold",
-                skill.filled
-                  ? "bg-[hsl(258_68%_56%)] text-white"
-                  : "border-2 border-white bg-white text-[#1a1a1a]",
+                "select-none cursor-default font-semibold",
+                skillPillClass(),
+                skillSurfaceClass(skill.variant),
               ].join(" ")}
             >
               {skill.text}
             </motion.span>
           ))}
-        </motion.div>
+        </div>
 
-        {/*
-          Desktop — scattered absolute positions.
-          Creative entry: each tag starts blurred, tiny, spinning, then
-          springs into place with unique stiffness → organic "scatter snap".
-          blur(12px→0) gives a cinematic focus-in as tags arrive.
-        */}
-        <div className="hidden md:block relative h-[265px] w-full">
+        {/* Desktop — flex-wrap + gap-2 for even spacing; per-tag whileInView drop */}
+        <div className="hidden md:flex flex-wrap justify-center gap-2 w-full max-w-none mx-auto px-4 md:px-8 lg:px-12 xl:px-16 py-2">
           {skills.map((skill, i) => (
             <motion.div
               key={skill.text}
-              className="absolute"
-              style={{ left: skill.x, top: skill.y }}
               initial={{
                 opacity: 0,
-                scale: 0.05,
+                scale: 0.84,
                 rotate: skill.initSpin,
-                y: -55,
-                filter: "blur(14px)",
+                y: -64,
+                filter: "blur(12px)",
               }}
               whileInView={{
                 opacity: 1,
@@ -296,26 +313,26 @@ const AboutSection = () => {
                 y: 0,
                 filter: "blur(0px)",
               }}
-              viewport={{ once: true, margin: "-20px" }}
+              viewport={{ once: true, amount: 0.15, margin: "0px 0px -48px 0px" }}
               transition={{
-                // spring for scale / rotate / y — each tag has unique bounce
-                type: "spring",
-                stiffness: 140 + i * 14,
-                damping: 13,
                 delay: skill.delay,
-                // tween for blur and opacity (spring doesn't interpolate filters)
-                filter:  { type: "tween", duration: 0.55, delay: skill.delay, ease: [0.22, 1, 0.36, 1] },
-                opacity: { type: "tween", duration: 0.22, delay: skill.delay },
+                opacity: { type: "tween", duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+                filter: { type: "tween", duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+                scale: { type: "spring", stiffness: 380 + i * 12, damping: 24, mass: 0.88 },
+                rotate: { type: "spring", stiffness: 240, damping: 22, mass: 0.8 },
+                y: { type: "spring", stiffness: 300, damping: 19, mass: 0.92 },
               }}
-              whileHover={{ scale: 1.08, y: -4, transition: { duration: 0.16 } }}
+              whileHover={{
+                scale: 1.05,
+                y: -2,
+                transition: { type: "spring", stiffness: 450, damping: 24 },
+              }}
             >
               <span
                 className={[
-                  "inline-block whitespace-nowrap select-none cursor-default",
-                  "px-5 py-2.5 rounded-full text-sm font-semibold",
-                  skill.filled
-                    ? "bg-[hsl(258_68%_56%)] text-white"
-                    : "border-2 border-white bg-white text-[#1a1a1a]",
+                  "select-none cursor-default font-semibold",
+                  skillPillClass(),
+                  skillSurfaceClass(skill.variant),
                 ].join(" ")}
               >
                 {skill.text}

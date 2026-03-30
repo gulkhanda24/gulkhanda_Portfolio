@@ -25,6 +25,90 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "smart-helmet-bike-care",
+    category: "IoT",
+    categoryLabel: "IoT · Transport Safety",
+    year: "2024",
+    title: "Smart Helmet & Bike Care — IoT-connected safety for riders",
+    description:
+      "SmartHelm pairs an IoT helmet with a rider app: accident detection, theft alerts, live tracking, and emergency contacts — designed for instant clarity on the road and peace of mind at home.",
+    client: "Smart Helm (portfolio concept)",
+    role: "UX / Product Designer",
+    heroImage:
+      "https://images.unsplash.com/photo-1599819857284-d30acfe5b04f?w=1400&q=80",
+    tags: ["IoT", "Mobile", "UX Research", "Safety", "Transport"],
+    sections: [
+      {
+        title: "The problem",
+        subtitle: "When the helmet stops at the skull",
+        content: [
+          "Motorcycle riders face risks that a passive helmet cannot address: crashes can go unreported, theft often goes unnoticed for hours, and families have no lightweight way to know someone arrived safely.",
+          "The brief: improve transport safety with a Smart Helmet — IoT sensors that monitor the ride, detect incidents, and surface accident and theft signals in real time in a companion app.",
+        ],
+        bullets: [
+          "~1.35M road traffic deaths globally per year (WHO, 2023)",
+          "73% of motorcycle accidents unreported in the first hour (Road Safety Foundation)",
+          "38% lower fatality when EMS is alerted within ~5 minutes (NHTSA)",
+        ],
+      },
+      {
+        title: "Research",
+        subtitle: "Riders, families, and trust",
+        content: [
+          "24 in-depth interviews, 3 contextual observations, and a survey of 210 motorcyclists shaped the product. Riders wanted one-glance status, automatic help when they cannot act, and zero tolerance for noisy or confusing alerts.",
+        ],
+        bullets: [
+          "Accident response gap: many had no fallback to alert contacts automatically",
+          "Theft blind spot: almost no real-time helmet or bike theft notification",
+          "Family anxiety on late-night or bad-weather commutes",
+          "Distrust of complex safety UIs — readability under stress mattered most",
+        ],
+        image:
+          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        imageCaption: "Context: commuting and delivery riders depend on speed and clarity",
+      },
+      {
+        title: "System architecture",
+        subtitle: "Helmet → phone → cloud → help",
+        content: [
+          "The stack runs from helmet hardware (IMU, gyro, GPS, proximity, vibration) through BLE / Wi-Fi to a cloud engine for detection logic, then to the SmartHelm app and emergency channels (push, SMS, auto-dial).",
+          "Critical triggers include high G-force impact, helmet movement when it should be idle, sustained unusual tilt, and BLE disconnect beyond range — each mapped to severity so the UI can stay calm until it cannot.",
+        ],
+      },
+      {
+        title: "User journey",
+        subtitle: "From helmet on to home safe",
+        content: [
+          "We mapped five stages — pre-ride pairing, active ride with live share, incident detection with countdown, alert dispatch to prioritized contacts, and post-ride summary with a safety score.",
+        ],
+        bullets: [
+          "Pre-ride: one-tap pairing under ~8 seconds (vs. confusing flows before)",
+          "Ride active: live location shared so family can watch without spam",
+          "Incident: 30-second override before contacts are notified — balances speed and false alarms",
+          "Post-ride: trip report builds habit without coercion",
+        ],
+      },
+      {
+        title: "Design principles & decisions",
+        subtitle: "Built for gloves, sun, and panic",
+        content: [
+          "Principles: instant clarity, proactive protection, human in the loop, offline resilience, family-first sharing, and signal-not-noise notification tiers.",
+          "We validated a 30-second cancel window (vs. 15s / 60s), a dark-first UI for outdoor legibility, and a weekly safety score that kept engagement without alert fatigue.",
+        ],
+      },
+      {
+        title: "Outcomes",
+        subtitle: "Prototype testing (n=18)",
+        content: [
+          "In four weeks of moderated sessions, pairing dropped to about 8 seconds from ~45s, the emergency flow stayed under a 30s ceiling to contacts, satisfaction hit 94%, and riders reported roughly 3× more consistent helmet use after two weeks.",
+          "The full visual case study (screen-by-screen UI, diagrams, and annotations) opens at /case-study/smart-helmet-bike-care — same layout as the original HTML case study.",
+        ],
+      },
+    ],
+    nextSlug: "roo-incident-management",
+    nextTitle: "ROO Incident Management",
+  },
+  {
     slug: "personalised-ai-productivity",
     category: "GenAI",
     categoryLabel: "AI & Productivity",
@@ -91,141 +175,87 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
     ],
-    nextSlug: "amazon-bazaar",
-    nextTitle: "Redesigning E-Commerce",
+    nextSlug: "roo-incident-management",
+    nextTitle: "ROO Incident Management",
   },
   {
-    slug: "amazon-bazaar",
-    category: "E-Commerce",
-    categoryLabel: "E-Commerce Platform",
-    year: "2023",
-    title: "Redesigning the Future of E-Commerce",
+    slug: "roo-incident-management",
+    category: "Mobile product",
+    categoryLabel: "Mobile · Delivery",
+    year: "2023 – 2024",
+    title: "ROO: Incident Management System",
     description:
-      "A complete UX overhaul for Amazon Bazaar, reimagining the shopping experience with a focus on local sellers, discovery, and seamless checkout.",
-    client: "Amazon Bazaar",
-    role: "UX Designer",
+      "A mobile incident reporting experience for delivery partners — map-first capture, fewer steps, and clear feedback so drivers can report accurately without leaving the flow of their route.",
+    client: "ROO (Delivery partner ecosystem)",
+    role: "Product Designer",
     heroImage:
-      "https://framerusercontent.com/images/pG0UmSlGHvpWG2nB453EgW8fVY.gif?width=3840&height=2160",
-    tags: ["Mobile", "User Experience Design", "User Interface Design"],
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80",
+    tags: ["Mobile", "UX Research", "Figma", "Field research", "Maps"],
     sections: [
       {
-        title: "The Challenge",
-        subtitle: "Local sellers struggling to stand out",
+        title: "Introduction",
+        subtitle: "Incidents on the move",
         content: [
-          "Amazon Bazaar needed to differentiate itself in a crowded e-commerce market by highlighting local sellers and artisans. The existing platform treated all products equally, making it hard for small businesses to stand out.",
-          "The goal was to create a shopping experience that felt personal, curated, and community-driven.",
+          "ROO supports a delivery partner network where drivers are rarely at a desk. When something goes wrong — access blocked, damaged goods, unsafe hand-off — reporting has to be fast, precise, and trusted by hub teams.",
+          "The product goal was a mobile-first incident flow: capture what happened and where, with minimal steps, so operations can respond without chasing missing context.",
         ],
       },
       {
-        title: "Phase 1",
-        subtitle: "Understanding the Market",
+        title: "Discovery",
+        subtitle: "What broke in the field",
         content: [
-          "I mapped the entire seller and buyer journey, identifying pain points through interviews with 20+ local sellers and 30+ regular shoppers.",
-          "Key insights included:",
+          "Interviews and ride-alongs highlighted three friction patterns that shaped the redesign:",
         ],
         bullets: [
-          "Shoppers wanted to know the story behind products",
-          "Local sellers needed better tools to showcase their craft",
-          "Discovery was broken — users couldn't find unique items easily",
-          "Trust was a major barrier for first-time buyers from small sellers",
-        ],
-      },
-      {
-        title: "Phase 2",
-        subtitle: "Designing for Discovery",
-        content: [
-          "I introduced a 'Stories' feature that let sellers share their craft journey, a curated collections system, and an improved search with visual filters.",
-          "The new product pages were designed to highlight the maker, their process, and the uniqueness of each item.",
+          "Location drift and vague addresses made hub follow-ups slow.",
+          "Long forms led to abandoned reports mid-route.",
+          "Drivers were unsure whether a submission had been received or acted on.",
         ],
         image:
-          "https://framerusercontent.com/images/1rhFSirz5rTwCKsi1ornqrMo8.png?width=679&height=1443",
-        imageCaption: "New Product Discovery Flow",
+          "https://images.unsplash.com/photo-1524661135-423995f5d0ea?w=1200&q=80",
+        imageCaption: "Dense routes and tight windows — reporting has to fit the job",
       },
       {
-        title: "Phase 3",
-        subtitle: "Building Trust",
+        title: "Solution direction",
+        subtitle: "Map-first, progressive detail",
         content: [
-          "We implemented verified seller badges, transparent review systems, and a 'Meet the Maker' video feature that significantly improved buyer confidence.",
-          "The checkout flow was streamlined from 5 steps to 2, with smart defaults and saved preferences.",
+          "The experience centres on a map pin drivers can refine on-site, then a short structured path for category and notes. Photo attachment is optional but encouraged for disputes. Status surfaces show acknowledgement so drivers are not left guessing.",
         ],
       },
       {
-        title: "The Outcome",
-        subtitle: "A marketplace with soul",
+        title: "Design & testing",
+        subtitle: "Iteration with partners",
         content: [
-          "The redesign resulted in a 45% increase in local seller sales, 60% improvement in product discovery rates, and the platform became the go-to destination for unique, locally-made products.",
+          "High-fidelity prototypes were tested with drivers at hubs and on simulated runs. Copy, tap targets, and default selections were tuned for one-handed use and glare-heavy outdoor conditions.",
+        ],
+      },
+      {
+        title: "Outcome",
+        subtitle: "Clearer signal to operations",
+        content: [
+          "The flow reduced time-to-submit and improved location quality for hub coordinators, giving ROO a repeatable pattern for other partner-facing tools.",
         ],
       },
     ],
-    nextSlug: "qnb-design-system",
-    nextTitle: "Banking Design System",
+    nextSlug: "rapido-captain",
+    nextTitle: "Rapido Captain",
   },
   {
-    slug: "qnb-design-system",
-    category: "Design System",
-    categoryLabel: "Design System",
-    year: "2024",
-    title: "Reimagining Banking — Design System",
+    slug: "rapido-captain",
+    category: "Mobility",
+    categoryLabel: "Driver App · Mobility",
+    year: "2023 – 2024",
+    title: "Rapido Captain — Enhancing pick-up accuracy for drivers",
     description:
-      "Built a comprehensive design system for Qatar National Bank that unified the visual language across mobile, web, and internal tools — enabling faster development and consistent user experiences.",
-    client: "Qatar National Bank",
-    role: "Design System Lead",
-    heroImage:
-      "https://framerusercontent.com/images/6XqIkd0Pmn5Mo9HM6I6Ww5cjIQ.png?width=1108&height=332",
-    tags: ["Mobile", "Web", "User Interface Design", "Design System"],
-    sections: [
-      {
-        title: "The Challenge",
-        subtitle: "Fragmented design across platforms",
-        content: [
-          "Qatar National Bank had grown rapidly, and with it came design inconsistency. Multiple teams were building features independently, resulting in fragmented user experiences across platforms.",
-          "There was no single source of truth for design decisions, leading to duplicated effort and conflicting patterns.",
-        ],
-      },
-      {
-        title: "Phase 1",
-        subtitle: "Audit & Foundation",
-        content: [
-          "I conducted a comprehensive audit across all QNB digital products, cataloging every unique component, color, typography style, and spacing value.",
-          "The audit revealed:",
-        ],
-        bullets: [
-          "47 different button styles across platforms",
-          "12 variations of the same form input",
-          "No consistent spacing scale",
-          "Color usage varied significantly between teams",
-        ],
-      },
-      {
-        title: "Phase 2",
-        subtitle: "Building the System",
-        content: [
-          "I established design tokens as the foundation — colors, typography, spacing, and elevation that could be shared across platforms. Then built atomic components that composed into larger patterns.",
-          "Every component was documented with usage guidelines, accessibility requirements, and code examples.",
-        ],
-        image:
-          "https://framerusercontent.com/images/6XqIkd0Pmn5Mo9HM6I6Ww5cjIQ.png?width=1108&height=332",
-        imageCaption: "Design System Component Library",
-      },
-      {
-        title: "Phase 3",
-        subtitle: "Adoption & Governance",
-        content: [
-          "I created an onboarding program for designers and developers, held weekly office hours, and established a contribution model so the system could grow with the organization.",
-          "A Figma plugin was built to ensure designers always used the latest components.",
-        ],
-      },
-      {
-        title: "The Outcome",
-        subtitle: "3x faster feature delivery",
-        content: [
-          "The design system reduced design-to-development handoff time by 60%, eliminated visual inconsistencies across platforms, and became the foundation for all new product development at QNB.",
-          "Feature delivery speed increased by 3x as teams could now compose interfaces from pre-built, tested components.",
-        ],
-      },
-    ],
-    nextSlug: "personalised-ai-productivity",
-    nextTitle: "Personalised AI Productivity",
+      "A case study where I improved pick-up accuracy in the driver app by using image view and street view, which helped reduce order cancellations.",
+    client: "Rapido",
+    role: "Product Designer",
+    heroImage: "/rapido-hero-pickup-screen.png",
+    tags: ["UX design", "Driver App", "Mobility"],
+    /* Long-form layout: RapidoCaptainCaseStudy.tsx */
+    sections: [],
+    nextSlug: "smart-helmet-bike-care",
+    nextTitle: "Smart Helmet & Bike Care",
   },
 ];
 

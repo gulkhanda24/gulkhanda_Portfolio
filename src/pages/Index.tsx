@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MarqueeText from "@/components/Marquee";
@@ -27,7 +28,13 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <motion.div
+      className="min-h-screen bg-background"
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    >
       {/* Global scroll helpers */}
       <ScrollProgress />
       <ScrollToTop />
@@ -43,7 +50,7 @@ const Index = () => {
       <ServicesSection />
       <ExperienceSection />
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
