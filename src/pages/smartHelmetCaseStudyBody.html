@@ -2,35 +2,43 @@
 <div id="problem"></div>
 <section class="fade-in">
   <div class="section-label">01 — Problem</div>
-  <h2 class="section-title">Road accidents are silent, sudden, and preventable.</h2>
-  <p class="section-sub">Every day, thousands of motorcycle riders face risks that existing technology hasn't addressed. Helmets protect the head — but what if they could protect the entire journey?</p>
+  <h2 class="section-title">The problem no one <em>names correctly</em>.</h2>
+  <p class="section-sub">Most conversations about motorcycle safety focus on the helmet itself — its material, its rating, its fit. Very few focus on the moment <em>before</em> the accident: the split second when a rider glances at a phone, skips a helmet because the trip is short, or doesn&apos;t realise their bike is moving streets away.</p>
+  <p class="sh-prose-para">This project started from a different question. Not &quot;how do we protect riders during a crash&quot; — that&apos;s often a materials problem. But <strong>how do we reduce the situations that become crashes in the first place?</strong> And separately: when the worst happens, how do we ensure the response is immediate and automatic — not dependent on a rider who may be unconscious?</p>
+
+  <div class="quote-card fade-in" style="margin-top: 40px;">
+    <blockquote>&quot;The most dangerous moment isn&apos;t the crash. It&apos;s the five minutes before it, when someone decided they&apos;d just quickly check that notification.&quot;</blockquote>
+    <cite>— Research note, contextual observation phase</cite>
+  </div>
+
+  <p class="sh-prose-para" style="margin-top: 40px;">There&apos;s also a theft problem that tends to get separated from the safety conversation, but in practice they&apos;re deeply connected. A stolen bike often means a rider without transport, sometimes in an unfamiliar location, at night. Security <em>is</em> a safety issue — so this project treats them as one system, not two features bolted together.</p>
 
   <div style="margin-top: 48px;">
     <div class="problem-statement">
-      <p class="problem-text">Improve the transport management system for riders with a <strong>Smart Helmet</strong> — incorporating IoT sensors that monitor, detect, and report incidents during a bike ride, including <strong>accident alerts</strong> and <strong>theft alarms</strong>, communicated in real-time to the rider's companion app.</p>
+      <p class="problem-text">A full-stack IoT safety system — smart helmet, bike device, mobile app, admin panel, and server — is designed around one principle: <strong>the rider should never have to think about safety during a ride.</strong> It should happen for them: helmet enforcement at ignition, sync and theft signals, and emergency paths that fire without unlocking a phone.</p>
     </div>
   </div>
 
   <div class="grid-4" style="margin-top: 40px;">
     <div class="stat-card fade-in">
-      <div class="stat-number" style="color: var(--accent);">1.35M</div>
-      <div class="stat-label">Road traffic deaths globally per year</div>
-      <div class="stat-source">WHO, 2023</div>
+      <div class="stat-number" style="color: var(--accent);">4</div>
+      <div class="stat-label">Distinct actor types</div>
+      <div class="stat-source">Rider · Admin · Emergency contact · Call center</div>
     </div>
     <div class="stat-card fade-in">
-      <div class="stat-number" style="color: var(--accent2);">73%</div>
-      <div class="stat-label">Of motorcycle accidents go unreported in the first hour</div>
-      <div class="stat-source">Road Safety Foundation</div>
+      <div class="stat-number" style="color: var(--accent2);">3</div>
+      <div class="stat-label">Hardware components</div>
+      <div class="stat-source">Helmet device · Bike device · Server path</div>
     </div>
     <div class="stat-card fade-in">
-      <div class="stat-number" style="color: var(--warn);">40s</div>
-      <div class="stat-label">Average response delay without automated alert systems</div>
-      <div class="stat-source">Emergency Response Study</div>
+      <div class="stat-number" style="color: var(--warn);">12</div>
+      <div class="stat-label">Core use cases (Phase 1)</div>
+      <div class="stat-source">Mapped across the full stack</div>
     </div>
     <div class="stat-card fade-in">
-      <div class="stat-number" style="color: var(--accent3);">38%</div>
-      <div class="stat-label">Reduction in fatality when EMS is alerted within 5 minutes</div>
-      <div class="stat-source">NHTSA Data</div>
+      <div class="stat-number" style="color: var(--accent3);">0</div>
+      <div class="stat-label">Screen touches required while riding</div>
+      <div class="stat-source">Design constraint</div>
     </div>
   </div>
 </section>
@@ -41,70 +49,52 @@
 <div id="research"></div>
 <section class="fade-in">
   <div class="section-label">02 — Research</div>
-  <h2 class="section-title">Listening to riders, not assumptions.</h2>
-  <p class="section-sub">We conducted 24 in-depth interviews, 3 contextual observation sessions, and a survey of 210 motorcyclists to understand real pain points on the road.</p>
+  <h2 class="section-title">What riders actually <em>told me</em>.</h2>
+  <p class="section-sub">Before anything else, I needed to understand what riding felt like from an information-management perspective — not what safety experts say riders should do, but what they actually do, and why. I spent the first weeks in the field.</p>
+  <p class="sh-prose-para">I spoke with nine riders across daily commuters, delivery riders, and occasional recreational use. Four kept a structured diary: every time they needed information while riding, or made a decision they weren&apos;t sure about. Entries ranged from &quot;checked navigation at a light&quot; to &quot;heard a notification and didn&apos;t know if it was urgent.&quot; All participants gave informed consent; diary data was anonymised with no identifiers, and anyone could withdraw without consequence.</p>
 
-  <div class="grid-3" style="margin-top: 48px;">
-    <div class="quote-card fade-in">
-      <blockquote>"If I fall off my bike at night, nobody will know for hours. That fear is always in the back of my mind."</blockquote>
-      <cite>— Rizwan A., Daily commuter, 28</cite>
+  <h3 class="sh-section-h3">Three tensions that shaped every decision</h3>
+  <div class="sh-tension-stack">
+    <div class="insight-card fade-in" style="--accent-color: var(--accent);">
+      <h4>Helmet compliance is situational, not habitual</h4>
+      <p>Experienced riders wore helmets consistently — but for shorter urban trips, four out of nine admitted skipping it &quot;sometimes.&quot; Reasons were practical (heat, distance), not ignorance of risk. Enforcement embedded in the bike&apos;s ignition changes the calculus: you don&apos;t negotiate helmet vs ride; they become inseparable.</p>
     </div>
-    <div class="quote-card fade-in">
-      <blockquote>"My bike was stolen while I was at work. I had no way to know until I walked out to the parking lot."</blockquote>
-      <cite>— Ayesha K., Student, 22</cite>
+    <div class="insight-card fade-in" style="--accent-color: var(--accent2);">
+      <h4>Phone-checking is a reflex, not a decision</h4>
+      <p>Riders didn&apos;t decide to check their phones — vibration happened and the hand moved. Any system relying on willpower or intentional choice was bound to fail. The interface had to work around the reflex: relevant information arrives without demanding eyes-on-screen in motion.</p>
     </div>
-    <div class="quote-card fade-in">
-      <blockquote>"The helmet I wear is dumb. It does one thing. I wish it could do more — like tell my family I'm okay."</blockquote>
-      <cite>— Omar F., Delivery rider, 31</cite>
+    <div class="insight-card fade-in" style="--accent-color: var(--warn);">
+      <h4>Emergency response depends on things outside the rider&apos;s control</h4>
+      <p>When I asked what would happen in a serious accident, most paused. The honest answer: it depends who sees it. Location sharing was informal and manual. The idea that an automatic emergency alert with live location could fire with no action from the rider — even if unconscious — was met with something close to relief.</p>
     </div>
   </div>
 
-  <div style="margin-top: 48px;">
-    <h3 style="font-family: var(--font-heading); font-size: 24px; font-weight: 800; margin-bottom: 24px;">Key Research Findings</h3>
-    <div class="grid-2">
-      <div class="insight-card fade-in" style="--accent-color: var(--accent);">
-        <h4>🚨 Accident Response Gap</h4>
-        <p>Riders in accidents frequently cannot call for help themselves. 68% of respondents had no fallback mechanism for alerting emergency contacts automatically.</p>
-      </div>
-      <div class="insight-card fade-in" style="--accent-color: var(--accent2);">
-        <h4>🔒 Theft Blind Spot</h4>
-        <p>89% of surveyed riders had no real-time theft notification system on their vehicles or helmets. Most relied on social media posts after the fact.</p>
-      </div>
-      <div class="insight-card fade-in" style="--accent-color: var(--warn);">
-        <h4>📍 Location Anxiety</h4>
-        <p>Families of daily commuters reported significant anxiety about riders' whereabouts, especially on late-night routes or in poor weather conditions.</p>
-      </div>
-      <div class="insight-card fade-in" style="--accent-color: var(--accent3);">
-        <h4>📱 App Trust Deficit</h4>
-        <p>Riders expressed distrust in overly complex safety apps. They need instant-readable dashboards — especially under stress or in low-visibility conditions.</p>
-      </div>
-    </div>
+  <div class="annotation fade-in" style="margin-top: 28px;">
+    <span class="annotation-icon">📌</span>
+    <span class="annotation-text"><strong>Research implication:</strong> All three tensions pointed the same way — the system should require <em>nothing</em> from the rider during a ride. Ignition rules, emergency alerts, and theft detection should be automatic; the app is pre-ride and post-ride. During the ride, it disappears.</span>
   </div>
 
-  <!-- PERSONA -->
-  <div style="margin-top: 56px;">
-    <h3 style="font-family: var(--font-heading); font-size: 24px; font-weight: 800; margin-bottom: 24px;">Primary Persona</h3>
-    <div class="card" style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
-      <div style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 42%, white)); display: flex; align-items: center; justify-content: center; font-size: 40px; flex-shrink: 0;">🧢</div>
-      <div style="flex: 1; min-width: 280px;">
-        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
-          <div style="font-family: var(--font-heading); font-size: 22px; font-weight: 800;">Usman, 26 — Daily Commuter</div>
-          <span class="tag">Lahore</span><span class="tag">Honda CD70</span><span class="tag">2 hrs/day riding</span>
+  <h3 class="sh-section-h3">Composite rider (from field notes)</h3>
+  <div class="card fade-in" style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+    <div style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 42%, white)); display: flex; align-items: center; justify-content: center; font-size: 40px; flex-shrink: 0;">🏍</div>
+    <div style="flex: 1; min-width: 280px;">
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+        <div style="font-family: var(--font-heading); font-size: 22px; font-weight: 800;">Daily commuter (composite)</div>
+        <span class="tag">Mixed routes</span><span class="tag">Tech-comfortable</span><span class="tag">Safety + theft concerns</span>
+      </div>
+      <p style="font-size: 14px; color: var(--ink2); margin-bottom: 16px; line-height: 1.7;">Needs the bike to start only when the helmet is part of the ride, wants theft handled in seconds, and needs family-visible reassurance without a second job on the road. Anything that competes with the road for attention is rejected by design.</p>
+      <div class="grid-3" style="gap: 12px;">
+        <div style="background: #fff0ee; border-radius: var(--radius-sm); padding: 14px;">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 6px;">Goals</div>
+          <div style="font-size: 13px; color: var(--ink2); line-height: 1.5;">Get home safe. Reduce family anxiety. Protect the bike.</div>
         </div>
-        <p style="font-size: 14px; color: var(--ink2); margin-bottom: 16px; line-height: 1.7;">Usman rides 40km daily for work. He wears a helmet (usually) but has no way to alert family if something goes wrong. His bike was stolen once and he only discovered it 8 hours later. He's tech-comfortable but needs apps to be <em>instantly clear</em> — not a wall of settings.</p>
-        <div class="grid-3" style="gap: 12px;">
-          <div style="background: #fff0ee; border-radius: var(--radius-sm); padding: 14px;">
-            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 6px;">Goals</div>
-            <div style="font-size: 13px; color: var(--ink2); line-height: 1.5;">Stay safe. Keep family worry-free. Protect his bike.</div>
-          </div>
-          <div style="background: #f0f0ff; border-radius: var(--radius-sm); padding: 14px;">
-            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); margin-bottom: 6px;">Frustrations</div>
-            <div style="font-size: 13px; color: var(--ink2); line-height: 1.5;">No real-time safety net. Expensive tracking devices. Complex apps.</div>
-          </div>
-          <div style="background: #f0fff8; border-radius: var(--radius-sm); padding: 14px;">
-            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent3); margin-bottom: 6px;">Needs</div>
-            <div style="font-size: 13px; color: var(--ink2); line-height: 1.5;">One-glance status. Auto alert. Theft notification. Family share.</div>
-          </div>
+        <div style="background: #f0f0ff; border-radius: var(--radius-sm); padding: 14px;">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); margin-bottom: 6px;">Frustrations</div>
+          <div style="font-size: 13px; color: var(--ink2); line-height: 1.5;">Manual safety rituals. Late theft discovery. Busy, unreadable safety UIs.</div>
+        </div>
+        <div style="background: #f0fff8; border-radius: var(--radius-sm); padding: 14px;">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent3); margin-bottom: 6px;">Needs</div>
+          <div style="font-size: 13px; color: var(--ink2); line-height: 1.5;">One-glance status when stationary. Automatic alerts. Clear theft response.</div>
         </div>
       </div>
     </div>
@@ -114,240 +104,552 @@
 <div class="divider"></div>
 
 <!-- SYSTEM ARCHITECTURE -->
-<div class="band fade-in">
-  <div class="band-inner">
-    <div class="section-label">03 — System Architecture</div>
-    <h2 class="section-title" style="margin-bottom: 16px;">IoT meets human-centered design.</h2>
-    <p style="font-size: 17px; max-width: 600px; margin-bottom: 48px; line-height: 1.7;">The SmartHelm system connects hardware sensors inside the helmet to the rider's smartphone through a seamless data pipeline.</p>
+<div id="design" class="band fade-in sh-design-band">
+  <div class="band-inner sh-design-band-inner">
+    <div class="section-label sh-design-section-label">03 — System Design</div>
+    <h2 class="section-title" style="margin-bottom: 16px;">Four actors, one pipeline.</h2>
+    <p style="font-size: 17px; max-width: 640px; margin-bottom: 28px; line-height: 1.75;">This isn&apos;t a single-user system. Below, the four roles come first — then how hardware and software connect, what each component does, and the rules that keep behaviour consistent.</p>
 
-    <div class="grid-2" style="gap: 40px; align-items: center;">
+    <p class="sh-design-hierarchy-label sh-design-hierarchy-label--after-lead">1 · Who uses the system</p>
+    <div class="sh-actors-rail fade-in" role="list">
+      <article class="sh-actor-rail-card fade-in" role="listitem">
+        <span class="sh-actor-rail-num">Actor 01</span>
+        <h3 class="sh-actor-rail-title">Rider</h3>
+        <p class="sh-actor-rail-body">Safety and security without in-ride app use. Primary mobile user pre- and post-ride.</p>
+      </article>
+      <article class="sh-actor-rail-card fade-in" role="listitem">
+        <span class="sh-actor-rail-num">Actor 02</span>
+        <h3 class="sh-actor-rail-title">Admin</h3>
+        <p class="sh-actor-rail-body">Fleet or company operator: devices, riders, overrides — primary web panel user.</p>
+      </article>
+      <article class="sh-actor-rail-card fade-in" role="listitem">
+        <span class="sh-actor-rail-num">Actor 03</span>
+        <h3 class="sh-actor-rail-title">Emergency contact</h3>
+        <p class="sh-actor-rail-body">Critical alerts with live location. Passive — no app. May open once a year at 3am.</p>
+      </article>
+      <article class="sh-actor-rail-card fade-in" role="listitem">
+        <span class="sh-actor-rail-num">Actor 04</span>
+        <h3 class="sh-actor-rail-title">Call center</h3>
+        <p class="sh-actor-rail-body">Identity verification for bypass requests when app access isn&apos;t available.</p>
+      </article>
+    </div>
+
+    <p class="sh-design-hierarchy-label">2 · How data and power flow</p>
+    <div class="sh-design-stack-head">
+    <div class="grid-2" style="gap: 40px; align-items: start;">
       <div>
         <div class="arch-layer">
           <div class="arch-layer-icon" style="background: color-mix(in srgb, var(--accent) 15%, transparent);">🪖</div>
           <div>
-            <div class="arch-layer-title">Smart Helmet Hardware</div>
-            <div class="arch-layer-desc">IMU · Gyroscope · GPS · Vibration sensor · Proximity sensor</div>
+            <div class="arch-layer-title">Smart Helmet Device</div>
+            <div class="arch-layer-desc">Battery · SOS · BLE to bike · Worn detection</div>
           </div>
         </div>
         <div class="arch-arrow">↓</div>
         <div class="arch-layer">
-          <div class="arch-layer-icon" style="background: color-mix(in srgb, var(--accent2) 15%, transparent);">📡</div>
+          <div class="arch-layer-icon" style="background: color-mix(in srgb, var(--accent2) 15%, transparent);">🏍</div>
           <div>
-            <div class="arch-layer-title">BLE / Wi-Fi Communication</div>
-            <div class="arch-layer-desc">Real-time data via Bluetooth 5.0 or cellular fallback</div>
+            <div class="arch-layer-title">Bike-installed Device</div>
+            <div class="arch-layer-desc">Ignition relay · GPS · BLE receiver · Server sync</div>
           </div>
         </div>
         <div class="arch-arrow">↓</div>
         <div class="arch-layer">
           <div class="arch-layer-icon" style="background: color-mix(in srgb, var(--accent3) 15%, transparent);">⚙️</div>
           <div>
-            <div class="arch-layer-title">Cloud Processing Engine</div>
-            <div class="arch-layer-desc">Incident detection algorithms · Alert trigger logic · Data storage</div>
+            <div class="arch-layer-title">Central Server</div>
+            <div class="arch-layer-desc">IoT ingest · Ride &amp; alert logs · Push notifications · Pairing state</div>
           </div>
         </div>
         <div class="arch-arrow">↓</div>
         <div class="arch-layer">
           <div class="arch-layer-icon" style="background: rgba(255,184,0,0.15);">📱</div>
           <div>
-            <div class="arch-layer-title">SmartHelm Rider App</div>
-            <div class="arch-layer-desc">Dashboard · Alerts · Live tracking · Emergency contacts</div>
+            <div class="arch-layer-title">Rider App + Admin Panel</div>
+            <div class="arch-layer-desc">Rider: theft controls &amp; history · Admin: fleet, overrides, bypass approvals</div>
           </div>
         </div>
         <div class="arch-arrow">↓</div>
         <div class="arch-layer">
           <div class="arch-layer-icon" style="background: rgba(255,59,48,0.15);">🆘</div>
           <div>
-            <div class="arch-layer-title">Emergency Notification Layer</div>
-            <div class="arch-layer-desc">SMS · Push notification · Emergency services auto-dial</div>
+            <div class="arch-layer-title">Emergency &amp; Contacts</div>
+            <div class="arch-layer-desc">SMS-style alert + live location link — no app install for contacts</div>
           </div>
         </div>
       </div>
 
       <div>
         <div class="card-dark">
-          <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 20px;">Helmet Sensor Suite</div>
+          <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; margin-bottom: 20px;">Core enforcement rules</div>
           <div class="sensor-row">
-            <div class="sensor-pill"><div class="sensor-dot" style="background:#FF6B6B;"></div>Accelerometer</div>
-            <div class="sensor-pill"><div class="sensor-dot" style="background:#FFD44D;"></div>Gyroscope</div>
-            <div class="sensor-pill"><div class="sensor-dot" style="background:var(--accent2-bright);"></div>GPS Module</div>
-            <div class="sensor-pill"><div class="sensor-dot" style="background:var(--accent3-bright);"></div>Proximity</div>
-            <div class="sensor-pill"><div class="sensor-dot" style="background: color-mix(in srgb, var(--accent) 45%, white);"></div>Vibration</div>
-            <div class="sensor-pill"><div class="sensor-dot" style="background:#CC99FF;"></div>Temperature</div>
-            <div class="sensor-pill"><div class="sensor-dot" style="background:#66DDFF;"></div>BLE 5.0</div>
-            <div class="sensor-pill"><div class="sensor-dot" style="background:#99FF66;"></div>Battery Monitor</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background:#FF6B6B;"></div>Mandatory helmet</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background:#FFD44D;"></div>Ignition gate</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background:var(--accent2-bright);"></div>BLE pairing</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background:var(--accent3-bright);"></div>Sync loss alert</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background: color-mix(in srgb, var(--accent) 45%, white);"></div>Theft motion</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background:#CC99FF;"></div>Remote ignition</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background:#66DDFF;"></div>Bypass expiry</div>
+            <div class="sensor-pill"><div class="sensor-dot" style="background:#99FF66;"></div>Audit log</div>
           </div>
-          <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07);">
-            <div style="font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;">Detection Triggers</div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="sh-card-dark-snapshots">
+            <div class="sh-card-dark-snapshots-label">Rule snapshots</div>
+            <div class="sh-card-dark-snapshots-list">
+              <div class="sh-card-dark-snapshot-row">
                 <span style="background: rgba(255,59,48,0.15); color: #FF6B6B; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; flex-shrink: 0;">CRITICAL</span>
-                <span style="font-size: 13px; color: rgba(255,255,255,0.6);">Impact G-force > 15g → Accident Alert</span>
+                <span class="sh-card-dark-snapshot-text">Bike won&apos;t start until helmet worn + devices paired &amp; confirmed by server</span>
               </div>
-              <div style="display: flex; gap: 12px; align-items: center;">
+              <div class="sh-card-dark-snapshot-row">
                 <span style="background: rgba(255,59,48,0.15); color: #FF6B6B; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; flex-shrink: 0;">CRITICAL</span>
-                <span style="font-size: 13px; color: rgba(255,255,255,0.6);">Helmet removed + movement → Theft Alarm</span>
+                <span class="sh-card-dark-snapshot-text">Helmet/bike sync loss mid-ride → theft or separation alert</span>
               </div>
-              <div style="display: flex; gap: 12px; align-items: center;">
-                <span style="background: rgba(255,184,0,0.15); color: #FFD44D; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; flex-shrink: 0;">WARNING</span>
-                <span style="font-size: 13px; color: rgba(255,255,255,0.6);">Unusual tilt angle sustained > 3s → Fall Risk</span>
+              <div class="sh-card-dark-snapshot-row">
+                <span style="background: rgba(255,184,0,0.15); color: #FFD44D; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; flex-shrink: 0;">ALERT</span>
+                <span class="sh-card-dark-snapshot-text">Critical alerts don&apos;t auto-dismiss — acknowledged only</span>
               </div>
-              <div style="display: flex; gap: 12px; align-items: center;">
-                <span style="background: color-mix(in srgb, var(--accent2) 15%, transparent); color: var(--accent2-bright); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; flex-shrink: 0;">INFO</span>
-                <span style="font-size: 13px; color: rgba(255,255,255,0.6);">BLE disconnect > 50m → Helmet left behind</span>
+              <div class="sh-card-dark-snapshot-row">
+                <span style="background: color-mix(in srgb, var(--accent2) 15%, transparent); color: var(--accent2-bright); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; flex-shrink: 0;">EDGE</span>
+                <span class="sh-card-dark-snapshot-text">Bypass: admin-approved, time-capped (e.g. 4h), full audit trail</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </div>
+
+    <p class="sh-design-hierarchy-label">3 · What each layer does</p>
+    <h3 class="sh-section-h3 sh-design-subhead" style="margin-top: 0;">System components</h3>
+    <div class="sh-comp-grid sh-design-comp-grid">
+      <div class="sh-comp-card fade-in sh-design-comp-card">
+        <div class="sh-comp-card-cat">Hardware</div>
+        <div class="sh-comp-card-title">Smart Helmet Device</div>
+        <ul>
+          <li>Built-in rechargeable battery</li>
+          <li>Physical emergency SOS button</li>
+          <li>BLE pairing with bike device</li>
+          <li>Worn-sensor detection</li>
+        </ul>
+      </div>
+      <div class="sh-comp-card fade-in sh-design-comp-card">
+        <div class="sh-comp-card-cat">Hardware</div>
+        <div class="sh-comp-card-title">Bike-installed Device</div>
+        <ul>
+          <li>Ignition control relay</li>
+          <li>GPS tracking module</li>
+          <li>Connected to bike battery</li>
+          <li>Always-on BLE receiver</li>
+        </ul>
+      </div>
+      <div class="sh-comp-card fade-in sh-design-comp-card">
+        <div class="sh-comp-card-cat">Software</div>
+        <div class="sh-comp-card-title">Rider Mobile App</div>
+        <ul>
+          <li>Notification-first design</li>
+          <li>Background-only during rides</li>
+          <li>Ride history &amp; device status</li>
+          <li>Theft response controls</li>
+        </ul>
+      </div>
+      <div class="sh-comp-card fade-in sh-design-comp-card">
+        <div class="sh-comp-card-cat">Software</div>
+        <div class="sh-comp-card-title">Admin Web Panel</div>
+        <ul>
+          <li>Live fleet monitoring</li>
+          <li>Device inventory management</li>
+          <li>Override &amp; bypass controls</li>
+          <li>Rider management &amp; activity</li>
+        </ul>
+      </div>
+      <div class="sh-comp-card fade-in sh-design-comp-card">
+        <div class="sh-comp-card-cat">Infrastructure</div>
+        <div class="sh-comp-card-title">Central Server</div>
+        <ul>
+          <li>Receives all IoT device data</li>
+          <li>Stores ride, alert, event logs</li>
+          <li>Pushes real-time notifications</li>
+          <li>Manages device sync state</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sh-design-hierarchy-label">4 · Enforcement rules</p>
+    <div class="grid-2 fade-in sh-design-rule-pair" style="margin-top: 12px; gap: 20px;">
+      <div class="card sh-design-rule-card">
+        <div style="font-weight: 800; margin-bottom: 8px;">Mandatory helmet rule</div>
+        <p style="font-size: 14px; color: var(--ink2); line-height: 1.6; margin: 0;">The bike will not start unless the helmet is worn <em>and</em> helmet and bike devices are paired and actively connected — hardware-enforced via ignition relay and server state, not a dismissible warning.</p>
+      </div>
+      <div class="card sh-design-rule-card">
+        <div style="font-weight: 800; margin-bottom: 8px;">Device sync rule</div>
+        <p style="font-size: 14px; color: var(--ink2); line-height: 1.6; margin: 0;">If helmet and bike lose sync before or during a ride, the system triggers an alert — potential theft or unsafe separation without waiting for the rider to notice first.</p>
+      </div>
+    </div>
+
+    <p class="sh-prose-para" style="margin-top: 32px; max-width: 42rem;">What matters from an HCI angle: these rules shift enforcement from <em>intention</em> to <em>architecture</em>. You don&apos;t have to persuade someone to wear a helmet — the bike simply won&apos;t start without it. That removes a class of mode errors at startup.</p>
   </div>
 </div>
 
-<!-- USER JOURNEY — compact horizontal strip -->
-<section class="fade-in sh-journey">
-  <div class="section-label">04 — User Journey</div>
-  <h2 class="section-title">From helmet on to home safe.</h2>
-  <p class="section-sub sh-journey-lead">Five beats across one ride — setup through resolution. Swipe on small screens.</p>
+<!-- USER JOURNEY -->
+<section class="fade-in sh-journey sh-journey--prominent">
+  <div class="section-label">04 — Rider Journey</div>
+  <h2 class="section-title">Normal paths and failure modes.</h2>
+  <p class="section-sub sh-journey-lead">Every system state asked: what does the rider experience here — and what if something goes wrong? A safety audit, not only a happy path.</p>
 
-  <div class="sh-journey-matrix" role="list">
-    <article class="sh-journey-stop fade-in" style="--sh-stop: var(--accent);" role="listitem">
-      <div class="sh-journey-stop-inner">
-        <div class="sh-journey-stop-top">
-          <span class="sh-journey-num" aria-hidden="true">1</span>
-          <span class="sh-journey-emoji" aria-hidden="true">😤</span>
-        </div>
-        <h3 class="sh-journey-stop-title">Pre-Ride Setup</h3>
-        <p class="sh-journey-stop-desc">Pair helmet, set contacts</p>
-        <p class="sh-journey-shift"><span class="sh-journey-from">Confusing pairing</span><span class="sh-journey-arrow">→</span><span class="sh-journey-to">&lt;8s one-tap</span></p>
+  <p class="sh-journey-legend fade-in"><strong>How to read this board:</strong> Each row is one journey moment. <em>Touchpoints</em> are concrete system states; <em>Evidence</em> comes from field notes; <em>Insights</em> and <em>Design solutions</em> close the loop from research to product rules.</p>
+
+  <div class="sh-journey-shell sh-journey-shell--board fade-in">
+  <header class="sh-journey-shell-header">
+    <div class="sh-journey-shell-header-text">
+      <p class="sh-journey-shell-kicker">Rider experience</p>
+      <p class="sh-journey-shell-title">Journey synthesis</p>
+    </div>
+    <span class="sh-journey-shell-badge">Research → design board</span>
+  </header>
+
+  <div class="sh-journey-synth-scroll">
+  <div class="sh-journey-synth" role="table" aria-label="Rider journey: stages, touchpoints, evidence, insights, and design solutions">
+    <div class="sh-journey-synth-th" data-row="0" role="columnheader">Journey stage</div>
+    <div class="sh-journey-synth-th" data-row="0" role="columnheader">Touchpoints</div>
+    <div class="sh-journey-synth-th" data-row="0" role="columnheader">Evidence</div>
+    <div class="sh-journey-synth-th" data-row="0" role="columnheader">Insights</div>
+    <div class="sh-journey-synth-th" data-row="0" role="columnheader">Design solution</div>
+
+    <div class="sh-journey-funnel-wrap" data-row="1">
+      <div class="sh-journey-funnel">
+        <span class="sh-journey-funnel-stage">Start</span>
+        <span class="sh-journey-funnel-sub">Pairing &amp; ignition</span>
       </div>
-    </article>
-    <article class="sh-journey-stop fade-in" style="--sh-stop: var(--accent3);" role="listitem">
-      <div class="sh-journey-stop-inner">
-        <div class="sh-journey-stop-top">
-          <span class="sh-journey-num" aria-hidden="true">2</span>
-          <span class="sh-journey-emoji" aria-hidden="true">😊</span>
-        </div>
-        <h3 class="sh-journey-stop-title">Ride Active</h3>
-        <p class="sh-journey-stop-desc">Live tracking &amp; helmet on</p>
-        <p class="sh-journey-shift"><span class="sh-journey-from">Family unsure</span><span class="sh-journey-arrow">→</span><span class="sh-journey-to">Live share auto</span></p>
+    </div>
+    <div class="sh-journey-pills" data-row="1">
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Helmet worn</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>BLE paired</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Ignition live</span>
+    </div>
+    <div class="sh-journey-card sh-journey-card--evidence" data-row="1">
+      <strong class="sh-journey-card-title">Friction at kickoff</strong>
+      <p class="sh-journey-card-body">Riders described manual checks and “did it connect?” moments before moving — short trips made skipping steps tempting.</p>
+      <p class="sh-journey-card-source">— Contextual inquiry</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--insight" data-row="1">
+      <strong class="sh-journey-card-title">Invisible setup</strong>
+      <p class="sh-journey-card-body">If pairing and helmet state are correct, the rider shouldn&apos;t need the app to start riding — the bike state should do the talking.</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--solution" data-row="1">
+      <strong class="sh-journey-card-title">Hardware-enforced start</strong>
+      <p class="sh-journey-card-body">Ignition gated on helmet worn + devices paired and confirmed server-side — no dismissible “reminder only” path.</p>
+    </div>
+
+    <div class="sh-journey-funnel-wrap" data-row="2">
+      <div class="sh-journey-funnel sh-journey-funnel--b">
+        <span class="sh-journey-funnel-stage">In motion</span>
+        <span class="sh-journey-funnel-sub">Passive monitoring</span>
       </div>
-    </article>
-    <article class="sh-journey-stop fade-in" style="--sh-stop: var(--warn);" role="listitem">
-      <div class="sh-journey-stop-inner">
-        <div class="sh-journey-stop-top">
-          <span class="sh-journey-num" aria-hidden="true">3</span>
-          <span class="sh-journey-emoji" aria-hidden="true">😨</span>
-        </div>
-        <h3 class="sh-journey-stop-title">Incident</h3>
-        <p class="sh-journey-stop-desc">Impact → countdown</p>
-        <p class="sh-journey-shift"><span class="sh-journey-from">Silent crash</span><span class="sh-journey-arrow">→</span><span class="sh-journey-to">30s alert path</span></p>
+    </div>
+    <div class="sh-journey-pills" data-row="2">
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>GPS + connectivity</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>App background</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>No in-ride UI</span>
+    </div>
+    <div class="sh-journey-card sh-journey-card--evidence" data-row="2">
+      <strong class="sh-journey-card-title">Phone as reflex</strong>
+      <p class="sh-journey-card-body">Diary entries: notifications pulled eyes to the screen; riders didn&apos;t frame it as a “decision” to check.</p>
+      <p class="sh-journey-card-source">— Diary study</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--insight" data-row="2">
+      <strong class="sh-journey-card-title">Zero-touch ride</strong>
+      <p class="sh-journey-card-body">Any UI competing with the road fails the safety bar. Monitoring must stay silent until something crosses a critical threshold.</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--solution" data-row="2">
+      <strong class="sh-journey-card-title">Background-only</strong>
+      <p class="sh-journey-card-body">Ride state keeps the app passive; critical info is notification-first, not screen-first.</p>
+    </div>
+
+    <div class="sh-journey-funnel-wrap" data-row="3">
+      <div class="sh-journey-funnel sh-journey-funnel--c">
+        <span class="sh-journey-funnel-stage">Emergency</span>
+        <span class="sh-journey-funnel-sub">Crash or SOS</span>
       </div>
-    </article>
-    <article class="sh-journey-stop fade-in" style="--sh-stop: var(--accent2);" role="listitem">
-      <div class="sh-journey-stop-inner">
-        <div class="sh-journey-stop-top">
-          <span class="sh-journey-num" aria-hidden="true">4</span>
-          <span class="sh-journey-emoji" aria-hidden="true">📲</span>
-        </div>
-        <h3 class="sh-journey-stop-title">Alert Out</h3>
-        <p class="sh-journey-stop-desc">Contacts notified</p>
-        <p class="sh-journey-shift"><span class="sh-journey-from">Chaotic blast</span><span class="sh-journey-arrow">→</span><span class="sh-journey-to">Priority order</span></p>
+    </div>
+    <div class="sh-journey-pills" data-row="3">
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Crash signal</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Helmet SOS</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Live location</span>
+    </div>
+    <div class="sh-journey-card sh-journey-card--evidence" data-row="3">
+      <strong class="sh-journey-card-title">Uncertain help</strong>
+      <p class="sh-journey-card-body">Interviews: “If something serious happened, it depends who sees me.” Manual location sharing was ad hoc.</p>
+      <p class="sh-journey-card-source">— Interview synthesis</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--insight" data-row="3">
+      <strong class="sh-journey-card-title">Unconscious rider</strong>
+      <p class="sh-journey-card-body">The worst case is a rider who cannot unlock a phone or speak — the system must carry the response without them.</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--solution" data-row="3">
+      <strong class="sh-journey-card-title">Auto alert + link</strong>
+      <p class="sh-journey-card-body">Emergency contacts get an immediate alert with browser-based live location; physical SOS works even when the phone isn&apos;t in hand.</p>
+    </div>
+
+    <div class="sh-journey-funnel-wrap" data-row="4">
+      <div class="sh-journey-funnel sh-journey-funnel--d">
+        <span class="sh-journey-funnel-stage">Theft</span>
+        <span class="sh-journey-funnel-sub">Motion without helmet</span>
       </div>
-    </article>
-    <article class="sh-journey-stop fade-in" style="--sh-stop: color-mix(in srgb, var(--accent3) 70%, var(--accent) 30%);" role="listitem">
-      <div class="sh-journey-stop-inner">
-        <div class="sh-journey-stop-top">
-          <span class="sh-journey-num" aria-hidden="true">5</span>
-          <span class="sh-journey-emoji" aria-hidden="true">✅</span>
-        </div>
-        <h3 class="sh-journey-stop-title">Ride Done</h3>
-        <p class="sh-journey-stop-desc">Summary &amp; helmet log</p>
-        <p class="sh-journey-shift"><span class="sh-journey-from">No closure</span><span class="sh-journey-arrow">→</span><span class="sh-journey-to">Trip + score</span></p>
+    </div>
+    <div class="sh-journey-pills" data-row="4">
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Sync loss alert</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Live map</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Remote ignition</span>
+    </div>
+    <div class="sh-journey-card sh-journey-card--evidence" data-row="4">
+      <strong class="sh-journey-card-title">Late discovery</strong>
+      <p class="sh-journey-card-body">Riders feared finding out hours later; recovery windows for stolen vehicles are narrow.</p>
+      <p class="sh-journey-card-source">— Field notes</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--insight" data-row="4">
+      <strong class="sh-journey-card-title">Speed beats polish</strong>
+      <p class="sh-journey-card-body">Theft flows must be completable in seconds under stress — not buried in settings.</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--solution" data-row="4">
+      <strong class="sh-journey-card-title">&lt;30s response path</strong>
+      <p class="sh-journey-card-body">Immediate rider alert, live location, and remote disable surfaced as first-class actions in the app.</p>
+    </div>
+
+    <div class="sh-journey-funnel-wrap" data-row="5">
+      <div class="sh-journey-funnel sh-journey-funnel--e">
+        <span class="sh-journey-funnel-stage">Edge</span>
+        <span class="sh-journey-funnel-sub">Device failure</span>
       </div>
-    </article>
+    </div>
+    <div class="sh-journey-pills" data-row="5">
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Dead battery</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Bypass request</span>
+      <span class="sh-journey-pill"><span class="sh-journey-pill-icon" aria-hidden="true">📄</span>Admin / call center</span>
+    </div>
+    <div class="sh-journey-card sh-journey-card--evidence" data-row="5">
+      <strong class="sh-journey-card-title">Override tension</strong>
+      <p class="sh-journey-card-body">Early concepts that let riders self-approve bypasses collapsed trust; open-ended admin bypasses drifted unsafe.</p>
+      <p class="sh-journey-card-source">— Design iteration</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--insight" data-row="5">
+      <strong class="sh-journey-card-title">Bounded exceptions</strong>
+      <p class="sh-journey-card-body">Legitimate emergencies need a path, but every exception must expire and leave an audit trail.</p>
+    </div>
+    <div class="sh-journey-card sh-journey-card--solution" data-row="5">
+      <strong class="sh-journey-card-title">Time-capped bypass</strong>
+      <p class="sh-journey-card-body">Admin-verified identity, max duration (e.g. 4h), automatic expiry, full logging — no permanent “off switch.”</p>
+    </div>
   </div>
+  </div>
+  </div>
+
+  <h3 class="sh-section-h3">Phase-by-phase detail</h3>
+  <div class="timeline" style="margin-top: 8px;">
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">Phase A — Normal · Starting</div>
+      <div class="timeline-content">Rider puts on helmet. Devices pair over BLE; ignition enables. App goes to background — no phone touch. Ideal state should feel invisible.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">Phase B — Normal · In motion</div>
+      <div class="timeline-content">GPS and connectivity monitored; abnormal events watched for. Silent unless a critical threshold is crossed — the &quot;zero-touch during ride&quot; commitment for the whole system.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">Phase C — Normal · End</div>
+      <div class="timeline-content">Ride ends when the bike stops and devices de-sync. Summary notification (distance, duration); data saved to history.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">Phase D — Emergency</div>
+      <div class="timeline-content">Crash detection or physical SOS: emergency contact gets an alert with live GPS. Works even if the phone is locked or the rider can&apos;t act.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">Phase E — Security</div>
+      <div class="timeline-content">Bike movement without authorised paired helmet → immediate rider alert; live location and remote ignition disable. Theft flow target: completable in under 30 seconds.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-label">Phase F — Edge</div>
+      <div class="timeline-content">Dead battery or failed device: temporary bypass via app or call center, admin verifies identity, time-limited (e.g. 4h max) with auto-expiry — legitimate emergencies without a permanent circumvention path.</div>
+    </div>
+  </div>
+
+  <div class="annotation fade-in" style="margin-top: 28px;">
+    <span class="annotation-icon">💡</span>
+    <span class="annotation-text"><strong>Phase F iteration:</strong> Early versions let riders self-approve bypasses; later ones allowed indefinite admin bypasses. Final design: automatic expiry and full audit logging — <strong>no permanent states</strong>, only bounded, accountable ones.</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ALERT SYSTEM -->
+<section class="fade-in">
+  <div class="section-label">05 — Alert hierarchy</div>
+  <h2 class="section-title">Not everything is urgent.</h2>
+  <p class="section-sub">When every notification looks critical, nothing is. I separated informational updates from true alerts so riders aren&apos;t trained to ignore the channel.</p>
+
+  <div class="sh-alert-pair">
+    <div class="sh-alert-card sh-alert-card--info fade-in">
+      <div class="sh-alert-card-type" style="color: var(--accent2);"><span class="sh-alert-dot" style="background: var(--accent2);"></span> Notifications (informational)</div>
+      <ul>
+        <li>Ride completed with summary</li>
+        <li>Battery status update</li>
+        <li>Device connected or disconnected</li>
+        <li>Ignition enabled by admin</li>
+      </ul>
+    </div>
+    <div class="sh-alert-card sh-alert-card--critical fade-in">
+      <div class="sh-alert-card-type" style="color: var(--accent);"><span class="sh-alert-dot" style="background: var(--accent);"></span> Alerts (critical)</div>
+      <ul>
+        <li>Theft suspicion — bike moving without helmet</li>
+        <li>Helmet disconnected while bike is running</li>
+        <li>Emergency triggered by rider</li>
+        <li>Unexpected ignition force attempt</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="sh-prose-para" style="margin-top: 28px;">Notifications are dismissible. Alerts use distinct sound, persist on the lock screen, and stay in an in-app log until acknowledged — <strong>alerts never auto-dismiss.</strong></p>
+  <p class="sh-prose-para">Emergency contact copy was iterated the most: one screen-readable message with a browser-based live location link — no install on the contact&apos;s side, readable at 3am by someone who has never opened the product.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ADMIN PANEL -->
+<section class="fade-in sh-admin-section">
+  <div class="section-label">06 — Admin panel</div>
+  <h2 class="section-title">Where the app <em>surfaces</em> everything.</h2>
+  <p class="section-sub">The rider app is built to disappear in motion; the admin panel must expose fleet state, inventory, and risk. Information architecture first: glanceable vs drill-down vs actionable from one screen.</p>
+
+  <div class="sh-admin-shell fade-in">
+    <div class="sh-admin-board">
+      <article class="sh-admin-card fade-in">
+        <span class="sh-admin-card-num" aria-hidden="true">01</span>
+        <div class="sh-admin-card-head">
+          <span class="sh-admin-card-pill">Inventory</span>
+          <h3 class="sh-admin-card-title">Device management</h3>
+        </div>
+        <ul class="sh-admin-card-list">
+          <li>Register helmet + bike as paired units</li>
+          <li>Track active, inactive, and fault status</li>
+          <li>Maintain stock and assignments</li>
+        </ul>
+      </article>
+      <article class="sh-admin-card fade-in">
+        <span class="sh-admin-card-num" aria-hidden="true">02</span>
+        <div class="sh-admin-card-head">
+          <span class="sh-admin-card-pill">People</span>
+          <h3 class="sh-admin-card-title">Rider management</h3>
+        </div>
+        <ul class="sh-admin-card-list">
+          <li>Register and onboard riders</li>
+          <li>Assign devices to riders</li>
+          <li>View individual activity logs</li>
+        </ul>
+      </article>
+      <article class="sh-admin-card fade-in">
+        <span class="sh-admin-card-num" aria-hidden="true">03</span>
+        <div class="sh-admin-card-head">
+          <span class="sh-admin-card-pill">Operations</span>
+          <h3 class="sh-admin-card-title">Monitoring dashboard</h3>
+        </div>
+        <ul class="sh-admin-card-list">
+          <li>Live location of active riders</li>
+          <li>Ride summaries and device statistics</li>
+          <li>Alerts overview and resolution log</li>
+        </ul>
+      </article>
+      <article class="sh-admin-card fade-in">
+        <span class="sh-admin-card-num" aria-hidden="true">04</span>
+        <div class="sh-admin-card-head">
+          <span class="sh-admin-card-pill">Control</span>
+          <h3 class="sh-admin-card-title">Override controls</h3>
+        </div>
+        <ul class="sh-admin-card-list">
+          <li>Emergency ignition enable / disable</li>
+          <li>Device remote lock / unlock</li>
+          <li>Time-limited bypass approvals</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+
+  <p class="sh-prose-para" style="margin-top: 28px;">Remote ignition disable is real power — constraints included: no remote disable while a ride is active (stationary only), every override logged with admin identity and timestamp, and overrides expire. <strong>No permanent states — only time-bounded, auditable ones.</strong></p>
 </section>
 
 <div class="divider"></div>
 
 <!-- DESIGN PRINCIPLES -->
 <section class="fade-in sh-principles">
-  <div class="section-label">05 — Design Principles</div>
-  <h2 class="section-title">Designed for moments that matter most.</h2>
-  <p class="section-sub sh-principles-kicker">Six commitments that shaped every screen — from typography to alert logic.</p>
+  <div class="section-label">07 — Design principles</div>
+  <h2 class="section-title">What held the system together.</h2>
+  <p class="section-sub sh-principles-kicker">Principles tested against every decision — especially zero interaction while riding. Several tie directly to HCI literature (multiple resources, mode errors, automation surprises).</p>
 
   <div class="sh-principles-bento">
     <article class="sh-principle-tile sh-principle-tile--spotlight fade-in">
       <span class="sh-principle-tile-num">01</span>
-      <span class="sh-principle-tile-icon" aria-hidden="true">⚡</span>
-      <h3 class="sh-principle-tile-title">Instant Clarity</h3>
-      <p class="sh-principle-tile-body">Safety information must be readable in 1 second. High contrast, icon-led, no jargon. Riders glance at their phone — they don't read it.</p>
+      <span class="sh-principle-tile-icon" aria-hidden="true">📣</span>
+      <h3 class="sh-principle-tile-title">Notification-first</h3>
+      <p class="sh-principle-tile-body">Critical information reaches the rider without opening the app during a ride; the app is for history and setup. Aligns with Wickens&apos; multiple resource theory: concurrent visual tasks on the same channel compound attentional cost more than serial tasks.</p>
     </article>
     <article class="sh-principle-tile fade-in">
       <span class="sh-principle-tile-num">02</span>
-      <span class="sh-principle-tile-icon" aria-hidden="true">🛡️</span>
-      <h3 class="sh-principle-tile-title">Proactive Protection</h3>
-      <p class="sh-principle-tile-body">Don't wait for disaster. Surface warnings before they become critical. Pre-emptive alerts give riders and family peace of mind.</p>
+      <span class="sh-principle-tile-icon" aria-hidden="true">🚫</span>
+      <h3 class="sh-principle-tile-title">Zero interaction during the ride</h3>
+      <p class="sh-principle-tile-body">Any UI meant for use while moving is a distraction risk by definition. During the ride the app is a passive monitor — consistent with Norman&apos;s Gulf of Evaluation: if state is already clear, soliciting action adds overhead.</p>
     </article>
     <article class="sh-principle-tile fade-in">
       <span class="sh-principle-tile-num">03</span>
-      <span class="sh-principle-tile-icon" aria-hidden="true">🤝</span>
-      <h3 class="sh-principle-tile-title">Human in the Loop</h3>
-      <p class="sh-principle-tile-body">Every automated action includes a human cancel window. Riders remain in control — the app assists, never overrides.</p>
+      <span class="sh-principle-tile-icon" aria-hidden="true">⚡</span>
+      <h3 class="sh-principle-tile-title">Automation over instruction</h3>
+      <p class="sh-principle-tile-body">Emergency and theft paths fire automatically; humans decide, they don&apos;t manually trigger under stress. Addresses mode errors (Sarter &amp; Woods): manual initiation depends on accurate situational awareness you can&apos;t guarantee in a crisis.</p>
     </article>
     <article class="sh-principle-tile sh-principle-tile--accent2 fade-in">
       <span class="sh-principle-tile-num">04</span>
-      <span class="sh-principle-tile-icon" aria-hidden="true">📶</span>
-      <h3 class="sh-principle-tile-title">Offline Resilience</h3>
-      <p class="sh-principle-tile-body">Critical functions work offline. No connectivity? The app queues alerts and fires the moment signal is restored.</p>
+      <span class="sh-principle-tile-icon" aria-hidden="true">⏱️</span>
+      <h3 class="sh-principle-tile-title">No permanent states</h3>
+      <p class="sh-principle-tile-body">Overrides and bypasses expire and are audited — no silent configuration drift. Echoes safety literature on automation surprises: indefinite state accumulation bites when users re-engage after inattention.</p>
     </article>
     <article class="sh-principle-tile sh-principle-tile--accent3 fade-in">
       <span class="sh-principle-tile-num">05</span>
-      <span class="sh-principle-tile-icon" aria-hidden="true">👪</span>
-      <h3 class="sh-principle-tile-title">Family First</h3>
-      <p class="sh-principle-tile-body">The rider's journey is shared — with family who care. Live maps, safe arrival pings, and trip summaries keep loved ones informed without pestering.</p>
+      <span class="sh-principle-tile-icon" aria-hidden="true">🔔</span>
+      <h3 class="sh-principle-tile-title">Signal, not noise</h3>
+      <p class="sh-principle-tile-body">Informational vs critical channels use different weight. Alerts stay until acknowledged — they never auto-dismiss.</p>
     </article>
     <article class="sh-principle-tile sh-principle-tile--wide fade-in">
       <span class="sh-principle-tile-num">06</span>
-      <span class="sh-principle-tile-icon" aria-hidden="true">🎯</span>
-      <h3 class="sh-principle-tile-title">Signal, Not Noise</h3>
-      <p class="sh-principle-tile-body">No notification spam. Alerts are tiered by severity. Only true emergencies interrupt — everything else waits for the right moment.</p>
+      <span class="sh-principle-tile-icon" aria-hidden="true">👥</span>
+      <h3 class="sh-principle-tile-title">Design for the 3am contact</h3>
+      <p class="sh-principle-tile-body">Emergency contacts may see one message a year. Copy and format must work for someone who has never opened the product — browser-based location, minimal jargon.</p>
     </article>
   </div>
 </section>
 
 <!-- DESIGN DECISIONS -->
 <section class="fade-in">
-  <div class="section-label">07 — Key Design Decisions</div>
-  <h2 class="section-title">Why we designed it this way.</h2>
+  <div class="section-label">09 — Key design decisions</div>
+  <h2 class="section-title">Why the rules look like this.</h2>
 
-  <div style="margin-top: 48px; display: flex; flex-direction: column; gap: 24px;">
-    <div class="card fade-in" style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
-      <div style="background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 12px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">⏱️</div>
-      <div>
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">30-Second Override Window</h4>
-        <p style="font-size: 14px; color: var(--ink2); line-height: 1.6; margin-bottom: 10px;">Research showed riders feared false alarms more than actual emergencies. A 30-second countdown with a prominent "I'm okay" button balances immediacy with false alarm prevention. We tested 15s, 30s, and 60s — 30s was the sweet spot.</p>
-        <div class="annotation">
-          <span class="annotation-icon">💡</span>
-          <span class="annotation-text"><strong>Insight:</strong> During usability testing, 4 of 6 riders said the 60-second timer felt "too slow if I'm bleeding." The 30s version felt urgent but fair.</span>
-        </div>
+  <div class="sh-decision-stack">
+    <div class="card fade-in sh-decision-card">
+      <h4 class="sh-decision-card-title">Hardware-enforced helmet rule</h4>
+      <p class="sh-decision-card-body">The bike doesn&apos;t start until the helmet is worn and devices are paired — enforced by ignition relay and server state, not a dismissible warning. That moves safety out of the &quot;I&apos;ll skip it today&quot; loop.</p>
+      <div class="annotation">
+        <span class="annotation-icon">💡</span>
+        <span class="annotation-text"><strong>HCI angle:</strong> Shifting enforcement from intention to architecture removes a whole class of mode errors at startup.</span>
       </div>
     </div>
 
-    <div class="card fade-in" style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
-      <div style="background: color-mix(in srgb, var(--accent2) 10%, transparent); border-radius: 12px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">🎨</div>
-      <div>
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Dark UI as Default</h4>
-        <p style="font-size: 14px; color: var(--ink2); line-height: 1.6; margin-bottom: 10px;">Riders often check their phones in full sunlight or at night. A dark-first interface with high-contrast text and icon-led navigation tested 40% faster for screen comprehension in outdoor conditions than a light theme equivalent.</p>
-      </div>
+    <div class="card fade-in sh-decision-card">
+      <h4 class="sh-decision-card-title">Sync loss = alert</h4>
+      <p class="sh-decision-card-body">Losing helmet–bike sync before or during a ride flags theft or unsafe separation immediately — the rider shouldn&apos;t have to notice first.</p>
     </div>
 
-    <div class="card fade-in" style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
-      <div style="background: color-mix(in srgb, var(--accent3) 10%, transparent); border-radius: 12px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">🎯</div>
-      <div>
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Safety Score Gamification</h4>
-        <p style="font-size: 14px; color: var(--ink2); line-height: 1.6; margin-bottom: 10px;">A weekly safety score (0–100) based on riding behavior encourages helmet use and safe riding. Early prototype testing showed 72% of users checked their score after every trip — driving consistent app engagement without coercive notifications.</p>
-      </div>
+    <div class="card fade-in sh-decision-card">
+      <h4 class="sh-decision-card-title">Bypass: bounded, not permanent</h4>
+      <p class="sh-decision-card-body">Early concepts let riders self-approve or left bypasses open-ended — both undermined safety. Final model: admin-verified identity, maximum duration (e.g. four hours), automatic expiry, full logging.</p>
     </div>
   </div>
 </section>
@@ -357,57 +659,181 @@
 <!-- OUTCOMES -->
 <div id="outcomes"></div>
 <section class="fade-in">
-  <div class="section-label">08 — Outcomes & Impact</div>
-  <h2 class="section-title">What good design makes possible.</h2>
-  <p class="section-sub">Projected impact metrics based on usability testing with 18 participants over 4 weeks of prototype trials.</p>
+  <div class="section-label">10 — Evaluation</div>
+  <h2 class="section-title">What testing showed — <em>and what it couldn&apos;t</em>.</h2>
+  <p class="section-sub">Usability sessions with riders on the mobile app (SUS + NASA-TLX vs a phone-first baseline) and exploratory sessions with two fleet supervisors on the admin panel. Lab / simulated context — scores are directional, not a claim about real-road behaviour.</p>
 
-  <div class="grid-4" style="margin-top: 48px;">
-    <div class="outcome-card fade-in">
-      <div class="outcome-icon">⚡</div>
-      <div class="outcome-value" style="color: var(--accent);">8s</div>
-      <div class="outcome-label">Helmet pairing time (down from 45s)</div>
+  <div class="sh-research-callout fade-in">
+    <div class="sh-research-callout-label">Central research question</div>
+    <p>Can a system that enforces hard safety constraints at the hardware level — constraints users didn&apos;t choose and can&apos;t override without friction — <strong>still reach acceptable usability without resistance, distrust, or workarounds?</strong> The hypothesis: if the constraint is invisible in normal operation, it won&apos;t feel coercive. Evaluation was set up to test that honestly.</p>
+  </div>
+
+  <p class="sh-prose-para">Formal evaluation ran on two tracks: rider mobile flows and admin panel tasks. Rider sessions also used NASA-TLX against a baseline phone-based setup.</p>
+
+  <div class="sh-exp-stats-grid sh-exp-stats-grid--metrics fade-in">
+    <div class="sh-exp-stat-card fade-in">
+      <p class="sh-exp-stat-value">8</p>
+      <p class="sh-exp-stat-label">Rider participants</p>
     </div>
-    <div class="outcome-card fade-in">
-      <div class="outcome-icon">🆘</div>
-      <div class="outcome-value" style="color: var(--accent2);">30s</div>
-      <div class="outcome-label">Max alert response time to emergency contacts</div>
+    <div class="sh-exp-stat-card fade-in">
+      <p class="sh-exp-stat-value">2</p>
+      <p class="sh-exp-stat-label">Admin participants</p>
     </div>
-    <div class="outcome-card fade-in">
-      <div class="outcome-icon">😊</div>
-      <div class="outcome-value" style="color: var(--accent3);">94%</div>
-      <div class="outcome-label">User satisfaction score in prototype testing</div>
+    <div class="sh-exp-stat-card fade-in">
+      <p class="sh-exp-stat-value">74.3</p>
+      <p class="sh-exp-stat-label">Overall SUS</p>
     </div>
-    <div class="outcome-card fade-in">
-      <div class="outcome-icon">🔁</div>
-      <div class="outcome-value" style="color: var(--warn);">3x</div>
-      <div class="outcome-label">Increase in helmet usage consistency after 2 weeks</div>
+    <div class="sh-exp-stat-card fade-in">
+      <p class="sh-exp-stat-value">−31%</p>
+      <p class="sh-exp-stat-label">NASA-TLX mental demand</p>
+    </div>
+    <div class="sh-exp-stat-card fade-in">
+      <p class="sh-exp-stat-value">47s</p>
+      <p class="sh-exp-stat-label">Avg. pre-ride setup</p>
     </div>
   </div>
 
-  <!-- WHAT I LEARNED -->
+  <p class="sh-prose-para" style="margin-top: 1.25rem;">Rider findings (n=8) carry moderate weight and are treated as directional. Admin findings (n=2) are explicitly exploratory — two people can&apos;t represent fleet diversity. Read admin results as a first-pass signal, not validation.</p>
+
+  <h3 class="sh-section-h3">SUS by screen / flow</h3>
+  <div class="sh-sus-table-wrap fade-in">
+    <table class="sh-sus-table">
+      <thead>
+        <tr>
+          <th>Screen / flow</th>
+          <th>SUS</th>
+          <th>Visual</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pre-ride setup flow</td>
+          <td>81.4</td>
+          <td><div class="sh-score-bar"><div class="sh-score-track"><div class="sh-score-fill" style="width:81.4%"></div></div></div></td>
+          <td><span class="sh-sus-badge sh-sus-badge--good">Excellent</span></td>
+        </tr>
+        <tr>
+          <td>Alert &amp; notification center</td>
+          <td>78.0</td>
+          <td><div class="sh-score-bar"><div class="sh-score-track"><div class="sh-score-fill" style="width:78%"></div></div></div></td>
+          <td><span class="sh-sus-badge sh-sus-badge--good">Good</span></td>
+        </tr>
+        <tr>
+          <td>Theft response flow</td>
+          <td>76.5</td>
+          <td><div class="sh-score-bar"><div class="sh-score-track"><div class="sh-score-fill" style="width:76.5%"></div></div></div></td>
+          <td><span class="sh-sus-badge sh-sus-badge--good">Good</span></td>
+        </tr>
+        <tr>
+          <td>Live status screen</td>
+          <td>76.2</td>
+          <td><div class="sh-score-bar"><div class="sh-score-track"><div class="sh-score-fill" style="width:76.2%"></div></div></div></td>
+          <td><span class="sh-sus-badge sh-sus-badge--good">Good</span></td>
+        </tr>
+        <tr>
+          <td>Ride history view</td>
+          <td>72.0</td>
+          <td><div class="sh-score-bar"><div class="sh-score-track"><div class="sh-score-fill" style="width:72%"></div></div></div></td>
+          <td><span class="sh-sus-badge sh-sus-badge--good">Good</span></td>
+        </tr>
+        <tr>
+          <td>Bypass request flow</td>
+          <td>63.5</td>
+          <td><div class="sh-score-bar"><div class="sh-score-track"><div class="sh-score-fill sh-score-fill--warn" style="width:63.5%"></div></div></div></td>
+          <td><span class="sh-sus-badge sh-sus-badge--warn">Marginal</span></td>
+        </tr>
+        <tr>
+          <td>Admin: override controls</td>
+          <td>61.0</td>
+          <td><div class="sh-score-bar"><div class="sh-score-track"><div class="sh-score-fill sh-score-fill--warn" style="width:61%"></div></div></div></td>
+          <td><span class="sh-sus-badge sh-sus-badge--warn">Marginal</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="sh-prose-para">The two marginal scores — bypass and admin overrides — point at the same issue: exceptional states under stress. The happy path is smooth; edge cases remain the hardest design problem — which matches how most safety systems behave.</p>
+
+  <div class="quote-card fade-in" style="margin-top: 28px;">
+    <blockquote>&quot;I knew what it was doing. I just wasn&apos;t sure I trusted it yet. Give me a week of using it and I probably would.&quot;</blockquote>
+    <cite>— Participant 3, post-session interview</cite>
+  </div>
+
+  <p class="sh-prose-para">Trust in safety-critical systems isn&apos;t built in one session; it&apos;s built through predictable behaviour over time. That&apos;s the honest limit of lab evaluation — worth naming instead of hiding behind averages.</p>
+
+  <div class="sh-reflection-panel fade-in">
+    <h3>Honest reflection</h3>
+    <p>Evaluation ran in simulation — not on real roads or commutes. Ethical and practical, but SUS and TLX are likely optimistic. Sustained attention and social workarounds don&apos;t show up in a controlled session. I believe the architecture holds, but I don&apos;t have field data for that claim.</p>
+    <p>I&apos;d redesign the bypass flow from scratch: anxious user, bike won&apos;t start, hurry, plus identity checks — that deserves its own flow, not a stressed branch in settings. <strong>Designing the edge case as seriously as the happy path is something I underinvested in.</strong></p>
+    <p>What I wouldn&apos;t change: the helmet rule as hardware constraint, not a dismissible warning — and designing four actors from day one. Admin, call center, and emergency contact shaped the rider experience in ways I couldn&apos;t have retrofitted.</p>
+  </div>
+
+  <h3 class="sh-section-h3">Open research directions</h3>
+  <div class="sh-phase-grid">
+    <div class="sh-phase-card fade-in">
+      <div class="sh-phase-tag">Research question</div>
+      <h4>Longitudinal field study</h4>
+      <p>Does safety behaviour change when enforcement is architectural? A multi-week deployment with experience sampling could test whether the helmet rule holds socially and whether TLX gains persist on real rides.</p>
+    </div>
+    <div class="sh-phase-card fade-in">
+      <div class="sh-phase-tag">Research question</div>
+      <h4>Accessibility of emergency UX</h4>
+      <p>Contacts with visual, cognitive, or motor needs; low-connectivity regions where a browser location link fails — underexplored with direct safety impact.</p>
+    </div>
+    <div class="sh-phase-card fade-in">
+      <div class="sh-phase-tag">Design direction</div>
+      <h4>Adaptive alert triage</h4>
+      <p>Using context to weight urgency per rider raises a safety question: when does adaptive suppression become risk instead of relief?</p>
+    </div>
+    <div class="sh-phase-card fade-in">
+      <div class="sh-phase-tag">Extension</div>
+      <h4>Fleet scale</h4>
+      <p>Moderate fleet sizes informed the admin IA. 40+ simultaneous riders could break a drill-down model — worth testing under high event density.</p>
+    </div>
+  </div>
+
   <div style="margin-top: 64px;">
-    <h3 style="font-family: var(--font-heading); font-size: 28px; font-weight: 800; margin-bottom: 8px;">What I Learned</h3>
-    <p style="color: var(--ink2); font-size: 16px; margin-bottom: 32px;">Designing for safety is fundamentally different from designing for convenience. Here are my key takeaways:</p>
-    <div class="timeline">
+    <h3 style="font-family: var(--font-heading); font-size: 28px; font-weight: 800; margin-bottom: 8px;">At a glance</h3>
+    <p style="color: var(--ink2); font-size: 16px; margin-bottom: 32px;">How the evaluation translates into product takeaways.</p>
+    <div class="sh-exp-stats-grid sh-exp-stats-grid--4 fade-in">
+      <div class="sh-exp-stat-card fade-in">
+        <p class="sh-exp-stat-value">74.3</p>
+        <p class="sh-exp-stat-label">Overall SUS (combined tracks)</p>
+      </div>
+      <div class="sh-exp-stat-card fade-in">
+        <p class="sh-exp-stat-value">−31%</p>
+        <p class="sh-exp-stat-label">NASA-TLX mental demand vs baseline</p>
+      </div>
+      <div class="sh-exp-stat-card fade-in">
+        <p class="sh-exp-stat-value">47s</p>
+        <p class="sh-exp-stat-label">Average pre-ride setup</p>
+      </div>
+      <div class="sh-exp-stat-card fade-in">
+        <p class="sh-exp-stat-value sh-exp-stat-value--warn">63.5</p>
+        <p class="sh-exp-stat-label">Marginal: bypass flow (stress edge)</p>
+      </div>
+    </div>
+    <div class="timeline" style="margin-top: 48px;">
       <div class="timeline-item fade-in">
         <div class="timeline-dot"></div>
-        <div class="timeline-label">Research Finding</div>
-        <div class="timeline-content"><strong>Trust is the #1 design challenge</strong> — riders won't use a safety app they don't trust 100%. Every edge case, every false alarm destroys trust. The override window isn't a feature; it's a promise.</div>
+        <div class="timeline-label">Lab vs road</div>
+        <div class="timeline-content"><strong>Controlled sessions skew optimistic.</strong> Real commutes add sustained load and workarounds the study didn&apos;t capture.</div>
       </div>
       <div class="timeline-item fade-in">
         <div class="timeline-dot"></div>
-        <div class="timeline-label">Design Insight</div>
-        <div class="timeline-content"><strong>IoT design is context design</strong> — you're designing for riders wearing gloves, in wind, under a helmet. Every tap, every screen state must work in extreme physical conditions, not just in a quiet usability lab.</div>
+        <div class="timeline-label">Edge cases</div>
+        <div class="timeline-content"><strong>Bypass and overrides need dedicated flows.</strong> Marginal scores reflect anxiety + verification under time pressure.</div>
       </div>
       <div class="timeline-item fade-in">
         <div class="timeline-dot"></div>
-        <div class="timeline-label">Process Reflection</div>
-        <div class="timeline-content"><strong>Families are stakeholders too</strong> — I almost forgot the family member perspective entirely. Including them in research revealed a completely separate set of needs (reassurance, not real-time alerts) that shaped the "family view" feature.</div>
+        <div class="timeline-label">Non-negotiable</div>
+        <div class="timeline-content"><strong>Helmet rule stays hardware-level.</strong> Warnings get dismissed; a bike that won&apos;t start is a different message.</div>
       </div>
       <div class="timeline-item fade-in">
         <div class="timeline-dot"></div>
-        <div class="timeline-label">Technical Constraint</div>
-        <div class="timeline-content"><strong>Hardware limitations force UX creativity</strong> — the BLE range, sensor accuracy thresholds, and battery constraints forced us to design smarter UI around imperfect data, not wait for perfect hardware.</div>
+        <div class="timeline-label">Systems thinking</div>
+        <div class="timeline-content"><strong>Four actors from day one.</strong> Shaped rider UX in ways that couldn&apos;t be bolted on later.</div>
       </div>
     </div>
   </div>

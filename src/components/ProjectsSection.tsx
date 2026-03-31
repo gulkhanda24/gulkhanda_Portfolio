@@ -109,18 +109,6 @@ const projects: Project[] = [
     mockupDeviceFrame: "phone-black",
   },
   {
-    title: "ROO: Incident Management System",
-    company: "ROO · Delivery partners",
-    companyShort: "ROO",
-    companyColor: "#0e7490",
-    slug: "roo-incident-management",
-    tags: ["Mobile", "UX Research", "Maps", "Delivery"],
-    mockupBg: "#0f172a",
-    phoneImage: null,
-    fallbackImage:
-      "https://images.unsplash.com/photo-1524661135-423995f5d0ea?w=800&q=80",
-  },
-  {
     variant: "showcase",
     theme: "rapido",
     slug: "rapido-captain",
@@ -133,6 +121,18 @@ const projects: Project[] = [
     mockupSrc: "/rapido-hero-pickup-screen.png",
     mockupAlt: "Rapido Captain — driver app pickup map",
     mockupBg: "#1e1b4b",
+  },
+  {
+    title: "ROO: Incident Management System",
+    company: "ROO · Delivery partners",
+    companyShort: "ROO",
+    companyColor: "#0e7490",
+    slug: "roo-incident-management",
+    tags: ["Mobile", "UX Research", "Maps", "Delivery"],
+    mockupBg: "#0f172a",
+    phoneImage: null,
+    fallbackImage:
+      "https://images.unsplash.com/photo-1524661135-423995f5d0ea?w=800&q=80",
   },
 ];
 

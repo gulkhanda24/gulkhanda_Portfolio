@@ -147,11 +147,10 @@ function SmartHelmetScreensMarquee() {
 function SmartHelmetAppScreensBand() {
   return (
     <>
-      <div id="design" />
       <div id="screens" />
       <div className="band fade-in">
         <div className="band-inner sh-app-screens-band-inner">
-          <div className="section-label">06 — App Screens</div>
+          <div className="section-label">08 — App Screens</div>
           <h2 className="section-title" style={{ marginBottom: 8 }}>
             Every screen built for speed and safety.
           </h2>
@@ -197,7 +196,8 @@ export default function SmartHelmetCaseStudy({ study }: { study: CaseStudy }) {
           if (e.isIntersecting) e.target.classList.add("visible");
         });
       },
-      { threshold: 0.1 },
+      /* Slightly earlier trigger + smoother scroll-in for case-study fade sections */
+      { threshold: 0.08, rootMargin: "0px 0px 14% 0px" },
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
