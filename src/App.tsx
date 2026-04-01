@@ -20,7 +20,11 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route
           path="/case-study/amazon-bazaar"
-          element={<Navigate to="/case-study/roo-incident-management" replace />}
+          element={<Navigate to="/case-study/ielts-speaking-lab" replace />}
+        />
+        <Route
+          path="/case-study/roo-incident-management"
+          element={<Navigate to="/case-study/ielts-speaking-lab" replace />}
         />
         <Route
           path="/case-study/qnb-design-system"

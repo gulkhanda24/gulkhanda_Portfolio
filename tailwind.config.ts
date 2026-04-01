@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         heading: ['"Space Grotesk"', "system-ui", "sans-serif"],
         body: ['"Space Grotesk"', "system-ui", "sans-serif"],
+        philosophy: ['"Playfair Display"', "Georgia", "serif"],
+        "philosophy-body": ['Lora', "Georgia", "serif"],
       },
       letterSpacing: {
         "display-tight": "-0.06em",

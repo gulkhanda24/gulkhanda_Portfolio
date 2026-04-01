@@ -105,8 +105,8 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
     ],
-    nextSlug: "roo-incident-management",
-    nextTitle: "ROO Incident Management",
+    nextSlug: "ielts-speaking-lab",
+    nextTitle: "IELTS Speaking Lab",
   },
   {
     slug: "personalised-ai-productivity",
@@ -175,68 +175,22 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
     ],
-    nextSlug: "roo-incident-management",
-    nextTitle: "ROO Incident Management",
+    nextSlug: "ielts-speaking-lab",
+    nextTitle: "IELTS Speaking Lab",
   },
   {
-    slug: "roo-incident-management",
-    category: "Mobile product",
-    categoryLabel: "Mobile · Delivery",
-    year: "2023 – 2024",
-    title: "ROO: Incident Management System",
+    slug: "ielts-speaking-lab",
+    category: "EdTech",
+    categoryLabel: "Web · AI & Language Learning",
+    year: "2024 – 2025",
+    title: "IELTS Speaking Lab — personalised Band 7–9 answers from your ideas",
     description:
-      "A mobile incident reporting experience for delivery partners — map-first capture, fewer steps, and clear feedback so drivers can report accurately without leaving the flow of their route.",
-    client: "ROO (Delivery partner ecosystem)",
-    role: "Product Designer",
-    heroImage:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80",
-    tags: ["Mobile", "UX Research", "Figma", "Field research", "Maps"],
-    sections: [
-      {
-        title: "Introduction",
-        subtitle: "Incidents on the move",
-        content: [
-          "ROO supports a delivery partner network where drivers are rarely at a desk. When something goes wrong — access blocked, damaged goods, unsafe hand-off — reporting has to be fast, precise, and trusted by hub teams.",
-          "The product goal was a mobile-first incident flow: capture what happened and where, with minimal steps, so operations can respond without chasing missing context.",
-        ],
-      },
-      {
-        title: "Discovery",
-        subtitle: "What broke in the field",
-        content: [
-          "Interviews and ride-alongs highlighted three friction patterns that shaped the redesign:",
-        ],
-        bullets: [
-          "Location drift and vague addresses made hub follow-ups slow.",
-          "Long forms led to abandoned reports mid-route.",
-          "Drivers were unsure whether a submission had been received or acted on.",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1524661135-423995f5d0ea?w=1200&q=80",
-        imageCaption: "Dense routes and tight windows — reporting has to fit the job",
-      },
-      {
-        title: "Solution direction",
-        subtitle: "Map-first, progressive detail",
-        content: [
-          "The experience centres on a map pin drivers can refine on-site, then a short structured path for category and notes. Photo attachment is optional but encouraged for disputes. Status surfaces show acknowledgement so drivers are not left guessing.",
-        ],
-      },
-      {
-        title: "Design & testing",
-        subtitle: "Iteration with partners",
-        content: [
-          "High-fidelity prototypes were tested with drivers at hubs and on simulated runs. Copy, tap targets, and default selections were tuned for one-handed use and glare-heavy outdoor conditions.",
-        ],
-      },
-      {
-        title: "Outcome",
-        subtitle: "Clearer signal to operations",
-        content: [
-          "The flow reduced time-to-submit and improved location quality for hub coordinators, giving ROO a repeatable pattern for other partner-facing tools.",
-        ],
-      },
-    ],
+      "An AI-powered web platform that turns a learner's rough ideas into personalised Band 7–9 answers — and builds the vocabulary to sustain them.",
+    client: "IELTS Speaking Lab (live product)",
+    role: "UX Designer · UI Designer · Developer",
+    heroImage: "/ielts-speaking-lab/home.png",
+    tags: ["Web", "Next.js", "GenAI", "UX Research", "HCI"],
+    sections: [],
     nextSlug: "rapido-captain",
     nextTitle: "Rapido Captain",
   },

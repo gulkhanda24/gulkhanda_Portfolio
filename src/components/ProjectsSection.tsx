@@ -4,11 +4,12 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { useRef, type ReactNode } from "react";
 import SplitText from "./SplitText";
+import IeltsDesignBoardShowcase from "@/components/IeltsDesignBoardShowcase";
 
 const RAPIDO_YELLOW = "#FFD500";
 const RAPIDO_YELLOW_SOFT = "#FFEA80";
 
-type ShowcaseTheme = "rapido" | "smartHelm";
+type ShowcaseTheme = "rapido" | "smartHelm" | "ielts";
 
 const showcaseThemeStyles: Record<
   ShowcaseTheme,
@@ -55,6 +56,24 @@ const showcaseThemeStyles: Record<
     bodyClass: "mt-3 max-w-lg text-sm leading-relaxed text-neutral-900/80 md:text-base",
     ctaClass:
       "mt-8 inline-flex w-fit items-center rounded-xl bg-[#1b4332] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#2d6a4f]",
+  },
+  ielts: {
+    cardBackground:
+      "linear-gradient(152deg, #fffdfb 0%, #fff5f0 38%, #fde8de 72%, #fcd5c8 100%)",
+    cardShadow: "0 14px 48px rgba(232, 80, 26, 0.16)",
+    brandPillBg:
+      "linear-gradient(125deg, #fff4ed 0%, #ffe8dc 42%, #ffd4c4 88%, #ffc9b5 100%)",
+    brandPillClass: "border border-[#E8501A]/20 shadow-[0_1px_3px_rgba(232,80,26,0.12)]",
+    brandNameClass:
+      "font-heading text-sm font-black tracking-tight text-[#b83a0f]",
+    productNameClass:
+      "font-heading text-4xl font-black leading-[1.05] tracking-tight text-neutral-900 md:text-5xl lg:text-[2.75rem]",
+    tagClass:
+      "rounded-full border-2 border-[#E8501A]/35 bg-white/60 px-3 py-1 text-xs font-semibold text-[#7c2d12] backdrop-blur-sm md:text-sm",
+    headlineClass: "font-heading mt-7 text-xl font-bold leading-snug text-neutral-900 md:text-2xl",
+    bodyClass: "mt-3 max-w-lg text-sm leading-relaxed text-neutral-900/82 md:text-base",
+    ctaClass:
+      "mt-8 inline-flex w-fit items-center rounded-xl bg-[#E8501A] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#c74315]",
   },
 };
 
@@ -110,6 +129,21 @@ const projects: Project[] = [
   },
   {
     variant: "showcase",
+    theme: "ielts",
+    slug: "ielts-speaking-lab",
+    brandName: "IELTS Speaking Lab",
+    productName: "Speaking Lab",
+    headline: "AI-powered answers from your own ideas — and vocabulary that sticks",
+    description:
+      "A web platform that turns rough speaking ideas into personalised Band 7–9 answers, with topic-linked word banks and a five-step practice loop.",
+    tags: ["Web", "UX Research", "GenAI", "EdTech"],
+    mockupSrc: "/ielts-speaking-lab/home.png",
+    mockupAlt: "IELTS Speaking Lab — home dashboard",
+    mockupBg: "linear-gradient(165deg, #1c1917 0%, #292524 45%, #431407 100%)",
+    mockupPanelTone: "dark",
+  },
+  {
+    variant: "showcase",
     theme: "rapido",
     slug: "rapido-captain",
     brandName: "rapido",
@@ -122,21 +156,9 @@ const projects: Project[] = [
     mockupAlt: "Rapido Captain — driver app pickup map",
     mockupBg: "#1e1b4b",
   },
-  {
-    title: "ROO: Incident Management System",
-    company: "ROO · Delivery partners",
-    companyShort: "ROO",
-    companyColor: "#0e7490",
-    slug: "roo-incident-management",
-    tags: ["Mobile", "UX Research", "Maps", "Delivery"],
-    mockupBg: "#0f172a",
-    phoneImage: null,
-    fallbackImage:
-      "https://images.unsplash.com/photo-1524661135-423995f5d0ea?w=800&q=80",
-  },
 ];
 
-type MockupPanelAccent = "default" | "lime";
+type MockupPanelAccent = "default" | "lime" | "orange";
 
 /** Right-column mockup panel — matches AI / standard project cards */
 const ProjectMockupPanel = ({
@@ -173,7 +195,9 @@ const ProjectMockupPanel = ({
               ? panelTone === "light"
                 ? "radial-gradient(ellipse 75% 65% at 55% 45%, rgba(163,230,53,0.22) 0%, transparent 68%)"
                 : "radial-gradient(ellipse 70% 60% at 60% 60%, rgba(163,230,53,0.14) 0%, transparent 70%)"
-              : "radial-gradient(ellipse 70% 60% at 60% 60%, rgba(100,140,255,0.18) 0%, transparent 70%)",
+              : accent === "orange"
+                ? "radial-gradient(ellipse 72% 62% at 55% 48%, rgba(232,80,26,0.2) 0%, transparent 70%)"
+                : "radial-gradient(ellipse 70% 60% at 60% 60%, rgba(100,140,255,0.18) 0%, transparent 70%)",
         }}
       />
       <div
@@ -344,10 +368,22 @@ const ShowcaseProjectCard = ({
 
           <ProjectMockupPanel
             mockupBg={project.mockupBg}
-            accent={project.theme === "smartHelm" ? "lime" : "default"}
+            accent={
+              project.theme === "smartHelm" ? "lime" : project.theme === "ielts" ? "orange" : "default"
+            }
             panelTone={project.mockupPanelTone ?? "dark"}
           >
-            {project.mockupDeviceFrame === "phone-black" ? (
+            {project.theme === "ielts" ? (
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.85, delay: 0.25 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                style={{ y: phoneY }}
+                className="relative z-10 h-[min(340px,52vw)] w-full max-w-[280px] overflow-hidden rounded-2xl shadow-[0_24px_64px_rgba(0,0,0,0.55)] ring-1 ring-white/15 sm:max-w-[300px] md:h-[min(380px,36vw)] md:max-w-none"
+              >
+                <IeltsDesignBoardShowcase density="compact" showInnerLock={false} className="min-h-full" />
+              </motion.div>
+            ) : project.mockupDeviceFrame === "phone-black" ? (
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}

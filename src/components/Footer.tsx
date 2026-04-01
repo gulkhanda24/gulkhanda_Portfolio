@@ -45,7 +45,7 @@ const socialLinks = [
 const footerLinks = [
   { label: "About Me", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
+  { label: "Design Philosophy", href: "#philosophy" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "mailto:gulkhandajahan@gmail.com" },
 ];

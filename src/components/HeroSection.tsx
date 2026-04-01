@@ -80,7 +80,7 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden pt-20 pb-16 noise-bg"
+      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden pt-24 pb-16 md:pt-28 noise-bg"
       aria-label="Hero"
     >
       {/* Soft center spotlight — depth without new colors */}

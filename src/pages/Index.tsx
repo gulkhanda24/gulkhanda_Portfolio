@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import Navbar from "@/components/Navbar";
 import MarqueeText from "@/components/Marquee";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -40,6 +40,7 @@ const Index = () => {
       <ScrollToTop />
 
       <Navbar />
+
       {/* Hero → Recent Work → About share one continuous pink gradient */}
       <div className="hero-gradient">
         <HeroSection />
