@@ -1,0 +1,191 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap');
+  .board {
+    background: linear-gradient(135deg, #6a1fa0 0%, #9b2fc9 40%, #c45aa0 100%);
+    border-radius: 14px;
+    padding: 28px 24px 32px;
+    font-family: 'Patrick Hand', cursive;
+    min-height: 640px;
+    position: relative;
+  }
+  .board-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .grid {
+    display: grid;
+    gap: 14px;
+  }
+  .row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .note {
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.45;
+    flex: 1;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.22);
+  }
+  .note b {
+    font-size: 14.5px;
+    display: block;
+    margin-bottom: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+  }
+  .green { background: #5ecb7a; color: #0d4020; }
+  .green b { color: #083018; }
+  .yellow { background: #f5c842; color: #4a3000; }
+  .yellow b { color: #2e1e00; }
+  .orange { background: #f7921a; color: #4a1e00; }
+  .orange b { color: #2e1200; }
+  .pink-note { background: #e84393; color: #fff; }
+  .pink-note b { color: #fff; }
+  .lt-green { background: #aae86a; color: #1a3d00; }
+  .lt-green b { color: #0f2600; }
+  .purple-note { background: #c084fc; color: #2d0060; }
+  .purple-note b { color: #1a0040; }
+  .white-note { background: #f5f2e8; color: #333; }
+  .white-note b { color: #111; }
+  .note.popular {
+    flex: 1.3;
+    border: 3px solid #1a1a1a;
+    min-height: 100px;
+  }
+  .badge {
+    font-size: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    background: #1a1a1a;
+    color: #f5c842;
+    border-radius: 3px;
+    padding: 1px 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .note.wide { flex: 2; }
+  .note.narrow { flex: 0.7; }
+</style>
+<div class="board">
+  <div class="board-title">Smart Helmet — Brainstorming Storyboard</div>
+
+  <div class="grid">
+
+    <div class="row">
+      <div class="note green popular">
+        <span class="badge">Most popular idea</span>
+        <b>Smart Helmet + App Ecosystem</b>
+        Connected helmet syncing with mobile app — live stats, route, crash detection
+      </div>
+      <div class="note lt-green">
+        <b>Crash Detection Sensor</b>
+        Auto-calls emergency contacts & shares GPS on impact
+      </div>
+      <div class="note lt-green">
+        <b>Built-in GPS Navigation</b>
+        Turn-by-turn audio directions via bone conduction speakers
+      </div>
+      <div class="note lt-green">
+        <b>Rear Brake Light</b>
+        Integrated LED strip that reacts to deceleration
+      </div>
+      <div class="note lt-green">
+        <b>Bluetooth Comms</b>
+        Rider-to-rider intercom up to 1 km range
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="note white-note narrow">
+        Visor HUD showing speed and battery level of connected e-bike
+      </div>
+      <div class="note white-note narrow">
+        App on phone connecting with helmet via BLE, logs every ride
+      </div>
+      <div class="note green wide">
+        <b>Virtual Riding Coach</b>
+        Gives real-time posture and braking feedback through audio cues
+      </div>
+      <div class="note green">
+        <b>Navigation / Communication Kiosk</b>
+        Public kiosk to pair helmet, update maps & emergency contacts
+      </div>
+      <div class="note green">
+        <b>Fake Ride Trainer</b>
+        Indoor stationary rig for safe helmet UX practice off-road
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="note yellow wide">
+        <b>Augmented Visor Goggles</b>
+        AR overlay: speed, hazards, weather, lane guidance on visor glass
+      </div>
+      <div class="note yellow">
+        <b>Radar-Aware Helmet Shell</b>
+        - detects vehicles in blind spots
+        - vibration alert on left/right temple
+        - RECCO reflector for rescue ops
+      </div>
+      <div class="note yellow">
+        <b>Smart Helmet Glove Pair</b>
+        Gloves with turn-signal gestures linked to helmet blinkers
+      </div>
+      <div class="note yellow">
+        <b>Augmented Rider Suit</b>
+        - posture correction
+        - location tracker
+        - airbag inflation trigger
+      </div>
+      <div class="note yellow narrow">
+        <b>Intelligent HUD</b>
+        - helps beginners
+        - find friends nearby
+        - correct posture
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="note orange">
+        <b>Wearable Sensor Patch</b>
+        - track fatigue & heart rate
+        - detect drowsiness
+        - vibrate to alert rider
+        - contact emergency services
+      </div>
+      <div class="note orange wide">
+        <b>Smart Helmet — Full Feature Set</b>
+        - shows speed, elevation, battery
+        - communicates with other riders
+        - sees friends' locations on map
+        - resort/city route overview
+        - records ride footage
+        - SOS panic button
+      </div>
+      <div class="note pink-note">
+        <b>Group Ride Tracker</b>
+        Helmet mesh network — shows full party position on shared map
+      </div>
+      <div class="note purple-note narrow">
+        Smart snowboard / bike can locate rider & broadcast GPS to group members
+      </div>
+    </div>
+
+  </div>
+</div>

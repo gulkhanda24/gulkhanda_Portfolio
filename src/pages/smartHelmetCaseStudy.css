@@ -51,6 +51,11 @@
   margin: 0 auto;
 }
 
+/* Design Roadmap — tighter vertical rhythm than default sections */
+.smart-helm-case-study section.sh-roadmap-visual {
+  padding-block: clamp(2.25rem, 4vw, 3.25rem);
+}
+
 .smart-helm-case-study .section-label {
   font-size: 11px;
   font-weight: 700;
@@ -71,7 +76,8 @@
 .smart-helm-case-study .section-sub {
   font-size: 17px;
   color: var(--ink2);
-  max-width: 640px;
+  width: 100%;
+  max-width: none;
   line-height: 1.7;
 }
 
@@ -166,6 +172,170 @@
   gap: 20px;
 }
 
+/* PERSONAS */
+.smart-helm-case-study .sh-persona-stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.smart-helm-case-study .sh-persona-card {
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 8px 24px hsl(var(--foreground) / 0.05);
+}
+
+.smart-helm-case-study .sh-persona-card--rider {
+  background: linear-gradient(135deg, hsl(34 40% 92%), hsl(27 52% 89%));
+}
+
+.smart-helm-case-study .sh-persona-card--guardian {
+  background: linear-gradient(135deg, hsl(216 45% 91%), hsl(206 56% 88%));
+}
+
+.smart-helm-case-study .sh-persona-card--fleet {
+  background: linear-gradient(135deg, hsl(142 31% 90%), hsl(134 37% 86%));
+}
+
+.smart-helm-case-study .sh-persona-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.smart-helm-case-study .sh-persona-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 2px solid hsl(var(--background));
+  background: hsl(var(--foreground));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: hsl(var(--background));
+  flex-shrink: 0;
+}
+
+.smart-helm-case-study .sh-persona-title {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.smart-helm-case-study .sh-persona-name {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.smart-helm-case-study .sh-persona-icon {
+  display: none;
+}
+
+.smart-helm-case-study .sh-persona-profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--background) / 0.7);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.smart-helm-case-study .sh-persona-summary {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--ink2);
+}
+
+.smart-helm-case-study .sh-persona-section h5 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.smart-helm-case-study .sh-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.smart-helm-case-study .sh-chip {
+  display: inline-flex;
+  max-width: 100%;
+  border-radius: 11px;
+  border: 2px solid hsl(var(--foreground));
+  box-shadow: 2px 2px 0 hsl(var(--foreground));
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.smart-helm-case-study .sh-chip--behaviour {
+  background: hsl(58 76% 76%);
+}
+
+.smart-helm-case-study .sh-chip--challenge {
+  background: hsl(352 61% 83%);
+}
+
+.smart-helm-case-study .sh-persona-card--fleet .sh-chip--behaviour {
+  background: hsl(154 64% 78%);
+}
+
+.smart-helm-case-study .sh-persona-card--fleet .sh-chip--challenge {
+  background: hsl(16 77% 84%);
+}
+
+.smart-helm-case-study .sh-persona-kicker {
+  margin: 0;
+  font-size: 0;
+}
+
+.smart-helm-case-study .sh-persona-role {
+  margin: 0;
+  font-size: 0;
+}
+
+.smart-helm-case-study .sh-persona-body,
+.smart-helm-case-study .sh-persona-field {
+  all: unset;
+  display: block;
+}
+
+.smart-helm-case-study .sh-persona-field p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink2);
+}
+
+.smart-helm-case-study .sh-persona-field h4 {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+@media (max-width: 1280px) {
+  .smart-helm-case-study .sh-persona-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* PROBLEM */
 .smart-helm-case-study .problem-statement {
   background: hsl(var(--pink-accent) / 0.35);
@@ -174,18 +344,6 @@
   padding: 40px;
   position: relative;
   overflow: hidden;
-}
-
-.smart-helm-case-study .problem-statement::before {
-  content: '"';
-  position: absolute;
-  top: -20px;
-  left: 30px;
-  font-size: 180px;
-  color: hsl(var(--accent) / 0.12);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1;
 }
 
 .smart-helm-case-study .problem-text {
@@ -636,6 +794,9 @@
   .smart-helm-case-study section {
     padding: 64px 24px;
   }
+  .smart-helm-case-study section.sh-roadmap-visual {
+    padding-block: 1.75rem;
+  }
   .smart-helm-case-study .hero {
     padding: 1.5rem 1.25rem;
     margin-bottom: 3rem;
@@ -647,6 +808,30 @@
   }
   .smart-helm-case-study .divider {
     margin: 0 24px;
+  }
+
+  .smart-helm-case-study .sh-persona-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .smart-helm-case-study .sh-persona-title {
+    font-size: 18px;
+  }
+
+  .smart-helm-case-study .sh-persona-name {
+    font-size: 14px;
+  }
+
+  .smart-helm-case-study .sh-persona-summary {
+    font-size: 12px;
+  }
+
+  .smart-helm-case-study .sh-persona-section h5 {
+    font-size: 15px;
+  }
+
+  .smart-helm-case-study .sh-chip {
+    font-size: 11px;
   }
 }
 
@@ -756,7 +941,8 @@
 /* —— User journey: compact horizontal strip (not a tall vertical timeline) —— */
 .smart-helm-case-study .sh-journey-lead {
   margin-top: 0.35rem;
-  max-width: 36rem;
+  width: 100%;
+  max-width: none;
 }
 
 @keyframes sh-journey-synth-cell-in {
@@ -1225,7 +1411,7 @@
   line-height: 1.35;
   margin: 0;
   padding-top: 0.35rem;
-  border-top: 1px dashed hsl(var(--border));
+  border-top: 1px solid hsl(var(--border));
 }
 
 .smart-helm-case-study .sh-journey-from {
@@ -1248,7 +1434,8 @@
 .smart-helm-case-study .sh-principles-kicker {
   margin-top: 0.5rem;
   margin-bottom: 0;
-  max-width: 42rem;
+  width: 100%;
+  max-width: none;
 }
 
 .smart-helm-case-study .sh-principles-bento {
@@ -1387,7 +1574,8 @@
 .smart-helm-case-study .sh-prose-para {
   font-size: 17px;
   color: var(--ink2);
-  max-width: 42rem;
+  width: 100%;
+  max-width: none;
   line-height: 1.75;
   margin-bottom: 1.25rem;
 }
@@ -1834,6 +2022,976 @@
   z-index: 1;
 }
 
+/* —— Week 3 · Brainstorming, moodboard, IA (see smart_helmet_brainstorm_storyboard.html & smart_helmet_moodboard.html) —— */
+.smart-helm-case-study .sh-design-week3-lead {
+  margin-top: 0.35rem;
+  max-width: 48rem;
+}
+
+.smart-helm-case-study .sh-design-panel {
+  margin-top: 1.25rem;
+}
+
+.smart-helm-case-study .sh-design-panel-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+}
+
+.smart-helm-case-study .sh-design-panel-lead {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink2);
+  margin: 0 0 1rem;
+  max-width: 44rem;
+}
+
+/* Brainstorm + moodboard: one section, full-width stack, 2rem gap between boards */
+.smart-helm-case-study .sh-design-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.smart-helm-case-study .sh-design-panel--split {
+  margin-top: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.smart-helm-case-study .sh-design-panel--split .sh-brainstorm-board,
+.smart-helm-case-study .sh-design-panel--split .sh-ia-reference-board {
+  width: 100%;
+  max-width: none;
+}
+
+.smart-helm-case-study .sh-system-arch-inline {
+  margin-top: 1rem;
+}
+
+.smart-helm-case-study .sh-system-arch-figure {
+  margin: 2rem 0 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+  background: #e2e8f0;
+  box-shadow: 0 14px 36px hsl(var(--foreground) / 0.08);
+}
+
+.smart-helm-case-study .sh-system-arch-figure-title {
+  padding: 0.85rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f172a;
+  background: rgb(241 245 249 / 0.95);
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.smart-helm-case-study .sh-system-arch-figure-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.smart-helm-case-study .sh-ia-reference-board {
+  margin: 0;
+  border-radius: 0.95rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #e2e8f0;
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 12px 30px hsl(var(--foreground) / 0.08);
+  padding: 1.15rem 1rem 1.25rem;
+}
+
+.smart-helm-case-study .sh-system-arch-board {
+  position: relative;
+}
+
+.smart-helm-case-study .sh-system-arch-root {
+  width: fit-content;
+  margin: 0 auto 1rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 0.4rem;
+  background: #0ea5e9;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgb(14 165 233 / 0.35);
+}
+
+.smart-helm-case-study .sh-system-arch-grid {
+  min-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(90px, 1fr));
+  gap: 0.65rem;
+  align-items: start;
+}
+
+.smart-helm-case-study .sh-system-arch-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.smart-helm-case-study .sh-system-arch-col::before {
+  content: "";
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  width: 1px;
+  height: 0.6rem;
+  background: rgb(148 163 184);
+}
+
+.smart-helm-case-study .sh-system-arch-col-head {
+  margin: 0;
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.4rem;
+  background: #bfdbfe;
+  color: #0f172a;
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.smart-helm-case-study .sh-system-arch-node {
+  border-radius: 0.22rem;
+  padding: 0.35rem 0.4rem;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.smart-helm-case-study .sh-system-arch-node--accent {
+  background: #f59e0b;
+  color: #111827;
+}
+
+.smart-helm-case-study .sh-system-arch-list {
+  margin: 0;
+  padding: 0.42rem 0.42rem 0.48rem 0.98rem;
+  background: rgb(248 250 252 / 0.95);
+  border: 1px dashed rgb(148 163 184);
+  border-radius: 0.32rem;
+  min-height: 4.55rem;
+  font-size: 0.54rem;
+  line-height: 1.35;
+  color: #334155;
+}
+
+.smart-helm-case-study .sh-system-arch-list li + li {
+  margin-top: 0.12rem;
+}
+
+/* Brainstorming board — hand-drawn storyboard: blue → magenta wall + tilted stickies */
+.smart-helm-case-study .sh-brainstorm-board {
+  --bb-hand: Arial, sans-serif;
+  border-radius: 1rem;
+  padding: 1.35rem 1.15rem 1.5rem;
+  overflow: visible;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 255, 255, 0.08), transparent 50%),
+    linear-gradient(180deg, hsl(225 72% 34%) 0%, hsl(265 65% 42%) 48%, hsl(310 72% 55%) 100%);
+  box-shadow:
+    0 16px 40px hsl(265 70% 25% / 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.smart-helm-case-study .sh-brainstorm-board-kicker {
+  font-family: var(--bb-hand);
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0 0 1.15rem;
+  text-shadow: 0 1px 2px hsl(265 80% 18% / 0.45);
+  transform: rotate(-0.8deg);
+  max-width: 22rem;
+  line-height: 1.15;
+}
+
+.smart-helm-case-study .sh-brainstorm-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.smart-helm-case-study .sh-brainstorm-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.7rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.smart-helm-case-study .sh-brainstorm-row:nth-child(odd) {
+  padding-left: 0.35rem;
+}
+
+.smart-helm-case-study .sh-brainstorm-row:nth-child(even) {
+  padding-left: 0.85rem;
+}
+
+.smart-helm-case-study .sh-brainstorm-note {
+  position: relative;
+  flex: 1 1 7rem;
+  min-width: min(100%, 6.25rem);
+  border-radius: 3px 5px 4px 4px;
+  padding: 0.7rem 0.8rem 0.75rem;
+  font-family: var(--bb-hand);
+  font-size: 0.82rem;
+  line-height: 1.3;
+  font-style: italic;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.35) inset,
+    0 6px 18px rgba(0, 0, 0, 0.28),
+    2px 4px 0 rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  z-index: 0;
+}
+
+.smart-helm-case-study .sh-brainstorm-note strong {
+  font-family: var(--bb-hand);
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-style: italic;
+  display: block;
+  margin-bottom: 0.12rem;
+  line-height: 1.2;
+}
+
+.smart-helm-case-study .sh-brainstorm-note span {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  font-style: italic;
+  opacity: 0.98;
+}
+
+/* Irregular “taped on the wall” tilts */
+.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(1) {
+  transform: rotate(-1.6deg) translateY(2px);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(2) {
+  transform: rotate(0.9deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(3) {
+  transform: rotate(-0.7deg) translateY(4px);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(4) {
+  transform: rotate(1.2deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(5) {
+  transform: rotate(-1deg) translateY(-2px);
+}
+
+.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(1) {
+  transform: rotate(1.1deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(2) {
+  transform: rotate(-1.3deg) translateY(3px);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(3) {
+  transform: rotate(-0.5deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(4) {
+  transform: rotate(1.4deg) translateY(2px);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(5) {
+  transform: rotate(-0.9deg);
+}
+
+.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(1) {
+  transform: rotate(-1.1deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(2) {
+  transform: rotate(0.8deg) translateY(4px);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(3) {
+  transform: rotate(-1.4deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(4) {
+  transform: rotate(1deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(5) {
+  transform: rotate(-0.6deg) translateY(-3px);
+}
+
+.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(1) {
+  transform: rotate(1.2deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(2) {
+  transform: rotate(-1deg) translateY(2px);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(3) {
+  transform: rotate(0.7deg);
+}
+.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(4) {
+  transform: rotate(-1.5deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smart-helm-case-study .sh-brainstorm-board-kicker,
+  .smart-helm-case-study .sh-brainstorm-row .sh-brainstorm-note {
+    transform: none;
+  }
+}
+
+.smart-helm-case-study .sh-brainstorm-note--popular {
+  flex: 1.25 1 9rem;
+  border: 3px solid #141414;
+  min-height: 5.75rem;
+  z-index: 1;
+}
+
+/* Semi-transparent green “vote” square on the popular idea */
+.smart-helm-case-study .sh-brainstorm-note--popular::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 34px;
+  height: 34px;
+  background: rgba(34, 197, 94, 0.42);
+  border: 2px solid rgba(21, 128, 61, 0.65);
+  border-radius: 2px;
+  transform: rotate(-11deg);
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.smart-helm-case-study .sh-brainstorm-note--wide {
+  flex: 2 1 12rem;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--narrow {
+  flex: 0.85 1 5rem;
+}
+
+.smart-helm-case-study .sh-brainstorm-badge {
+  font-family: var(--font-heading);
+  font-size: 0.46rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #141414;
+  color: #fde047;
+  border-radius: 2px;
+  padding: 3px 7px;
+  width: fit-content;
+  margin-bottom: 0.35rem;
+  position: relative;
+  z-index: 3;
+  transform: rotate(-1deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Tighten vertical rhythm around Journey section */
+.smart-helm-case-study section.sh-journey {
+  padding-block: clamp(3.25rem, 6vw, 4.2rem);
+}
+
+.smart-helm-case-study .sh-journey-shell {
+  margin-top: 1rem;
+  padding: 1.15rem 1rem 1.25rem;
+}
+
+.smart-helm-case-study .sh-journey-synth-scroll {
+  margin-top: 0;
+  padding-bottom: 0.25rem;
+}
+
+.smart-helm-case-study .sh-journey-synth {
+  gap: clamp(12px, 1.4vw, 16px);
+}
+
+.smart-helm-case-study .sh-journey-pills,
+.smart-helm-case-study .sh-journey-card {
+  height: 100%;
+}
+
+.smart-helm-case-study .sh-journey-card {
+  justify-content: flex-start;
+}
+
+/* More appealing visual treatment for Principles section */
+.smart-helm-case-study .sh-principles {
+  border-radius: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, hsl(var(--border)));
+  background:
+    radial-gradient(ellipse 75% 55% at 15% 0%, hsl(258 82% 92% / 0.45), transparent 55%),
+    radial-gradient(ellipse 65% 55% at 100% 100%, hsl(174 72% 88% / 0.3), transparent 60%),
+    linear-gradient(180deg, #fff 0%, #fafcff 100%);
+  box-shadow: 0 22px 48px hsl(var(--foreground) / 0.06);
+}
+
+.smart-helm-case-study .sh-principles .section-title {
+  margin-bottom: 0.9rem;
+}
+
+.smart-helm-case-study .sh-principles-bento {
+  margin-top: 1.4rem;
+  gap: 12px;
+}
+
+.smart-helm-case-study .sh-principle-tile {
+  border-radius: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 14%, hsl(var(--border)));
+  background: linear-gradient(170deg, #ffffff 0%, #f7f9ff 100%);
+  box-shadow: 0 10px 28px hsl(var(--foreground) / 0.05);
+}
+
+.smart-helm-case-study .sh-principle-tile:hover {
+  border-color: color-mix(in srgb, var(--accent) 34%, hsl(var(--border)));
+  box-shadow: 0 22px 54px hsl(258 52% 52% / 0.15);
+  transform: translateY(-3px);
+}
+
+/* More modern treatment for Key decisions section */
+.smart-helm-case-study .sh-key-decisions {
+  border-radius: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--accent2) 18%, hsl(var(--border)));
+  background:
+    radial-gradient(ellipse 75% 55% at 0% 0%, hsl(280 70% 92% / 0.34), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+  box-shadow: 0 20px 46px hsl(var(--foreground) / 0.05);
+}
+
+.smart-helm-case-study .sh-key-decisions .section-title {
+  margin-bottom: 0.4rem;
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-stack {
+  margin-top: 1.55rem;
+  gap: 0.95rem;
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent2) 24%, hsl(var(--border))) !important;
+  background: linear-gradient(165deg, #ffffff 0%, #f8f6ff 100%);
+  box-shadow: 0 10px 24px hsl(var(--foreground) / 0.06);
+  padding: 1.15rem 1.2rem 1.2rem;
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 60%, var(--accent3) 100%);
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-card:hover {
+  box-shadow: 0 18px 40px hsl(258 50% 50% / 0.14);
+  transform: translateY(-2px);
+}
+
+.smart-helm-case-study .sh-brainstorm-note--green {
+  background: #6fd68e;
+  color: #0d4020;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--green strong {
+  color: #083018;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--lt-green {
+  background: #b8f07a;
+  color: #1a3d00;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--lt-green strong {
+  color: #0f2600;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--yellow {
+  background: #fde047;
+  color: #4a3000;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--yellow strong {
+  color: #2e1e00;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--orange {
+  background: #fb923c;
+  color: #4a1e00;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--orange strong {
+  color: #2e1200;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--pink {
+  background: #f472b6;
+  color: #fff;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--pink strong {
+  color: #fff;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--purple {
+  background: #d8b4fe;
+  color: #2d0060;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--white {
+  background: #faf8f2;
+  color: #333;
+}
+
+.smart-helm-case-study .sh-brainstorm-note--white strong {
+  color: #111;
+}
+
+/* Moodboard — green canvas, handwritten (Caveat; same as brainstorm stickies) */
+.smart-helm-case-study .sh-moodboard-board {
+  --mb-hand: "Caveat", cursive;
+  border-radius: 0.85rem;
+  padding: 1.1rem 1.15rem 1.25rem;
+  background: #1a7a5e;
+  box-shadow: 0 12px 32px hsl(160 50% 22% / 0.28);
+  font-family: var(--mb-hand);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.smart-helm-case-study .sh-moodboard-head {
+  margin-bottom: 1rem;
+}
+
+.smart-helm-case-study .sh-moodboard-title {
+  font-family: var(--mb-hand);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.15rem;
+}
+
+.smart-helm-case-study .sh-moodboard-sub {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.smart-helm-case-study .sh-moodboard-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.smart-helm-case-study .sh-moodboard-tag {
+  font-family: var(--mb-hand);
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 4px 12px;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  transform: rotate(-0.4deg);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.smart-helm-case-study .sh-moodboard-tag:nth-child(even) {
+  transform: rotate(0.5deg);
+}
+
+.smart-helm-case-study .sh-moodboard-tag:nth-child(3n) {
+  transform: rotate(-0.25deg);
+}
+
+.smart-helm-case-study .sh-moodboard-tag--on {
+  background: #f5c842;
+  color: #2e1200;
+}
+
+.smart-helm-case-study .sh-moodboard-canvas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .smart-helm-case-study .sh-moodboard-canvas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .smart-helm-case-study .sh-moodboard-canvas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.smart-helm-case-study .sh-moodboard-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.smart-helm-case-study .sh-moodboard-imgtile {
+  border-radius: 6px;
+  min-height: 4.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.45rem 0 0;
+  background: #1a1a1a;
+  overflow: hidden;
+  transform: rotate(-0.35deg);
+}
+
+.smart-helm-case-study .sh-moodboard-col:nth-child(even) .sh-moodboard-imgtile {
+  transform: rotate(0.4deg);
+}
+
+.smart-helm-case-study .sh-moodboard-imgtile--dark {
+  background: #2a2a2a;
+}
+
+.smart-helm-case-study .sh-moodboard-imgtile--blue {
+  background: #0d3050;
+}
+
+.smart-helm-case-study .sh-moodboard-imgtile--green {
+  background: #0a2a0a;
+}
+
+.smart-helm-case-study .sh-moodboard-imgtile--violet {
+  background: #1a0a3a;
+}
+
+.smart-helm-case-study .sh-moodboard-imgtile-emoji {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.smart-helm-case-study .sh-moodboard-imgtile-cap {
+  width: 100%;
+  margin-top: auto;
+  padding: 6px 8px;
+  font-family: var(--mb-hand);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.smart-helm-case-study .sh-moodboard-sticky {
+  position: relative;
+  border-radius: 4px 5px 3px 4px;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--mb-hand);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.35) inset,
+    1px 3px 8px rgba(0, 0, 0, 0.22);
+}
+
+.smart-helm-case-study .sh-moodboard-sticky strong {
+  font-family: var(--mb-hand);
+  font-size: 1.12rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.smart-helm-case-study .sh-moodboard-sticky--y {
+  background: #f5c842;
+  color: #2e1200;
+}
+
+.smart-helm-case-study .sh-moodboard-sticky--w {
+  background: #f5f2e8;
+  color: #333;
+}
+
+.smart-helm-case-study .sh-moodboard-sticky--g {
+  background: #aae86a;
+  color: #1a3d00;
+}
+
+.smart-helm-case-study .sh-moodboard-sticky--o {
+  background: #f7921a;
+  color: #4a1e00;
+}
+
+.smart-helm-case-study .sh-moodboard-sticky--p {
+  background: #c084fc;
+  color: #2d0060;
+}
+
+.smart-helm-case-study .sh-moodboard-bullet {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  color: #fff;
+  font-family: var(--mb-hand);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.smart-helm-case-study .sh-moodboard-bullet strong {
+  font-family: var(--mb-hand);
+  font-size: 1.12rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #f5c842;
+}
+
+.smart-helm-case-study .sh-moodboard-brand {
+  background: #111;
+  border-radius: 6px;
+  padding: 0.65rem;
+  color: #fff;
+  font-family: var(--mb-hand);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  transform: rotate(-0.6deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Slight “tacked on” tilts — mirrors brainstorm board energy */
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(1) .sh-moodboard-sticky:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(1) .sh-moodboard-sticky:nth-child(even) {
+  transform: rotate(0.85deg);
+}
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(2) .sh-moodboard-sticky:nth-child(odd) {
+  transform: rotate(0.9deg);
+}
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(2) .sh-moodboard-sticky:nth-child(even) {
+  transform: rotate(-0.75deg);
+}
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(3) .sh-moodboard-sticky:nth-child(odd) {
+  transform: rotate(-0.65deg);
+}
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(3) .sh-moodboard-sticky:nth-child(even) {
+  transform: rotate(1deg);
+}
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(4) .sh-moodboard-sticky:nth-child(odd) {
+  transform: rotate(0.7deg);
+}
+.smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-col:nth-child(4) .sh-moodboard-sticky:nth-child(even) {
+  transform: rotate(-0.9deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smart-helm-case-study .sh-moodboard-tag,
+  .smart-helm-case-study .sh-moodboard-brand,
+  .smart-helm-case-study .sh-moodboard-canvas .sh-moodboard-sticky,
+  .smart-helm-case-study .sh-moodboard-imgtile,
+  .smart-helm-case-study .sh-moodboard-col:nth-child(even) .sh-moodboard-imgtile {
+    transform: none;
+  }
+}
+
+/* System architecture */
+.smart-helm-case-study .sh-ia-tree {
+  border-radius: 0.85rem;
+  padding: 1.25rem 0.95rem 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--accent) 12%, #eef3ff) 0%,
+    color-mix(in srgb, var(--accent2) 14%, #e8f0ff) 52%,
+    color-mix(in srgb, var(--accent3) 8%, #edf7ff) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, #cfd8e3);
+}
+
+.smart-helm-case-study .sh-ia-root {
+  font-size: 0.54rem;
+  font-weight: 800;
+  padding: 0.38rem 0.7rem;
+  border-radius: 0.3rem;
+  width: fit-content;
+  margin: 0 auto 1.2rem;
+  background: #40b4e5;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  box-shadow: none;
+}
+
+.smart-helm-case-study .sh-ia-level1 {
+  min-width: 980px;
+  margin: 0;
+  padding: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(90px, 1fr));
+  gap: 0.6rem;
+  align-items: stretch;
+  position: relative;
+}
+
+.smart-helm-case-study .sh-ia-level1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.15rem;
+  right: 1.15rem;
+  height: 1px;
+  background: #b7bfcb;
+}
+
+.smart-helm-case-study .sh-ia-branch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  height: 100%;
+  padding: 0.22rem 0.2rem 0.28rem;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.smart-helm-case-study .sh-ia-branch--emphasis {
+  transform: translateY(0);
+}
+
+.smart-helm-case-study .sh-ia-branch::before {
+  content: "";
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 1rem;
+  background: #b7bfcb;
+}
+
+.smart-helm-case-study .sh-ia-label {
+  margin: 0;
+  border-radius: 0.2rem;
+  padding: 0.44rem 0.45rem;
+  background: #a8cbe4;
+  font-size: 0.56rem;
+  font-weight: 800;
+  color: #223044;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.25;
+  min-height: 2.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smart-helm-case-study .sh-ia-node {
+  border-radius: 0.24rem;
+  padding: 0.48rem 0.45rem;
+  background: #5955e8;
+  color: #fff;
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgb(89 85 232 / 0.28);
+}
+
+.smart-helm-case-study .sh-ia-node--sub {
+  background: #5955e8;
+}
+
+.smart-helm-case-study .sh-ia-node--cta {
+  background: #ee9b40;
+  color: #2d2d2d;
+  box-shadow: 0 4px 10px rgb(238 155 64 / 0.26);
+}
+
+.smart-helm-case-study .sh-ia-list {
+  margin: 0;
+  padding: 0.52rem 0.5rem 0.56rem 1.02rem;
+  border: 1.5px dashed #c1bedf;
+  border-radius: 0.34rem;
+  background: rgb(255 255 255 / 0.82);
+  color: #313d4f;
+  font-size: 0.52rem;
+  line-height: 1.34;
+  min-height: 3.6rem;
+  text-align: left;
+}
+
+.smart-helm-case-study .sh-ia-list li + li {
+  margin-top: 0.12rem;
+}
+
+.smart-helm-case-study .sh-ia-branch:nth-child(4) .sh-ia-list,
+.smart-helm-case-study .sh-ia-branch:nth-child(5) .sh-ia-list {
+  border-color: #d8b46d;
+}
+
+.smart-helm-case-study .sh-ia-branch:nth-child(6) .sh-ia-list {
+  border-color: #d8c5a6;
+}
+
+.smart-helm-case-study .sh-ia-footnote {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink2);
+  max-width: 44rem;
+}
+
+.smart-helm-case-study .sh-ia-footnote strong {
+  color: hsl(var(--tag-violet));
+}
+
 .smart-helm-case-study .sh-design-section-label {
   display: inline-block;
   padding: 6px 14px;
@@ -1949,21 +3107,24 @@
 .smart-helm-case-study .sh-actor-rail-card {
   position: relative;
   margin: 0;
-  background: #fff !important;
-  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 18%, hsl(var(--border)));
-  border-radius: 1rem;
-  padding: 1.35rem 1.2rem 1.45rem;
-  box-shadow: 0 14px 40px hsl(var(--foreground) / 0.07);
+  background: #fff6bf !important;
+  border: 1px solid #d9c77f;
+  border-radius: 0.35rem;
+  padding: 1.05rem 1rem 1.15rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.45) inset,
+    0 10px 22px hsl(var(--foreground) / 0.16);
   min-height: 152px;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.25s ease;
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
 }
 
 .smart-helm-case-study .sh-actor-rail-card:hover {
-  border-color: color-mix(in srgb, hsl(var(--tag-violet)) 32%, hsl(var(--border)));
-  box-shadow: 0 20px 52px hsl(258 50% 50% / 0.14);
-  transform: translateY(-4px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.45) inset,
+    0 14px 30px hsl(var(--foreground) / 0.18);
+  transform: translateY(-3px) rotate(-0.4deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1975,30 +3136,52 @@
 .smart-helm-case-study .sh-actor-rail-num {
   display: block;
   font-family: var(--font-heading);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: hsl(var(--tag-violet));
-  margin-bottom: 0.45rem;
+  color: #7a5600;
+  margin-bottom: 0.32rem;
 }
 
 .smart-helm-case-study .sh-actor-rail-title {
   font-family: var(--font-heading);
-  font-size: 1.08rem;
+  font-size: 0.98rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  margin: 0 0 0.5rem;
-  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0 0 0.35rem;
+  color: #1f2937;
 }
 
 .smart-helm-case-study .sh-actor-rail-body {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ink2);
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: #273444;
   margin: 0;
   flex: 1;
+}
+
+.smart-helm-case-study .sh-actors-rail .sh-actor-rail-card:nth-child(odd) {
+  transform: rotate(-0.9deg);
+}
+
+.smart-helm-case-study .sh-actors-rail .sh-actor-rail-card:nth-child(even) {
+  transform: rotate(0.85deg);
+}
+
+.smart-helm-case-study .sh-actors-rail .sh-actor-rail-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 38px;
+  height: 16px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2033,18 +3216,79 @@
 }
 
 .smart-helm-case-study .sh-design-rule-card {
-  box-shadow: 0 10px 32px hsl(var(--foreground) / 0.04);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
   border-left: none !important;
+  border-radius: 0.35rem !important;
+  border: 1px solid #c9d9a2 !important;
+  background: #e6f7bf !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 10px 24px hsl(var(--foreground) / 0.14);
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
+  transform: rotate(-0.75deg);
 }
 
 .smart-helm-case-study .sh-design-rule-card:hover {
-  box-shadow: 0 16px 40px hsl(258 50% 50% / 0.1);
-  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 14px 30px hsl(var(--foreground) / 0.16);
+  transform: translateY(-2px) rotate(-0.45deg);
 }
 
 .smart-helm-case-study .sh-design-band .sh-design-rule-card:hover {
   background: #fff !important;
+}
+
+.smart-helm-case-study .sh-design-rules-grid .sh-design-rule-card:nth-child(2) {
+  background: #ffd5ef !important;
+  border-color: #d7a8bf !important;
+  transform: rotate(0.8deg);
+}
+
+.smart-helm-case-study .sh-design-rules-grid .sh-design-rule-card:nth-child(2):hover {
+  transform: translateY(-2px) rotate(0.45deg);
+}
+
+.smart-helm-case-study .sh-design-rule-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 44px;
+  height: 16px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.smart-helm-case-study .sh-design-rule-card > div:first-child,
+.smart-helm-case-study .sh-design-rule-card p {
+  font-family: var(--font-heading);
+}
+
+.smart-helm-case-study .sh-design-rule-card > div:first-child {
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 0.35rem !important;
+  text-align: left;
+}
+
+.smart-helm-case-study .sh-design-rule-card p {
+  font-size: 0.8rem !important;
+  line-height: 1.45 !important;
+  color: #2a3a4a !important;
+  text-align: left;
+}
+
+.smart-helm-case-study .sh-design-band .sh-design-rules-grid .sh-design-rule-card {
+  background: #e6f7bf !important;
+}
+
+.smart-helm-case-study .sh-design-band .sh-design-rules-grid .sh-design-rule-card:nth-child(2) {
+  background: #ffd5ef !important;
 }
 
 /* —— Reflection: Gulkhanda blue / violet brand (not black) —— */
@@ -2574,4 +3818,1544 @@
   line-height: 1.65;
   color: var(--ink2);
   margin: 0;
+}
+
+/* —— Design Roadmap: dark serpentine path (reference-style process board) —— */
+.smart-helm-case-study .sh-roadmap-visual {
+  text-align: left;
+}
+
+.smart-helm-case-study .sh-roadmap-visual > .sh-skiosk-roadmap-title,
+.smart-helm-case-study .sh-roadmap-visual > .sh-skiosk-roadmap-intro {
+  text-align: center;
+}
+
+.smart-helm-case-study .sh-skiosk-roadmap-title {
+  margin-bottom: 0.35rem;
+}
+
+.smart-helm-case-study .sh-skiosk-roadmap-intro {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40rem;
+}
+
+.smart-helm-case-study .sh-roadmap-board {
+  position: relative;
+  margin-top: 2.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #e3d9cc;
+  background: #f5f0e8;
+  box-shadow: 0 8px 24px -20px rgb(120 98 74 / 45%);
+}
+
+.smart-helm-case-study .sh-roadmap-board-surface {
+  --sh-board-ink: #2a2218;
+  --sh-board-ink-muted: #776a5d;
+  --sh-board-ink-soft: #9b8d7f;
+  --sh-roadmap-inset: clamp(1.1rem, 2.2vw, 1.5rem);
+  /* Even vertical rhythm between header, wave, and detail cards */
+  --sh-roadmap-section-gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-roadmap-section-gap);
+  padding: var(--sh-roadmap-inset);
+  min-height: auto;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgb(255 255 255 / 34%) 0%, transparent 62%),
+    #f5f0e8;
+  color: var(--sh-board-ink);
+}
+
+/* Process roadmap node colors (reference palette) */
+.smart-helm-case-study .sh-roadmap-node-col--step-1 {
+  --sh-step-accent: #4a90e2;
+}
+.smart-helm-case-study .sh-roadmap-node-col--step-2 {
+  --sh-step-accent: #4fc3f7;
+}
+.smart-helm-case-study .sh-roadmap-node-col--step-3 {
+  --sh-step-accent: #4db6ac;
+}
+.smart-helm-case-study .sh-roadmap-node-col--step-4 {
+  --sh-step-accent: #fdd835;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card--step-1 {
+  --sh-step-accent: #4a90e2;
+}
+.smart-helm-case-study .sh-roadmap-detail-card--step-2 {
+  --sh-step-accent: #4fc3f7;
+}
+.smart-helm-case-study .sh-roadmap-detail-card--step-3 {
+  --sh-step-accent: #4db6ac;
+}
+.smart-helm-case-study .sh-roadmap-detail-card--step-4 {
+  --sh-step-accent: #fdd835;
+}
+.smart-helm-case-study .sh-roadmap-detail-card--step-5 {
+  --sh-step-accent: #7c5cfb;
+}
+
+.smart-helm-case-study .sh-roadmap-board-header {
+  text-align: center;
+  margin: 0;
+  flex-shrink: 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px dashed #d7cab9;
+}
+
+.smart-helm-case-study .sh-roadmap-board-heading {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.8vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--sh-board-ink);
+}
+
+.smart-helm-case-study .sh-roadmap-board-heading-word {
+  position: relative;
+}
+
+.smart-helm-case-study .sh-roadmap-board-heading-rest {
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.smart-helm-case-study .sh-roadmap-board-tagline {
+  margin: clamp(0.4rem, 1.2vw, 0.55rem) auto 0;
+  max-width: none;
+  padding: 0 clamp(0.25rem, 2vw, 0.5rem);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.45;
+  white-space: nowrap;
+  color: var(--sh-board-ink-muted);
+}
+
+/* Serpentine path + nodes */
+.smart-helm-case-study .sh-roadmap-wave {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.75rem;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+@media (min-width: 720px) {
+  .smart-helm-case-study .sh-roadmap-wave {
+    aspect-ratio: 920 / 145;
+    min-height: 9.5rem;
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-path-svg {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (min-width: 720px) {
+  .smart-helm-case-study .sh-roadmap-path-svg {
+    display: block;
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-nodes {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: clamp(0.75rem, 2vw, 1rem) 0 clamp(0.5rem, 1.2vw, 0.75rem);
+}
+
+@media (min-width: 720px) {
+  .smart-helm-case-study .sh-roadmap-nodes {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-node-col {
+  --sh-badge-half: 1.625rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  padding: clamp(0.65rem, 1.5vw, 0.85rem) clamp(0.65rem, 2vw, 1rem);
+  border-radius: 0.65rem;
+  background: hsl(var(--background) / 0.82);
+  border: 1px solid #dfd2c4;
+  backdrop-filter: blur(3px);
+}
+
+/* DOM order: badge, then label — reverse column so “top” labels sit above the badge */
+.smart-helm-case-study .sh-roadmap-node-col--label-top {
+  flex-direction: column-reverse;
+}
+
+.smart-helm-case-study .sh-roadmap-node-col--label-bottom {
+  flex-direction: column;
+}
+
+@media (min-width: 720px) {
+  .smart-helm-case-study .sh-roadmap-node-col {
+    --sh-badge-half: 1.75rem;
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    backdrop-filter: none;
+    overflow: visible;
+    /* Anchor matches SVG path stops (viewBox 920×200, peaks y≈60, troughs y≈140) */
+    transform: translate(-50%, -50%);
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col:nth-child(1) {
+    left: 14.46%;
+    top: 30%;
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col:nth-child(2) {
+    left: 35.54%;
+    top: 70%;
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col:nth-child(3) {
+    left: 56.52%;
+    top: 30%;
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col:nth-child(4) {
+    left: 76.96%;
+    top: 70%;
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col .sh-roadmap-step-badge {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col--label-top .sh-roadmap-node-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, calc(-100% - var(--sh-badge-half) - 0.55rem));
+    width: max-content;
+    max-width: 9.5rem;
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col--label-bottom .sh-roadmap-node-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, calc(var(--sh-badge-half) + 0.55rem));
+    width: max-content;
+    max-width: 9.5rem;
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-node-label {
+  font-family: var(--font-heading);
+  font-size: clamp(0.78rem, 1.35vw, 0.92rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--ink);
+  text-decoration: none;
+  max-width: 11rem;
+  text-wrap: balance;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 720px) {
+  .smart-helm-case-study .sh-roadmap-node-label {
+    max-width: 9.5rem;
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-node-label:hover {
+  color: hsl(var(--tag-violet));
+  opacity: 1;
+}
+
+.smart-helm-case-study .sh-roadmap-step-badge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  background: var(--sh-step-accent, #4a90e2);
+  /* Thin white ring like reference */
+  box-shadow:
+    0 0 0 2px #fffdf9,
+    0 8px 18px -12px color-mix(in srgb, var(--sh-step-accent) 45%, transparent);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, filter 0.2s ease;
+}
+
+@media (min-width: 720px) {
+  .smart-helm-case-study .sh-roadmap-step-badge {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .smart-helm-case-study .sh-roadmap-node-col .sh-roadmap-step-badge:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-step-badge:hover {
+  transform: scale(1.06);
+  filter: brightness(1.02);
+  box-shadow:
+    0 0 0 2px #fffdf9,
+    0 12px 24px -12px color-mix(in srgb, var(--sh-step-accent) 52%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smart-helm-case-study .sh-roadmap-step-badge:hover {
+    transform: none;
+  }
+
+  @media (min-width: 720px) {
+    .smart-helm-case-study .sh-roadmap-node-col .sh-roadmap-step-badge:hover {
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-step-glyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smart-helm-case-study .sh-roadmap-step-glyph svg {
+  width: 1.28rem;
+  height: 1.28rem;
+}
+
+/* Detail row under the wave — same gap as sections above */
+.smart-helm-case-study .sh-roadmap-detail-grid {
+  display: grid;
+  gap: var(--sh-roadmap-section-gap);
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .smart-helm-case-study .sh-roadmap-detail-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1180px) {
+  .smart-helm-case-study .sh-roadmap-detail-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card {
+  border-radius: 0.85rem;
+  padding: 0.8rem 0.8rem 0.9rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  background: color-mix(in srgb, hsl(var(--tag-violet)) 12%, #eaf2ff);
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 24%, #bfd3f3);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.55) inset;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card:hover {
+  background: color-mix(in srgb, var(--sh-step-accent) 20%, #e9f1ff);
+  border-color: color-mix(in srgb, var(--sh-step-accent) 46%, #a7c4ee);
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card-title {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sh-board-ink);
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card-title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card-title a:hover {
+  color: var(--sh-step-accent);
+  border-bottom-color: color-mix(in srgb, var(--sh-step-accent) 50%, transparent);
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 12rem;
+  padding: 0.28rem 0.5rem 0.28rem 0.44rem;
+  border-radius: 0.55rem;
+  font-size: 0.71rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink2);
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 18%, #c8d8f3);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list a::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--sh-step-accent);
+  opacity: 0.9;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list a:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--sh-step-accent) 18%, #f2f7ff);
+  border-color: color-mix(in srgb, var(--sh-step-accent) 45%, #aac6ef);
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list a:hover {
+    transform: none;
+  }
+}
+
+.smart-helm-case-study .sh-roadmap-visual .sh-roadmap-pipe-line {
+  text-align: center;
+}
+
+.smart-helm-case-study .sh-roadmap-pipe-line {
+  margin-top: 1.75rem;
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--ink);
+  font-family: var(--font-heading);
+}
+
+.smart-helm-case-study .sh-roadmap-pipe-line a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.smart-helm-case-study .sh-roadmap-pipe-line a:hover {
+  border-bottom-color: hsl(var(--foreground) / 0.35);
+}
+
+/* ---- Smart Helmet refinement pass ---- */
+.smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list a::before {
+  display: none;
+}
+
+.smart-helm-case-study .sh-roadmap-detail-card .sh-roadmap-phase-list a {
+  color: var(--ink);
+}
+
+.smart-helm-case-study .sh-persona-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 24%, hsl(var(--border)));
+  flex-shrink: 0;
+}
+
+.smart-helm-case-study .sh-persona-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.smart-helm-case-study .sh-gap-grid {
+  align-items: stretch;
+}
+
+.smart-helm-case-study .sh-gap-card {
+  position: relative;
+  height: 100%;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 18%, hsl(var(--border)));
+  background:
+    radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 10%, #fff) 0%, transparent 50%),
+    hsl(var(--card));
+  box-shadow: 0 14px 34px -26px color-mix(in srgb, hsl(var(--tag-violet)) 28%, transparent);
+}
+
+.smart-helm-case-study .sh-gap-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 1rem 0 0 1rem;
+  background: hsl(var(--tag-violet));
+}
+
+.smart-helm-case-study .sh-gap-card--ops::before {
+  background: color-mix(in srgb, var(--accent3) 60%, hsl(var(--tag-violet)));
+}
+
+.smart-helm-case-study .sh-gap-title {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.smart-helm-case-study .sh-gap-list {
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--ink2);
+  line-height: 1.7;
+}
+
+.smart-helm-case-study .sh-research-section {
+  border-radius: 1.15rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 16%, hsl(var(--border)));
+  background:
+    radial-gradient(130% 95% at 5% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 10%, #fff) 0%, transparent 52%),
+    radial-gradient(110% 100% at 95% 100%, color-mix(in srgb, var(--accent3) 8%, #fff) 0%, transparent 58%),
+    hsl(var(--card));
+}
+
+.smart-helm-case-study .sh-research-insight-stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.smart-helm-case-study .sh-research-insight-stack .insight-card {
+  border-radius: 0.9rem;
+  border-width: 1px;
+  box-shadow: 0 10px 26px -22px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.smart-helm-case-study .sh-research-grid {
+  align-items: stretch;
+}
+
+.smart-helm-case-study .sh-research-card {
+  position: relative;
+  height: 100%;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 16%, hsl(var(--border)));
+  background: hsl(var(--background) / 0.78);
+}
+
+.smart-helm-case-study .sh-research-card-label {
+  margin-bottom: 0.45rem !important;
+}
+
+.smart-helm-case-study .sh-research-card-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.smart-helm-case-study .sh-research-card-body {
+  margin: 0;
+  color: var(--ink2);
+  line-height: 1.7;
+}
+
+.smart-helm-case-study .sh-solution-section {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.3rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 18%, hsl(var(--border)));
+  background:
+    radial-gradient(120% 95% at 8% 2%, color-mix(in srgb, hsl(var(--tag-violet)) 16%, #fff) 0%, transparent 55%),
+    radial-gradient(110% 100% at 100% 100%, color-mix(in srgb, var(--accent3) 14%, #fff) 0%, transparent 58%),
+    linear-gradient(160deg, #f8f7ff 0%, #f4f9ff 52%, #f8fdff 100%);
+}
+
+.smart-helm-case-study .sh-solution-section::before,
+.smart-helm-case-study .sh-solution-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.smart-helm-case-study .sh-solution-section::before {
+  width: 260px;
+  height: 260px;
+  right: -120px;
+  top: -120px;
+  background: color-mix(in srgb, hsl(var(--tag-violet)) 18%, transparent);
+}
+
+.smart-helm-case-study .sh-solution-section::after {
+  width: 220px;
+  height: 220px;
+  left: -100px;
+  bottom: -120px;
+  background: color-mix(in srgb, var(--accent3) 16%, transparent);
+}
+
+.smart-helm-case-study .sh-solution-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.smart-helm-case-study .sh-solution-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.smart-helm-case-study .sh-solution-card {
+  position: relative;
+  grid-column: span 4;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 16%, hsl(var(--border)));
+  background: hsl(var(--background) / 0.9);
+  padding: 18px 18px 16px;
+  box-shadow:
+    0 20px 30px -28px color-mix(in srgb, hsl(var(--tag-violet)) 34%, transparent),
+    0 1px 0 rgb(255 255 255 / 0.45) inset;
+  backdrop-filter: blur(3px);
+}
+
+.smart-helm-case-study .sh-solution-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 1rem 1rem 0 0;
+  background: linear-gradient(90deg, hsl(var(--tag-violet)), color-mix(in srgb, var(--accent3) 50%, hsl(var(--tag-violet))));
+}
+
+.smart-helm-case-study .sh-solution-card--present {
+  background:
+    radial-gradient(120% 110% at 0% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 13%, #fff) 0%, transparent 55%),
+    hsl(var(--background) / 0.92);
+}
+
+.smart-helm-case-study .sh-solution-card--future {
+  background:
+    radial-gradient(120% 110% at 100% 0%, color-mix(in srgb, var(--accent3) 11%, #fff) 0%, transparent 58%),
+    hsl(var(--background) / 0.92);
+  border-color: color-mix(in srgb, var(--accent3) 22%, hsl(var(--border)));
+}
+
+.smart-helm-case-study .sh-solution-card .tag {
+  margin: 0;
+  padding: 3px 10px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.smart-helm-case-study .sh-solution-card--present .tag {
+  background: color-mix(in srgb, hsl(var(--tag-violet)) 12%, #fff);
+  border-color: color-mix(in srgb, hsl(var(--tag-violet)) 26%, #d0d8ef);
+  color: color-mix(in srgb, hsl(var(--tag-violet)) 75%, #1a1a1a);
+}
+
+.smart-helm-case-study .sh-solution-card--future .tag {
+  background: color-mix(in srgb, var(--accent3) 14%, #fff);
+  border-color: color-mix(in srgb, var(--accent3) 26%, #c8d9d5);
+  color: color-mix(in srgb, var(--accent3) 72%, #1a1a1a);
+}
+
+.smart-helm-case-study .sh-solution-title {
+  margin: 0.65rem 0 0.45rem;
+  font-size: 1.02rem;
+  line-height: 1.32;
+}
+
+.smart-helm-case-study .sh-solution-body {
+  margin: 0;
+  color: var(--ink2);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.smart-helm-case-study .sh-solution-card:nth-child(1) {
+  grid-column: span 7;
+}
+
+.smart-helm-case-study .sh-solution-card:nth-child(2) {
+  grid-column: span 5;
+}
+
+.smart-helm-case-study .sh-solution-card:nth-child(3),
+.smart-helm-case-study .sh-solution-card:nth-child(4),
+.smart-helm-case-study .sh-solution-card:nth-child(5) {
+  grid-column: span 4;
+}
+
+.smart-helm-case-study .sh-solution-card:nth-child(6) {
+  grid-column: span 12;
+}
+
+@media (max-width: 1180px) {
+  .smart-helm-case-study .sh-solution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .smart-helm-case-study .sh-solution-card,
+  .smart-helm-case-study .sh-solution-card:nth-child(1),
+  .smart-helm-case-study .sh-solution-card:nth-child(2),
+  .smart-helm-case-study .sh-solution-card:nth-child(3),
+  .smart-helm-case-study .sh-solution-card:nth-child(4),
+  .smart-helm-case-study .sh-solution-card:nth-child(5),
+  .smart-helm-case-study .sh-solution-card:nth-child(6) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .smart-helm-case-study .sh-research-insight-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .smart-helm-case-study .sh-solution-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.smart-helm-case-study .sh-design-band-inner .sh-week-guiding-question {
+  text-align: left;
+  max-width: 640px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.smart-helm-case-study .sh-week3-intros {
+  list-style: disc;
+  padding-left: 1.15rem;
+  margin: 0 0 0;
+  max-width: 640px;
+  text-align: left;
+  font-size: 17px;
+  color: var(--ink2);
+  line-height: 1.75;
+}
+
+.smart-helm-case-study .sh-week3-intros li + li {
+  margin-top: 0.65rem;
+}
+
+.smart-helm-case-study .sh-week4-intros {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 0;
+  max-width: 40rem;
+  text-align: center;
+  font-size: 17px;
+  color: var(--ink2);
+  line-height: 1.75;
+}
+
+.smart-helm-case-study .sh-week4-intros li + li {
+  margin-top: 0.65rem;
+}
+
+.smart-helm-case-study #outcomes + section > h2.section-title:first-of-type {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 48rem;
+}
+
+.smart-helm-case-study .sh-outcomes-testing-head {
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem) !important;
+  text-align: left;
+  max-width: 48rem;
+}
+
+.smart-helm-case-study .sh-redesign-subhead-sentence {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 1.25rem;
+  max-width: 44rem;
+}
+
+/* ---- Smart Helmet brand consistency: Discovery, Research, Solution, Principles, Outcomes ---- */
+.smart-helm-case-study .sh-brand-section {
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 17%, hsl(var(--border)));
+  background:
+    radial-gradient(130% 92% at 6% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 10%, #fff) 0%, transparent 54%),
+    radial-gradient(105% 100% at 96% 100%, color-mix(in srgb, var(--accent3) 8%, #fff) 0%, transparent 60%),
+    hsl(var(--card));
+  box-shadow: 0 18px 38px hsl(var(--foreground) / 0.045);
+}
+
+.smart-helm-case-study .sh-brand-section .section-sub {
+  max-width: 68ch;
+}
+
+.smart-helm-case-study .sh-discovery-section .sh-gap-card {
+  background:
+    radial-gradient(125% 95% at 0% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 13%, #fff) 0%, transparent 55%),
+    hsl(var(--background) / 0.94);
+  box-shadow:
+    0 16px 28px -24px color-mix(in srgb, hsl(var(--tag-violet)) 34%, transparent),
+    0 1px 0 rgb(255 255 255 / 0.4) inset;
+}
+
+.smart-helm-case-study .sh-key-decisions.sh-brand-section .sh-decision-card {
+  background:
+    radial-gradient(120% 95% at 0% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 11%, #fff) 0%, transparent 56%),
+    hsl(var(--background) / 0.93);
+  border-color: color-mix(in srgb, hsl(var(--tag-violet)) 24%, hsl(var(--border))) !important;
+}
+
+.smart-helm-case-study .sh-outcomes-section .section-title,
+.smart-helm-case-study .sh-outcomes-section .section-sub {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.smart-helm-case-study .sh-outcomes-grid {
+  align-items: stretch;
+}
+
+.smart-helm-case-study .sh-outcome-card {
+  position: relative;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 16%, hsl(var(--border)));
+  background:
+    radial-gradient(120% 110% at 0% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 10%, #fff) 0%, transparent 58%),
+    hsl(var(--background) / 0.92);
+  box-shadow:
+    0 18px 30px -24px color-mix(in srgb, hsl(var(--tag-violet)) 30%, transparent),
+    0 1px 0 rgb(255 255 255 / 0.45) inset;
+}
+
+.smart-helm-case-study .sh-outcome-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 1rem 1rem 0 0;
+  background: linear-gradient(90deg, hsl(var(--tag-violet)), color-mix(in srgb, var(--accent3) 48%, hsl(var(--tag-violet))));
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--warn), color-mix(in srgb, hsl(var(--tag-violet)) 55%, var(--warn)));
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(3)::before {
+  background: linear-gradient(90deg, var(--accent3), color-mix(in srgb, hsl(var(--tag-violet)) 45%, var(--accent3)));
+}
+
+.smart-helm-case-study .sh-outcome-card-title {
+  font-size: 1.06rem;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.smart-helm-case-study .sh-outcome-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ink2);
+  line-height: 1.7;
+}
+
+/* ---- Solution section restyle: flat cards with color headers (reference-aligned) ---- */
+.smart-helm-case-study .sh-solution-section {
+  border: 1px solid hsl(var(--border));
+  border-radius: 1.2rem;
+  background: hsl(var(--card));
+  box-shadow: 0 14px 30px hsl(var(--foreground) / 0.04);
+  overflow: hidden;
+  color: rgba(19, 33, 12, 1);
+}
+
+.smart-helm-case-study .sh-solution-section::before,
+.smart-helm-case-study .sh-solution-section::after {
+  content: none;
+}
+
+.smart-helm-case-study .sh-solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.smart-helm-case-study .sh-solution-card,
+.smart-helm-case-study .sh-solution-card:nth-child(1),
+.smart-helm-case-study .sh-solution-card:nth-child(2),
+.smart-helm-case-study .sh-solution-card:nth-child(3),
+.smart-helm-case-study .sh-solution-card:nth-child(4),
+.smart-helm-case-study .sh-solution-card:nth-child(5),
+.smart-helm-case-study .sh-solution-card:nth-child(6) {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border-radius: 0.9rem;
+  border: 2px solid #2a2a2a;
+  box-shadow: none;
+  background: #fff;
+  overflow: hidden;
+}
+
+.smart-helm-case-study .sh-solution-card::before {
+  content: none;
+}
+
+.smart-helm-case-study .sh-solution-card-head {
+  padding: 0.9rem 1rem 0.8rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.smart-helm-case-study .sh-solution-title {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #101010;
+}
+
+.smart-helm-case-study .sh-solution-list {
+  margin: 0;
+  padding: 1rem 1.15rem 1.1rem 1.65rem;
+  list-style: disc;
+  color: #191919;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.smart-helm-case-study .sh-solution-list li + li {
+  margin-top: 0.32rem;
+}
+
+.smart-helm-case-study .sh-solution-card--violet .sh-solution-card-head {
+  background: #b996ff;
+}
+
+.smart-helm-case-study .sh-solution-card--blue .sh-solution-card-head {
+  background: #79beff;
+}
+
+.smart-helm-case-study .sh-solution-card--yellow .sh-solution-card-head {
+  background: #ffe04d;
+}
+
+.smart-helm-case-study .sh-solution-card--green .sh-solution-card-head {
+  background: #caf76a;
+}
+
+.smart-helm-case-study .sh-solution-card--pink .sh-solution-card-head {
+  background: #f7a4ff;
+}
+
+.smart-helm-case-study .sh-solution-card--orange .sh-solution-card-head {
+  background: #ffc28a;
+}
+
+.smart-helm-case-study .sh-wireframe-section {
+  border: 2px solid #2a2a2a;
+  border-radius: 0.9rem;
+  background: #fff;
+  padding: 1rem;
+}
+
+.smart-helm-case-study .sh-wireframe-title {
+  margin: 0 0 0.8rem;
+  font-size: 1.08rem;
+  line-height: 1.25;
+  color: #111;
+}
+
+.smart-helm-case-study .sh-wireframe-frame {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.55rem;
+  background: #f7f7f7;
+  overflow: hidden;
+}
+
+.smart-helm-case-study .sh-wireframe-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (max-width: 1180px) {
+  .smart-helm-case-study .sh-solution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .smart-helm-case-study .sh-solution-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Behance-inspired refinement: Discovery / Research / Principles / Reflection ---- */
+.smart-helm-case-study .sh-discovery-section,
+.smart-helm-case-study .sh-research-section,
+.smart-helm-case-study .sh-key-decisions,
+.smart-helm-case-study .sh-outcomes-section {
+  border: 1px solid hsl(var(--border));
+  border-radius: 1.2rem;
+  background: hsl(var(--card));
+  box-shadow: 0 14px 30px hsl(var(--foreground) / 0.04);
+}
+
+.smart-helm-case-study .sh-discovery-section.sh-brand-section,
+.smart-helm-case-study .sh-research-section.sh-brand-section,
+.smart-helm-case-study .sh-key-decisions.sh-brand-section,
+.smart-helm-case-study .sh-outcomes-section.sh-brand-section {
+  background: hsl(var(--card));
+}
+
+.smart-helm-case-study .sh-discovery-section .section-sub,
+.smart-helm-case-study .sh-research-section .section-sub,
+.smart-helm-case-study .sh-key-decisions .section-sub,
+.smart-helm-case-study .sh-outcomes-section .section-sub {
+  max-width: 68ch;
+}
+
+.smart-helm-case-study .sh-gap-grid {
+  align-items: stretch;
+  gap: 1.15rem;
+}
+
+.smart-helm-case-study .sh-gap-card {
+  border: 2px solid #2b2b2b;
+  border-radius: 0.9rem;
+  box-shadow: none;
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+.smart-helm-case-study .sh-gap-card::before {
+  content: none;
+}
+
+.smart-helm-case-study .sh-gap-title {
+  margin: 0;
+  padding: 0.9rem 1rem 0.8rem;
+  border-bottom: 1px solid #2b2b2b;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  color: #101010;
+}
+
+.smart-helm-case-study .sh-gap-card--violet .sh-gap-title {
+  background: #b996ff;
+}
+
+.smart-helm-case-study .sh-gap-card--blue .sh-gap-title {
+  background: #79beff;
+}
+
+.smart-helm-case-study .sh-gap-list {
+  margin: 0;
+  padding: 1rem 1.15rem 1.1rem 1.65rem;
+  color: #161616;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.smart-helm-case-study .sh-gap-list li + li {
+  margin-top: 0.28rem;
+}
+
+.smart-helm-case-study .sh-research-insight-stack {
+  gap: 1rem;
+}
+
+.smart-helm-case-study .sh-research-insight-card {
+  border: 2px solid #2b2b2b;
+  border-radius: 0.9rem;
+  box-shadow: none;
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+.smart-helm-case-study .sh-research-insight-card::before {
+  content: none;
+}
+
+.smart-helm-case-study .sh-research-insight-card h4 {
+  margin: 0;
+  padding: 0.88rem 1rem 0.8rem;
+  border-bottom: 1px solid #2b2b2b;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #111;
+}
+
+.smart-helm-case-study .sh-research-insight-card p {
+  margin: 0;
+  padding: 0.95rem 1rem 1rem;
+  color: #202020;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.smart-helm-case-study .sh-research-insight-card--violet h4 {
+  background: #b996ff;
+}
+
+.smart-helm-case-study .sh-research-insight-card--blue h4 {
+  background: #79beff;
+}
+
+.smart-helm-case-study .sh-research-insight-card--yellow h4 {
+  background: #ffe04d;
+}
+
+.smart-helm-case-study .sh-research-grid {
+  gap: 1rem;
+}
+
+.smart-helm-case-study .sh-research-card {
+  border: 2px solid #2b2b2b;
+  border-radius: 0.9rem;
+  box-shadow: none;
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+.smart-helm-case-study .sh-research-card-label {
+  margin: 0 !important;
+  padding: 0.82rem 1rem 0.7rem;
+  border-bottom: 1px solid #2b2b2b;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.smart-helm-case-study .sh-research-card--green .sh-research-card-label {
+  background: #caf76a;
+  color: #101010;
+}
+
+.smart-helm-case-study .sh-research-card--pink .sh-research-card-label {
+  background: #f7a4ff;
+  color: #101010;
+}
+
+.smart-helm-case-study .sh-research-card-title {
+  margin: 0;
+  padding: 0.85rem 1rem 0.25rem;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.smart-helm-case-study .sh-research-card-body {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  color: #202020;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-stack {
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-card {
+  border: 2px solid #2b2b2b !important;
+  border-radius: 0.9rem;
+  box-shadow: none;
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+  transition: none;
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-card::before {
+  content: none;
+}
+
+.smart-helm-case-study .sh-key-decisions .sh-decision-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.smart-helm-case-study .sh-decision-card-title {
+  margin: 0;
+  padding: 0.9rem 1rem 0.78rem;
+  border-bottom: 1px solid #2b2b2b;
+  font-size: 1.03rem;
+  line-height: 1.25;
+  color: #101010;
+}
+
+.smart-helm-case-study .sh-decision-stack .sh-decision-card:nth-child(1) .sh-decision-card-title {
+  background: #b996ff;
+}
+
+.smart-helm-case-study .sh-decision-stack .sh-decision-card:nth-child(2) .sh-decision-card-title {
+  background: #79beff;
+}
+
+.smart-helm-case-study .sh-decision-stack .sh-decision-card:nth-child(3) .sh-decision-card-title {
+  background: #caf76a;
+}
+
+.smart-helm-case-study .sh-decision-card-body {
+  margin: 0;
+  padding: 0.92rem 1rem 1rem;
+  color: #202020;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.smart-helm-case-study .sh-outcomes-grid {
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.smart-helm-case-study .sh-outcome-card {
+  border: 2px solid #2b2b2b;
+  border-radius: 0.9rem;
+  box-shadow: none;
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+.smart-helm-case-study .sh-outcome-card::before {
+  content: none;
+}
+
+.smart-helm-case-study .sh-outcome-card-title {
+  margin: 0;
+  padding: 0.9rem 1rem 0.78rem;
+  border-bottom: 1px solid #2b2b2b;
+  font-size: 1.08rem;
+  line-height: 1.25;
+  color: #101010;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(1) .sh-outcome-card-title {
+  background: #b996ff;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(2) .sh-outcome-card-title {
+  background: #79beff;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(3) .sh-outcome-card-title {
+  background: #ffe04d;
+}
+
+.smart-helm-case-study .sh-outcome-list {
+  margin: 0;
+  padding: 1rem 1.1rem 1.1rem 1.6rem;
+  color: #1c1c1c;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.smart-helm-case-study .sh-outcome-list li + li {
+  margin-top: 0.28rem;
+}
+
+@media (max-width: 900px) {
+  .smart-helm-case-study .sh-gap-grid,
+  .smart-helm-case-study .sh-research-grid,
+  .smart-helm-case-study .sh-outcomes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Research section: reference process cards ---- */
+.smart-helm-case-study .sh-research-section {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.smart-helm-case-study .sh-research-process {
+  background: #f5f5f5;
+  border-radius: 1.25rem;
+  padding: 1rem;
+}
+
+.smart-helm-case-study .sh-research-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.smart-helm-case-study .sh-research-process-card {
+  background: #fff;
+  border-radius: 1.15rem;
+  border: 1px solid #efefef;
+  box-shadow: 0 2px 8px rgb(17 24 39 / 0.06);
+  min-height: 258px;
+  padding: 1.05rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.smart-helm-case-study .sh-research-process-icon {
+  width: 22px;
+  height: 22px;
+  color: #1d1d1f;
+  margin-bottom: 0.65rem;
+}
+
+.smart-helm-case-study .sh-research-process-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.smart-helm-case-study .sh-research-process-title {
+  margin: 0;
+  color: #141414;
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  max-width: 12ch;
+}
+
+.smart-helm-case-study .sh-research-process-body {
+  margin: auto 0 0;
+  color: #2b2b2b;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  letter-spacing: 0;
+  max-width: 22ch;
+}
+
+.smart-helm-case-study .sh-research-process-line {
+  display: none;
+}
+
+.smart-helm-case-study .sh-research-process-line::before {
+  content: "";
+  position: absolute;
+  left: 11%;
+  right: 11%;
+  bottom: 12px;
+  border-bottom: 2px solid #2f2f2f;
+}
+
+.smart-helm-case-study .sh-research-process-line span {
+  position: absolute;
+  bottom: 12px;
+  width: 2px;
+  height: 14px;
+  background: #2f2f2f;
+}
+
+.smart-helm-case-study .sh-research-process-line span:nth-child(1) {
+  left: 12.5%;
+}
+
+.smart-helm-case-study .sh-research-process-line span:nth-child(2) {
+  left: 37.5%;
+}
+
+.smart-helm-case-study .sh-research-process-line span:nth-child(3) {
+  left: 62.5%;
+}
+
+.smart-helm-case-study .sh-research-process-line span:nth-child(4) {
+  left: 87.5%;
+}
+
+@media (max-width: 1200px) {
+  .smart-helm-case-study .sh-research-process-title {
+    font-size: 1.05rem;
+  }
+
+  .smart-helm-case-study .sh-research-process-body {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 980px) {
+  .smart-helm-case-study .sh-research-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .smart-helm-case-study .sh-research-process-line {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .smart-helm-case-study .sh-research-process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Smart Helmet accent unification: header bands ---- */
+.smart-helm-case-study .sh-gap-title,
+.smart-helm-case-study .sh-solution-card-head,
+.smart-helm-case-study .sh-decision-card-title,
+.smart-helm-case-study .sh-outcome-card-title {
+  background: #d3ff56 !important;
+  color: #111111 !important;
+}
+
+/* Outcomes cards aligned to Research card style */
+.smart-helm-case-study .sh-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card {
+  background: #fff;
+  border-radius: 1.15rem;
+  border: 1px solid #efefef;
+  box-shadow: 0 2px 8px rgb(17 24 39 / 0.06);
+  min-height: 258px;
+  padding: 1.05rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card::before {
+  content: none;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card-title {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: none;
+  color: #141414 !important;
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-list {
+  margin: 0.7rem 0 0;
+  padding: 0 0 0 1.05rem;
+  color: #2b2b2b;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.smart-helm-case-study .sh-outcomes-grid .sh-outcome-list li + li {
+  margin-top: 0.25rem;
+}
+
+/* Reflection stats: match View Figma button blue */
+.smart-helm-case-study .sh-outcomes-section .sh-exp-stat-card {
+  border: 1px solid color-mix(in srgb, hsl(var(--tag-violet)) 70%, #ffffff);
+  background: hsl(var(--tag-violet));
+  box-shadow: 0 10px 24px -10px hsl(var(--tag-violet) / 0.45);
+}
+
+.smart-helm-case-study .sh-outcomes-section .sh-exp-stat-card::before {
+  background: none;
+}
+
+.smart-helm-case-study .sh-outcomes-section .sh-exp-stat-card:hover {
+  border-color: color-mix(in srgb, hsl(var(--tag-violet)) 78%, #ffffff);
+  box-shadow: 0 16px 34px -14px hsl(var(--tag-violet) / 0.58);
+}
+
+.smart-helm-case-study .sh-outcomes-section .sh-exp-stat-value,
+.smart-helm-case-study .sh-outcomes-section .sh-exp-stat-value--warn {
+  background: none;
+  color: #ffffff;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+.smart-helm-case-study .sh-outcomes-section .sh-exp-stat-label {
+  color: rgb(255 255 255 / 0.9);
 }

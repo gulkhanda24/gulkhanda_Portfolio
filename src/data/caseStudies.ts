@@ -29,9 +29,9 @@ export const caseStudies: CaseStudy[] = [
     category: "IoT",
     categoryLabel: "IoT · Transport Safety",
     year: "2024",
-    title: "Smart Helmet & Bike Care — IoT-connected safety for riders",
+    title: "Smart Helmet & Bike Care: IoT-connected safety for riders",
     description:
-      "SmartHelm pairs an IoT helmet with a rider app: accident detection, theft alerts, live tracking, and emergency contacts — designed for instant clarity on the road and peace of mind at home.",
+      "SmartHelm pairs an IoT helmet with a rider app: accident detection, theft alerts, live tracking, and emergency contacts, designed for instant clarity on the road and peace of mind at home.",
     client: "Smart Helm (portfolio concept)",
     role: "UX / Product Designer",
     heroImage:
@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
         subtitle: "When the helmet stops at the skull",
         content: [
           "Motorcycle riders face risks that a passive helmet cannot address: crashes can go unreported, theft often goes unnoticed for hours, and families have no lightweight way to know someone arrived safely.",
-          "The brief: improve transport safety with a Smart Helmet — IoT sensors that monitor the ride, detect incidents, and surface accident and theft signals in real time in a companion app.",
+          "The brief: improve transport safety with a Smart Helmet: IoT sensors that monitor the ride, detect incidents, and surface accident and theft signals in real time in a companion app.",
         ],
         bullets: [
           "~1.35M road traffic deaths globally per year (WHO, 2023)",
@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
           "Accident response gap: many had no fallback to alert contacts automatically",
           "Theft blind spot: almost no real-time helmet or bike theft notification",
           "Family anxiety on late-night or bad-weather commutes",
-          "Distrust of complex safety UIs — readability under stress mattered most",
+          "Distrust of complex safety UIs: readability under stress mattered most",
         ],
         image:
           "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
@@ -72,19 +72,19 @@ export const caseStudies: CaseStudy[] = [
         subtitle: "Helmet → phone → cloud → help",
         content: [
           "The stack runs from helmet hardware (IMU, gyro, GPS, proximity, vibration) through BLE / Wi-Fi to a cloud engine for detection logic, then to the SmartHelm app and emergency channels (push, SMS, auto-dial).",
-          "Critical triggers include high G-force impact, helmet movement when it should be idle, sustained unusual tilt, and BLE disconnect beyond range — each mapped to severity so the UI can stay calm until it cannot.",
+          "Critical triggers include high G-force impact, helmet movement when it should be idle, sustained unusual tilt, and BLE disconnect beyond range, each mapped to severity so the UI can stay calm until it cannot.",
         ],
       },
       {
         title: "User journey",
         subtitle: "From helmet on to home safe",
         content: [
-          "We mapped five stages — pre-ride pairing, active ride with live share, incident detection with countdown, alert dispatch to prioritized contacts, and post-ride summary with a safety score.",
+          "We mapped five stages: pre-ride pairing, active ride with live share, incident detection with countdown, alert dispatch to prioritized contacts, and post-ride summary with a safety score.",
         ],
         bullets: [
           "Pre-ride: one-tap pairing under ~8 seconds (vs. confusing flows before)",
           "Ride active: live location shared so family can watch without spam",
-          "Incident: 30-second override before contacts are notified — balances speed and false alarms",
+          "Incident: 30-second override before contacts are notified, balances speed and false alarms",
           "Post-ride: trip report builds habit without coercion",
         ],
       },
@@ -101,7 +101,7 @@ export const caseStudies: CaseStudy[] = [
         subtitle: "Prototype testing (n=18)",
         content: [
           "In four weeks of moderated sessions, pairing dropped to about 8 seconds from ~45s, the emergency flow stayed under a 30s ceiling to contacts, satisfaction hit 94%, and riders reported roughly 3× more consistent helmet use after two weeks.",
-          "The full visual case study (screen-by-screen UI, diagrams, and annotations) opens at /case-study/smart-helmet-bike-care — same layout as the original HTML case study.",
+          "The full visual case study (screen-by-screen UI, diagrams, and annotations) opens at /case-study/smart-helmet-bike-care, same layout as the original HTML case study.",
         ],
       },
     ],
@@ -207,6 +207,22 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "/rapido-hero-pickup-screen.png",
     tags: ["UX design", "Driver App", "Mobility"],
     /* Long-form layout: RapidoCaptainCaseStudy.tsx */
+    sections: [],
+    nextSlug: "skiosk",
+    nextTitle: "Skiosk",
+  },
+  {
+    slug: "skiosk",
+    category: "HCI",
+    categoryLabel: "Physical prototyping · Research",
+    year: "2023",
+    title: "Skiosk — Ski-slope information kiosk & digital ski pass",
+    description:
+      "A smart information center on the slopes with a large interactive screen, linked to a wearable digital ski pass with GPS — a four-week group design sprint.",
+    client: "Advanced DOIS (group project)",
+    role: "UX Researcher · Designer",
+    heroImage: "https://cdn.prod.website-files.com/6526aaa1b1597702d5fea358/652748a0a7c9cf6733d6d92c_Group%20430-p-1600.png",
+    tags: ["UX Research", "Participatory design", "Storyboarding", "Wizard of Oz", "HCI"],
     sections: [],
     nextSlug: "smart-helmet-bike-care",
     nextTitle: "Smart Helmet & Bike Care",

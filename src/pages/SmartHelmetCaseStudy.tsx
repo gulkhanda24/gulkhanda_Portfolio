@@ -4,10 +4,15 @@ import bodyHtml from "./smartHelmetCaseStudyBody.html?raw";
 import "./smartHelmetCaseStudy.css";
 import CaseStudySiteChrome from "@/components/CaseStudySiteChrome";
 import CaseStudyStandardHero from "@/components/CaseStudyStandardHero";
+import { Button } from "@/components/ui/button";
 import type { CaseStudy } from "@/data/caseStudies";
 import { cn } from "@/lib/utils";
+import { ExternalLink } from "lucide-react";
 
-const DOC_TITLE = "Smart Helmet — UX Case Study";
+const DOC_TITLE = "Smart Helmet: UX Case Study";
+
+const SMART_HELMET_FIGMA_URL =
+  "https://www.figma.com/design/6sGYTzw3fiAZQDSxQ2CLwm/Smart-Hemet---Safety---Tracking--?node-id=59-900&t=qNiJBgBbgFU4AEka-0";
 
 const DESIGN_DECISIONS_MARKER = "<!-- DESIGN DECISIONS -->";
 
@@ -15,32 +20,32 @@ const smartHelmetScreensFlow = [
   {
     src: "/smart-helmet-screen-01-dashboard.png",
     shortLabel: "Dashboard",
-    alt: "Smart Helmet home — helmet and bike status, map preview, emergency controls, and recent activity",
+    alt: "Smart Helmet home: helmet and bike status, map preview, emergency controls, and recent activity",
   },
   {
     src: "/smart-helmet-screen-02-live-tracking.png",
     shortLabel: "Live tracking",
-    alt: "Live GPS tracking — map route, current location, speed, share location and set alert actions",
+    alt: "Live GPS tracking: map route, current location, speed, share location and set alert actions",
   },
   {
     src: "/smart-helmet-screen-03-emergency-alert.png",
     shortLabel: "Emergency sent",
-    alt: "Emergency alert confirmation — contacts notified and back to dashboard",
+    alt: "Emergency alert confirmation: contacts notified and back to dashboard",
   },
   {
     src: "/smart-helmet-screen-04-report-theft.png",
     shortLabel: "Report theft",
-    alt: "Theft report flow — location, map, disable ignition and live tracking actions",
+    alt: "Theft report flow: location, map, disable ignition and live tracking actions",
   },
   {
     src: "/smart-helmet-screen-05-alerts.png",
     shortLabel: "Alerts",
-    alt: "Alerts inbox — theft, accident, and connection alerts with filters",
+    alt: "Alerts inbox: theft, accident, and connection alerts with filters",
   },
   {
     src: "/smart-helmet-screen-06-ride-history.png",
     shortLabel: "Ride history",
-    alt: "Ride history — weekly stats, filters, and recent rides with safety status",
+    alt: "Ride history: weekly stats, filters, and recent rides with safety status",
   },
 ] as const;
 
@@ -150,12 +155,12 @@ function SmartHelmetAppScreensBand() {
       <div id="screens" />
       <div className="band fade-in">
         <div className="band-inner sh-app-screens-band-inner">
-          <div className="section-label">08 — App Screens</div>
+          <div className="section-label">08 · App Screens</div>
           <h2 className="section-title" style={{ marginBottom: 8 }}>
             Every screen built for speed and safety.
           </h2>
           <p className="sh-app-screens-lead">
-            Six core screens covering the complete rider experience — from helmet pairing to emergency alerts and trip
+            Six core screens covering the complete rider experience, from helmet pairing to emergency alerts and trip
             history.
           </p>
           <SmartHelmetScreensMarquee />
@@ -208,9 +213,15 @@ export default function SmartHelmetCaseStudy({ study }: { study: CaseStudy }) {
       study={study}
       pageKey="smart-helmet-bike-care"
       subNav={
-        <nav aria-label="Case study sections" className="mb-8 flex flex-wrap gap-x-5 gap-y-2 border-b border-border pb-4">
+        <nav
+          aria-label="Case study sections"
+          className="mb-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-border pb-4"
+        >
+          <a href="#design-roadmap" className={jumpClass}>
+            Design Roadmap
+          </a>
           <a href="#problem" className={jumpClass}>
-            Problem
+            Discovery
           </a>
           <a href="#research" className={jumpClass}>
             Research
@@ -218,12 +229,31 @@ export default function SmartHelmetCaseStudy({ study }: { study: CaseStudy }) {
           <a href="#design" className={jumpClass}>
             Design
           </a>
+          <a href="#solution" className={jumpClass}>
+            Solution
+          </a>
           <a href="#screens" className={jumpClass}>
             Screens
           </a>
           <a href="#outcomes" className={jumpClass}>
             Outcomes
           </a>
+          <Button
+            variant="default"
+            size="sm"
+            className="ml-auto shrink-0 border-0 bg-[hsl(var(--tag-violet))] text-white shadow-sm hover:bg-[hsl(258_58%_48%)] hover:text-white focus-visible:ring-[hsl(var(--tag-violet))]"
+            asChild
+          >
+            <a
+              href={SMART_HELMET_FIGMA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Smart Helmet Figma file (opens in a new tab)"
+            >
+              <ExternalLink className="size-4" aria-hidden />
+              Figma View
+            </a>
+          </Button>
         </nav>
       }
     >
@@ -238,7 +268,7 @@ export default function SmartHelmetCaseStudy({ study }: { study: CaseStudy }) {
             <em className="font-heading not-italic text-violet-800">Reimagined</em>
           </>
         }
-        subtitle="An IoT-connected companion app that detects accidents, prevents theft, and sends real-time alerts — prototype testing showed faster setup, clearer emergency paths, and strong rider trust."
+        subtitle="A connected safety system that enforces helmet use, detects theft, and sends emergency alerts. The redesign prioritizes zero-touch riding and faster response in critical moments."
         metaRows={[
           {
             value: "8s",
@@ -257,7 +287,7 @@ export default function SmartHelmetCaseStudy({ study }: { study: CaseStudy }) {
           },
         ]}
         imageSrc="/smart-helmet-dashboard-mockup.png"
-        imageAlt="Smart Helmet app dashboard — helmet and bike status, map preview, and emergency controls"
+        imageAlt="Smart Helmet app dashboard: helmet and bike status, map preview, and emergency controls"
       />
       <div ref={rootRef} className="smart-helm-case-study w-full min-w-0">
         <div dangerouslySetInnerHTML={{ __html: beforeScreens }} />
