@@ -20,6 +20,9 @@
   --warn: hsl(38 92% 46%);
   --radius: 0.75rem;
   --radius-sm: 8px;
+  --main-section-gap: 80px;
+  /* Vertical rhythm: storyboard ↔ system architecture ↔ actors, and after design → solution */
+  --sh-design-y-gap: 2.5rem;
   font-family: var(--font-body);
   background: var(--bg);
   color: var(--ink);
@@ -55,6 +58,19 @@
 .smart-helm-case-study section.sh-roadmap-visual {
   padding-block: clamp(2.25rem, 4vw, 3.25rem);
 }
+
+/* Main sections spacing (Discovery through Reflection) */
+.smart-helm-case-study > section.sh-discovery-section,
+.smart-helm-case-study > section.sh-research-section,
+.smart-helm-case-study > div#design.sh-design-band,
+.smart-helm-case-study > section.sh-solution-section,
+.smart-helm-case-study > .sh-app-screens-band,
+.smart-helm-case-study > section.sh-key-decisions,
+.smart-helm-case-study > section.sh-outcomes-section {
+  margin-top: var(--main-section-gap);
+}
+
+
 
 .smart-helm-case-study .section-label {
   font-size: 11px;
@@ -100,6 +116,10 @@
 .smart-helm-case-study .band .section-title,
 .smart-helm-case-study .band h2.section-title {
   color: var(--ink) !important;
+}
+
+.smart-helm-case-study .sh-design-band h2.section-title.sh-design-band-h2 {
+  color: rgba(19, 33, 12, 1) !important;
 }
 
 .smart-helm-case-study .band-inner > p {
@@ -275,30 +295,35 @@
 .smart-helm-case-study .sh-chip {
   display: inline-flex;
   max-width: 100%;
-  border-radius: 11px;
-  border: 2px solid hsl(var(--foreground));
-  box-shadow: 2px 2px 0 hsl(var(--foreground));
-  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid rgb(0 0 0 / 0.12);
+  box-shadow: none;
+  padding: 5px 9px;
   font-size: 11px;
   font-weight: 600;
   line-height: 1.25;
-  color: var(--ink);
+  color: rgba(19, 33, 12, 0.92);
+  background: #f3f3f4;
 }
 
 .smart-helm-case-study .sh-chip--behaviour {
-  background: hsl(58 76% 76%);
+  background: #f0f0f2;
+  border-color: rgb(0 0 0 / 0.1);
 }
 
 .smart-helm-case-study .sh-chip--challenge {
-  background: hsl(352 61% 83%);
+  background: #fafafa;
+  border-color: rgb(0 0 0 / 0.14);
 }
 
 .smart-helm-case-study .sh-persona-card--fleet .sh-chip--behaviour {
-  background: hsl(154 64% 78%);
+  background: #f0f0f2;
+  border-color: rgb(0 0 0 / 0.1);
 }
 
 .smart-helm-case-study .sh-persona-card--fleet .sh-chip--challenge {
-  background: hsl(16 77% 84%);
+  background: #fafafa;
+  border-color: rgb(0 0 0 / 0.14);
 }
 
 .smart-helm-case-study .sh-persona-kicker {
@@ -746,6 +771,11 @@
   margin: 0 48px;
 }
 
+/* Air between Design band and Solution (hairline + margin block) */
+.smart-helm-case-study #design + .divider {
+  margin: var(--sh-design-y-gap) 48px;
+}
+
 /* FOOTER — light */
 .smart-helm-case-study footer {
   background: hsl(var(--muted)) !important;
@@ -808,6 +838,10 @@
   }
   .smart-helm-case-study .divider {
     margin: 0 24px;
+  }
+
+  .smart-helm-case-study #design + .divider {
+    margin: var(--sh-design-y-gap) 24px;
   }
 
   .smart-helm-case-study .sh-persona-stack {
@@ -1564,10 +1598,12 @@
 
 .smart-helm-case-study .sh-app-screens-lead {
   font-size: 17px;
-  max-width: 600px;
+  max-width: none;
+  width: 100%;
+  margin-top: 0.35rem;
   margin-bottom: 2.5rem;
   line-height: 1.7;
-  color: var(--ink2);
+  color: rgba(19, 33, 12, 1);
 }
 
 /* —— Redesigned narrative blocks (portfolio tokens) —— */
@@ -1975,7 +2011,7 @@
   margin-top: 1.5rem;
 }
 
-/* —— System design band: portfolio violet / blue, motion, elevated cards —— */
+/* —— Design band (#design): portfolio violet / blue wash, soft grid, motion, full-width inner —— */
 @keyframes sh-design-band-flow {
   0% {
     background-position: 0% 50%;
@@ -1988,6 +2024,7 @@
 .smart-helm-case-study .band.sh-design-band {
   position: relative;
   overflow: hidden;
+  border-radius: var(--radius-sm);
   background: linear-gradient(
     125deg,
     hsl(268 42% 96%) 0%,
@@ -2012,20 +2049,82 @@
   pointer-events: none;
   position: absolute;
   inset: 0;
+  z-index: 0;
+  border-radius: inherit;
   background: radial-gradient(ellipse 80% 60% at 20% 20%, hsl(258 68% 56% / 0.09), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 85% 75%, hsl(230 55% 50% / 0.07), transparent 50%);
+    radial-gradient(ellipse 70% 50% at 85% 75%, hsl(230 55% 50% / 0.07), transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 19px,
+      hsl(264 35% 58% / 0.11) 19px,
+      hsl(264 35% 58% / 0.11) 20px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 19px,
+      hsl(264 35% 58% / 0.11) 19px,
+      hsl(264 35% 58% / 0.11) 20px
+    );
   opacity: 1;
 }
 
 .smart-helm-case-study .sh-design-band-inner {
   position: relative;
   z-index: 1;
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.smart-helm-case-study .sh-design-band-h2 {
+  margin-top: 0.5rem;
+}
+
+/* Week 3 design: vertical stack of named sections (storyboard → system arch → actors & rules) */
+.smart-helm-case-study .sh-design-threads {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-design-y-gap);
+  margin-top: 1.25rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.smart-helm-case-study .sh-design-stacked {
+  min-width: 0;
+  width: 100%;
+  /* Nested under #design; override global .smart-helm-case-study section padding */
+  padding: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.smart-helm-case-study .sh-design-section--storyboard .sh-design-split {
+  margin-top: 0.65rem;
+}
+
+.smart-helm-case-study .sh-design-section--actors-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 0;
+}
+
+.smart-helm-case-study .sh-design-section--actors-rules .sh-design-rules-grid {
+  gap: 24px;
+  margin-top: 0;
 }
 
 /* —— Week 3 · Brainstorming, moodboard, IA (see smart_helmet_brainstorm_storyboard.html & smart_helmet_moodboard.html) —— */
 .smart-helm-case-study .sh-design-week3-lead {
   margin-top: 0.35rem;
-  max-width: 48rem;
+  max-width: none;
+  width: 100%;
 }
 
 .smart-helm-case-study .sh-design-panel {
@@ -2046,7 +2145,8 @@
   line-height: 1.55;
   color: var(--ink2);
   margin: 0 0 1rem;
-  max-width: 44rem;
+  max-width: none;
+  width: 100%;
 }
 
 /* Brainstorm + moodboard: one section, full-width stack, 2rem gap between boards */
@@ -2058,20 +2158,27 @@
   margin-top: 1rem;
 }
 
-.smart-helm-case-study .sh-design-panel--split {
-  margin-top: 0;
-  min-width: 0;
-  width: 100%;
-}
-
-.smart-helm-case-study .sh-design-panel--split .sh-brainstorm-board,
-.smart-helm-case-study .sh-design-panel--split .sh-ia-reference-board {
+.smart-helm-case-study .sh-design-threads .sh-brainstorm-board,
+.smart-helm-case-study .sh-design-threads .sh-ia-reference-board {
   width: 100%;
   max-width: none;
 }
 
 .smart-helm-case-study .sh-system-arch-inline {
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.smart-helm-case-study .sh-system-arch-inline .sh-system-arch-heading {
+  margin-top: 0;
+}
+
+.smart-helm-case-study .sh-system-arch-inline .sh-ia-tree {
+  margin-top: 0.25rem;
 }
 
 .smart-helm-case-study .sh-system-arch-figure {
@@ -2200,213 +2307,174 @@
   margin-top: 0.12rem;
 }
 
-/* Brainstorming board — hand-drawn storyboard: blue → magenta wall + tilted stickies */
+/* Brainstorming board — Miro "Video storyboard" reference: 2× grid, white scene cards, overlapping square soft stickies */
 .smart-helm-case-study .sh-brainstorm-board {
-  --bb-hand: Arial, sans-serif;
-  border-radius: 1rem;
-  padding: 1.35rem 1.15rem 1.5rem;
+  /* Canvas + 4 soft sticky fills (yellow / blue / lavender / orange) */
+  --bb-surface: #f5f5f5;
+  --bb-dot: #d8d8d8;
+  --bb-ink: #0f0f0f;
+  --bb-sticky-sun: #f9e076;
+  --bb-sticky-sky: #90caf9;
+  --bb-sticky-iris: #b4b9ff;
+  --bb-sticky-amber: #ffb347;
+  --bb-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.1rem 1.5rem;
   overflow: visible;
-  background:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 255, 255, 0.08), transparent 50%),
-    linear-gradient(180deg, hsl(225 72% 34%) 0%, hsl(265 65% 42%) 48%, hsl(310 72% 55%) 100%);
-  box-shadow:
-    0 16px 40px hsl(265 70% 25% / 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+  background-image: radial-gradient(var(--bb-dot) 0.6px, transparent 0.6px);
+  background-size: 18px 18px;
+  background-position: 0 0;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
 }
 
 .smart-helm-case-study .sh-brainstorm-board-kicker {
-  font-family: var(--bb-hand);
-  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.96);
-  margin: 0 0 1.15rem;
-  text-shadow: 0 1px 2px hsl(265 80% 18% / 0.45);
-  transform: rotate(-0.8deg);
-  max-width: 22rem;
-  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+  font-family: var(--bb-ui);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0f0f0f;
+  margin: 0 0 1.25rem;
+  max-width: 100%;
+  line-height: 1.3;
+  text-align: left;
+  padding: 0;
 }
 
 .smart-helm-case-study .sh-brainstorm-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.smart-helm-case-study .sh-brainstorm-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem 0.7rem;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.smart-helm-case-study .sh-brainstorm-row:nth-child(odd) {
-  padding-left: 0.35rem;
-}
-
-.smart-helm-case-study .sh-brainstorm-row:nth-child(even) {
-  padding-left: 0.85rem;
-}
-
-.smart-helm-case-study .sh-brainstorm-note {
   position: relative;
-  flex: 1 1 7rem;
-  min-width: min(100%, 6.25rem);
-  border-radius: 3px 5px 4px 4px;
-  padding: 0.7rem 0.8rem 0.75rem;
-  font-family: var(--bb-hand);
-  font-size: 0.82rem;
-  line-height: 1.3;
-  font-style: italic;
-  box-shadow:
-    0 2px 0 rgba(255, 255, 255, 0.35) inset,
-    0 6px 18px rgba(0, 0, 0, 0.28),
-    2px 4px 0 rgba(0, 0, 0, 0.06);
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.1rem 0.65rem;
+  align-items: start;
+  font-family: var(--bb-ui);
+}
+
+.smart-helm-case-study .sh-brainstorm-scene {
+  margin: 0;
+  padding: 1.1rem 1rem 1.05rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.08), 0 4px 12px rgb(0 0 0 / 0.04);
+  border: 1px solid #ebebeb;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.3rem;
-  z-index: 0;
+  align-items: stretch;
+  min-width: 0;
 }
 
-.smart-helm-case-study .sh-brainstorm-note strong {
-  font-family: var(--bb-hand);
-  font-size: 0.9rem;
-  font-weight: 700;
-  font-style: italic;
-  display: block;
-  margin-bottom: 0.12rem;
-  line-height: 1.2;
-}
-
-.smart-helm-case-study .sh-brainstorm-note span {
-  display: block;
-  font-size: 0.76rem;
+.smart-helm-case-study .sh-brainstorm-scene-label {
+  margin: 0 0 0.4rem;
+  width: 100%;
+  font-family: var(--bb-ui), var(--font-body), system-ui, sans-serif;
+  font-size: 0.9375rem;
   font-weight: 600;
-  font-style: italic;
-  opacity: 0.98;
+  color: #0f0f0f;
+  line-height: 1.2;
+  text-align: left;
+  letter-spacing: -0.01em;
+  font-feature-settings: normal;
 }
 
-/* Irregular “taped on the wall” tilts */
-.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(1) {
-  transform: rotate(-1.6deg) translateY(2px);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(2) {
-  transform: rotate(0.9deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(3) {
-  transform: rotate(-0.7deg) translateY(4px);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(4) {
-  transform: rotate(1.2deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(1) .sh-brainstorm-note:nth-child(5) {
-  transform: rotate(-1deg) translateY(-2px);
-}
-
-.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(1) {
-  transform: rotate(1.1deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(2) {
-  transform: rotate(-1.3deg) translateY(3px);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(3) {
-  transform: rotate(-0.5deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(4) {
-  transform: rotate(1.4deg) translateY(2px);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(2) .sh-brainstorm-note:nth-child(5) {
-  transform: rotate(-0.9deg);
+/* Square sticky in document flow (no image placeholder) */
+.smart-helm-case-study .sh-brainstorm-sticky {
+  position: relative;
+  z-index: 1;
+  width: 5.25rem;
+  min-width: 5.25rem;
+  min-height: 5.25rem;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+  margin: 0.15rem auto 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.4rem;
+  border-radius: 2px;
+  border: 1px solid rgb(0 0 0 / 0.05);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.14), 0 1px 2px rgb(0 0 0 / 0.1);
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
-.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(1) {
-  transform: rotate(-1.1deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(2) {
-  transform: rotate(0.8deg) translateY(4px);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(3) {
-  transform: rotate(-1.4deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(4) {
-  transform: rotate(1deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(3) .sh-brainstorm-note:nth-child(5) {
-  transform: rotate(-0.6deg) translateY(-3px);
+/* Rotating 4 Miro “soft” fills in reading order */
+.smart-helm-case-study .sh-brainstorm-sticky-4n1 .sh-brainstorm-sticky {
+  background: var(--bb-sticky-sun, #f9e076);
 }
 
-.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(1) {
-  transform: rotate(1.2deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(2) {
-  transform: rotate(-1deg) translateY(2px);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(3) {
-  transform: rotate(0.7deg);
-}
-.smart-helm-case-study .sh-brainstorm-row:nth-child(4) .sh-brainstorm-note:nth-child(4) {
-  transform: rotate(-1.5deg);
+.smart-helm-case-study .sh-brainstorm-sticky-4n2 .sh-brainstorm-sticky {
+  background: var(--bb-sticky-sky, #90caf9);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .smart-helm-case-study .sh-brainstorm-board-kicker,
-  .smart-helm-case-study .sh-brainstorm-row .sh-brainstorm-note {
-    transform: none;
+.smart-helm-case-study .sh-brainstorm-sticky-4n3 .sh-brainstorm-sticky {
+  background: var(--bb-sticky-iris, #b4b9ff);
+}
+
+.smart-helm-case-study .sh-brainstorm-sticky-4n4 .sh-brainstorm-sticky {
+  background: var(--bb-sticky-amber, #ffb347);
+}
+
+.smart-helm-case-study .sh-brainstorm-sticky--long {
+  min-height: 5.5rem;
+  width: 100%;
+  min-width: 0;
+  max-width: 7.25rem;
+  aspect-ratio: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.smart-helm-case-study .sh-brainstorm-sticky-text {
+  margin: 0;
+  font-size: 0.64rem;
+  line-height: 1.2;
+  font-weight: 500;
+  text-align: center;
+  color: #0f0f0f;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.smart-helm-case-study .sh-brainstorm-sticky--long .sh-brainstorm-sticky-text {
+  font-size: 0.6rem;
+  line-height: 1.16;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Descriptive copy under the sticky: smaller, left-aligned */
+.smart-helm-case-study .sh-brainstorm-scene-body {
+  margin: 0;
+  font-family: var(--bb-ui), var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #1a1a1a;
+  text-align: left;
+  letter-spacing: 0.01em;
+  font-feature-settings: normal;
+}
+
+@media (max-width: 1024px) {
+  .smart-helm-case-study .sh-brainstorm-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem 0.95rem;
   }
 }
 
-.smart-helm-case-study .sh-brainstorm-note--popular {
-  flex: 1.25 1 9rem;
-  border: 3px solid #141414;
-  min-height: 5.75rem;
-  z-index: 1;
-}
-
-/* Semi-transparent green “vote” square on the popular idea */
-.smart-helm-case-study .sh-brainstorm-note--popular::before {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: -5px;
-  width: 34px;
-  height: 34px;
-  background: rgba(34, 197, 94, 0.42);
-  border: 2px solid rgba(21, 128, 61, 0.65);
-  border-radius: 2px;
-  transform: rotate(-11deg);
-  z-index: 2;
-  pointer-events: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.smart-helm-case-study .sh-brainstorm-note--wide {
-  flex: 2 1 12rem;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--narrow {
-  flex: 0.85 1 5rem;
-}
-
-.smart-helm-case-study .sh-brainstorm-badge {
-  font-family: var(--font-heading);
-  font-size: 0.46rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: #141414;
-  color: #fde047;
-  border-radius: 2px;
-  padding: 3px 7px;
-  width: fit-content;
-  margin-bottom: 0.35rem;
-  position: relative;
-  z-index: 3;
-  transform: rotate(-1deg);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+@media (max-width: 640px) {
+  .smart-helm-case-study .sh-brainstorm-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
 }
 
 /* Tighten vertical rhythm around Journey section */
@@ -2486,94 +2554,23 @@
 
 .smart-helm-case-study .sh-key-decisions .sh-decision-stack {
   margin-top: 1.55rem;
-  gap: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  color: rgba(19, 33, 12, 1);
 }
 
-.smart-helm-case-study .sh-key-decisions .sh-decision-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  border: 1px solid color-mix(in srgb, var(--accent2) 24%, hsl(var(--border))) !important;
-  background: linear-gradient(165deg, #ffffff 0%, #f8f6ff 100%);
-  box-shadow: 0 10px 24px hsl(var(--foreground) / 0.06);
-  padding: 1.15rem 1.2rem 1.2rem;
-}
-
+/* Legacy gradient decision cards — superseded by flat cards below; keep stack rhythm only */
 .smart-helm-case-study .sh-key-decisions .sh-decision-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 60%, var(--accent3) 100%);
+  content: none;
 }
 
 .smart-helm-case-study .sh-key-decisions .sh-decision-card:hover {
-  box-shadow: 0 18px 40px hsl(258 50% 50% / 0.14);
-  transform: translateY(-2px);
+  transform: none;
 }
 
-.smart-helm-case-study .sh-brainstorm-note--green {
-  background: #6fd68e;
-  color: #0d4020;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--green strong {
-  color: #083018;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--lt-green {
-  background: #b8f07a;
-  color: #1a3d00;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--lt-green strong {
-  color: #0f2600;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--yellow {
-  background: #fde047;
-  color: #4a3000;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--yellow strong {
-  color: #2e1e00;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--orange {
-  background: #fb923c;
-  color: #4a1e00;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--orange strong {
-  color: #2e1200;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--pink {
-  background: #f472b6;
-  color: #fff;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--pink strong {
-  color: #fff;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--purple {
-  background: #d8b4fe;
-  color: #2d0060;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--white {
-  background: #faf8f2;
-  color: #333;
-}
-
-.smart-helm-case-study .sh-brainstorm-note--white strong {
-  color: #111;
-}
-
-/* Moodboard — green canvas, handwritten (Caveat; same as brainstorm stickies) */
+/* Moodboard — green canvas, handwritten (Caveat) */
 .smart-helm-case-study .sh-moodboard-board {
   --mb-hand: "Caveat", cursive;
   border-radius: 0.85rem;
@@ -2836,13 +2833,14 @@
   padding: 1.25rem 0.95rem 1rem;
   overflow-x: auto;
   overflow-y: hidden;
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--accent) 12%, #eef3ff) 0%,
-    color-mix(in srgb, var(--accent2) 14%, #e8f0ff) 52%,
-    color-mix(in srgb, var(--accent3) 8%, #edf7ff) 100%
-  );
-  border: 1px solid color-mix(in srgb, var(--accent) 24%, #cfd8e3);
+  background:
+    radial-gradient(100% 85% at 8% 0%, rgb(255 255 255 / 0.92) 0%, transparent 55%),
+    radial-gradient(90% 70% at 100% 100%, rgb(217 217 243 / 0.28) 0%, transparent 52%),
+    linear-gradient(168deg, #fbf9ff 0%, #f3f1fc 45%, #eef0fb 100%);
+  border: 1px solid color-mix(in srgb, #d9d9f3 45%, #d4d0e0);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.7) inset,
+    0 8px 28px rgb(15 23 42 / 0.05);
 }
 
 .smart-helm-case-study .sh-ia-root {
@@ -2988,6 +2986,11 @@
   max-width: 44rem;
 }
 
+.smart-helm-case-study .sh-system-arch-inline .sh-ia-footnote {
+  max-width: none;
+  width: 100%;
+}
+
 .smart-helm-case-study .sh-ia-footnote strong {
   color: hsl(var(--tag-violet));
 }
@@ -3090,6 +3093,11 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-bottom: 0.5rem;
+}
+
+/* Actors live inside .sh-design-section--actors-rules; inter-section gap is .sh-design-threads */
+.smart-helm-case-study .sh-design-section--actors-rules .sh-actors-rail {
+  margin-top: 0;
 }
 
 @media (max-width: 900px) {
@@ -4660,7 +4668,8 @@
   box-shadow: 0 18px 38px hsl(var(--foreground) / 0.045);
 }
 
-.smart-helm-case-study .sh-brand-section .section-sub {
+.smart-helm-case-study .sh-key-decisions.sh-brand-section .section-sub,
+.smart-helm-case-study .sh-outcomes-section.sh-brand-section .section-sub {
   max-width: 68ch;
 }
 
@@ -4674,10 +4683,9 @@
 }
 
 .smart-helm-case-study .sh-key-decisions.sh-brand-section .sh-decision-card {
-  background:
-    radial-gradient(120% 95% at 0% 0%, color-mix(in srgb, hsl(var(--tag-violet)) 11%, #fff) 0%, transparent 56%),
-    hsl(var(--background) / 0.93);
-  border-color: color-mix(in srgb, hsl(var(--tag-violet)) 24%, hsl(var(--border))) !important;
+  background: #fff;
+  border: 1px solid #e2e2e8 !important;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.85) inset, 0 8px 20px rgb(15 23 42 / 0.05);
 }
 
 .smart-helm-case-study .sh-outcomes-section .section-title,
@@ -4736,12 +4744,21 @@
   line-height: 1.7;
 }
 
+/* ---- Solution section: wireframe + feature cards (stacked) ---- */
+.smart-helm-case-study .sh-solution-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+  min-width: 0;
+}
+
 /* ---- Solution section restyle: flat cards with color headers (reference-aligned) ---- */
 .smart-helm-case-study .sh-solution-section {
-  border: 1px solid hsl(var(--border));
+  border: none;
   border-radius: 1.2rem;
   background: hsl(var(--card));
-  box-shadow: 0 14px 30px hsl(var(--foreground) / 0.04);
+  box-shadow: none;
   overflow: hidden;
   color: rgba(19, 33, 12, 1);
 }
@@ -4769,9 +4786,9 @@
   flex-direction: column;
   gap: 0;
   padding: 0;
-  border-radius: 0.9rem;
-  border: 2px solid #2a2a2a;
-  box-shadow: none;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e2e8;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.8) inset, 0 8px 20px rgb(15 23 42 / 0.05);
   background: #fff;
   overflow: hidden;
 }
@@ -4781,25 +4798,26 @@
 }
 
 .smart-helm-case-study .sh-solution-card-head {
-  padding: 0.9rem 1rem 0.8rem;
-  border-bottom: 1px solid #2a2a2a;
+  padding: 0.75rem 1rem 0.7rem;
+  border-bottom: 1px solid rgb(0 0 0 / 0.08);
 }
 
 .smart-helm-case-study .sh-solution-title {
   margin: 0;
-  font-size: 1.15rem;
-  line-height: 1.2;
+  font-size: 1.02rem;
+  line-height: 1.25;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  color: #101010;
+  color: rgba(19, 33, 12, 1);
 }
 
 .smart-helm-case-study .sh-solution-list {
   margin: 0;
-  padding: 1rem 1.15rem 1.1rem 1.65rem;
+  padding: 0.9rem 1.05rem 1rem 1.5rem;
   list-style: disc;
-  color: #191919;
-  font-size: 1rem;
-  line-height: 1.75;
+  color: rgba(19, 33, 12, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.62;
 }
 
 .smart-helm-case-study .sh-solution-list li + li {
@@ -4807,41 +4825,45 @@
 }
 
 .smart-helm-case-study .sh-solution-card--violet .sh-solution-card-head {
-  background: #b996ff;
+  background: color-mix(in srgb, #d9d9f3 100%, #c4b5fd 6%);
 }
 
 .smart-helm-case-study .sh-solution-card--blue .sh-solution-card-head {
-  background: #79beff;
+  background: color-mix(in srgb, #d9d9f3 88%, #bae6fd 22%);
 }
 
 .smart-helm-case-study .sh-solution-card--yellow .sh-solution-card-head {
-  background: #ffe04d;
+  background: color-mix(in srgb, #fff7d6 70%, #d9d9f3 30%);
 }
 
 .smart-helm-case-study .sh-solution-card--green .sh-solution-card-head {
-  background: #caf76a;
+  background: color-mix(in srgb, #d9f3e3 55%, #d9d9f3 45%);
 }
 
 .smart-helm-case-study .sh-solution-card--pink .sh-solution-card-head {
-  background: #f7a4ff;
+  background: color-mix(in srgb, #f9d9e8 45%, #d9d9f3 55%);
 }
 
 .smart-helm-case-study .sh-solution-card--orange .sh-solution-card-head {
-  background: #ffc28a;
+  background: color-mix(in srgb, #ffe4cc 50%, #d9d9f3 50%);
 }
 
 .smart-helm-case-study .sh-wireframe-section {
-  border: 2px solid #2a2a2a;
-  border-radius: 0.9rem;
+  border: 1px solid #e2e2e8;
+  border-radius: 0.75rem;
   background: #fff;
-  padding: 1rem;
+  padding: 1rem 1rem 1.05rem;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.8) inset, 0 8px 20px rgb(15 23 42 / 0.05);
 }
 
 .smart-helm-case-study .sh-wireframe-title {
-  margin: 0 0 0.8rem;
-  font-size: 1.08rem;
-  line-height: 1.25;
-  color: #111;
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(19, 33, 12, 0.75);
 }
 
 .smart-helm-case-study .sh-wireframe-frame {
@@ -4852,11 +4874,36 @@
   overflow: hidden;
 }
 
+/* High-res wireframe (source: frame-10.pdf → wireframe-hd.png, 3599×4000) */
+.smart-helm-case-study .sh-wireframe-frame--hd {
+  background: #fafafa;
+}
+
 .smart-helm-case-study .sh-wireframe-image {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.smart-helm-case-study .sh-wireframe-pdf-cta {
+  margin: 0.65rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--ink2);
+}
+
+.smart-helm-case-study .sh-wireframe-pdf-link {
+  color: hsl(var(--tag-violet));
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.smart-helm-case-study .sh-wireframe-pdf-link:hover {
+  color: hsl(258 68% 40%);
 }
 
 @media (max-width: 1180px) {
@@ -4889,11 +4936,34 @@
   background: hsl(var(--card));
 }
 
-.smart-helm-case-study .sh-discovery-section .section-sub,
-.smart-helm-case-study .sh-research-section .section-sub,
-.smart-helm-case-study .sh-key-decisions .section-sub,
-.smart-helm-case-study .sh-outcomes-section .section-sub {
-  max-width: 68ch;
+/* Delivery principles: no outline border on section shell */
+.smart-helm-case-study .sh-key-decisions {
+  border: none;
+  box-shadow: none;
+}
+
+.smart-helm-case-study .sh-discovery-section.sh-brand-section .section-sub {
+  max-width: none;
+  width: 100%;
+  color: rgba(19, 33, 12, 1);
+  margin-top: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.smart-helm-case-study .sh-research-section.sh-brand-section .section-sub {
+  max-width: none;
+  width: 100%;
+  color: rgba(19, 33, 12, 1);
+  margin-top: 0.35rem;
+  margin-bottom: 1.65rem;
+}
+
+.smart-helm-case-study .sh-solution-section .section-sub {
+  max-width: none;
+  width: 100%;
+  color: rgba(19, 33, 12, 1);
+  margin-top: 0.35rem;
+  margin-bottom: 1.5rem;
 }
 
 .smart-helm-case-study .sh-gap-grid {
@@ -4920,21 +4990,14 @@
   border-bottom: 1px solid #2b2b2b;
   font-size: 1.12rem;
   line-height: 1.2;
-  color: #101010;
-}
-
-.smart-helm-case-study .sh-gap-card--violet .sh-gap-title {
-  background: #b996ff;
-}
-
-.smart-helm-case-study .sh-gap-card--blue .sh-gap-title {
-  background: #79beff;
+  color: rgba(19, 33, 12, 1);
+  background: #d9d9f3;
 }
 
 .smart-helm-case-study .sh-gap-list {
   margin: 0;
   padding: 1rem 1.15rem 1.1rem 1.65rem;
-  color: #161616;
+  color: rgba(19, 33, 12, 1);
   font-size: 1rem;
   line-height: 1.72;
 }
@@ -5035,19 +5098,22 @@
   line-height: 1.7;
 }
 
-.smart-helm-case-study .sh-key-decisions .sh-decision-stack {
-  margin-top: 1.5rem;
-  gap: 1rem;
-}
-
 .smart-helm-case-study .sh-key-decisions .sh-decision-card {
-  border: 2px solid #2b2b2b !important;
-  border-radius: 0.9rem;
-  box-shadow: none;
+  border: 1px solid rgb(229 231 235 / 0.9) !important;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
   background: #fff;
-  padding: 0;
+  padding: 1rem;
   overflow: hidden;
   transition: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.875rem;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 0;
 }
 
 .smart-helm-case-study .sh-key-decisions .sh-decision-card::before {
@@ -5056,87 +5122,46 @@
 
 .smart-helm-case-study .sh-key-decisions .sh-decision-card:hover {
   transform: none;
-  box-shadow: none;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
 }
 
 .smart-helm-case-study .sh-decision-card-title {
   margin: 0;
-  padding: 0.9rem 1rem 0.78rem;
-  border-bottom: 1px solid #2b2b2b;
-  font-size: 1.03rem;
-  line-height: 1.25;
-  color: #101010;
-}
-
-.smart-helm-case-study .sh-decision-stack .sh-decision-card:nth-child(1) .sh-decision-card-title {
-  background: #b996ff;
-}
-
-.smart-helm-case-study .sh-decision-stack .sh-decision-card:nth-child(2) .sh-decision-card-title {
-  background: #79beff;
-}
-
-.smart-helm-case-study .sh-decision-stack .sh-decision-card:nth-child(3) .sh-decision-card-title {
-  background: #caf76a;
+  padding: 0;
+  border-bottom: none;
+  font-size: 0.98rem;
+  line-height: 1.34;
+  font-weight: 700;
+  color: rgba(19, 33, 12, 1);
+  background: transparent;
+  letter-spacing: -0.01em;
 }
 
 .smart-helm-case-study .sh-decision-card-body {
   margin: 0;
-  padding: 0.92rem 1rem 1rem;
-  color: #202020;
-  font-size: 0.98rem;
-  line-height: 1.7;
-}
-
-.smart-helm-case-study .sh-outcomes-grid {
-  align-items: stretch;
-  gap: 1rem;
-}
-
-.smart-helm-case-study .sh-outcome-card {
-  border: 2px solid #2b2b2b;
-  border-radius: 0.9rem;
-  box-shadow: none;
-  background: #fff;
   padding: 0;
-  overflow: hidden;
+  color: rgba(19, 33, 12, 1);
+  font-size: 0.9rem;
+  line-height: 1.58;
 }
 
-.smart-helm-case-study .sh-outcome-card::before {
-  content: none;
+@media (min-width: 768px) {
+  .smart-helm-case-study .sh-key-decisions .sh-decision-card {
+    border-radius: 1.2rem;
+    padding: 1.25rem;
+  }
 }
 
-.smart-helm-case-study .sh-outcome-card-title {
-  margin: 0;
-  padding: 0.9rem 1rem 0.78rem;
-  border-bottom: 1px solid #2b2b2b;
-  font-size: 1.08rem;
-  line-height: 1.25;
-  color: #101010;
+@media (max-width: 1100px) {
+  .smart-helm-case-study .sh-key-decisions .sh-decision-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(1) .sh-outcome-card-title {
-  background: #b996ff;
-}
-
-.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(2) .sh-outcome-card-title {
-  background: #79beff;
-}
-
-.smart-helm-case-study .sh-outcomes-grid .sh-outcome-card:nth-child(3) .sh-outcome-card-title {
-  background: #ffe04d;
-}
-
-.smart-helm-case-study .sh-outcome-list {
-  margin: 0;
-  padding: 1rem 1.1rem 1.1rem 1.6rem;
-  color: #1c1c1c;
-  font-size: 0.98rem;
-  line-height: 1.72;
-}
-
-.smart-helm-case-study .sh-outcome-list li + li {
-  margin-top: 0.28rem;
+@media (max-width: 700px) {
+  .smart-helm-case-study .sh-key-decisions .sh-decision-stack {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
@@ -5275,31 +5300,32 @@
   }
 }
 
-/* ---- Smart Helmet accent unification: header bands ---- */
+/* ---- Smart Helmet accent unification: header bands (Discovery, Solution, Key decisions) ---- */
 .smart-helm-case-study .sh-gap-title,
-.smart-helm-case-study .sh-solution-card-head,
-.smart-helm-case-study .sh-decision-card-title,
-.smart-helm-case-study .sh-outcome-card-title {
-  background: #d3ff56 !important;
-  color: #111111 !important;
+.smart-helm-case-study .sh-solution-card-head {
+  background: #d9d9f3 !important;
+  color: rgba(19, 33, 12, 1) !important;
 }
 
-/* Outcomes cards aligned to Research card style */
-.smart-helm-case-study .sh-outcomes-grid {
+/* Outcomes: three equal cards, uniform inset on all sides */
+.smart-helm-case-study .sh-outcomes-section .sh-outcomes-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: stretch;
 }
 
 .smart-helm-case-study .sh-outcomes-grid .sh-outcome-card {
   background: #fff;
-  border-radius: 1.15rem;
-  border: 1px solid #efefef;
-  box-shadow: 0 2px 8px rgb(17 24 39 / 0.06);
-  min-height: 258px;
-  padding: 1.05rem 1rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e2e8;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.85) inset, 0 8px 20px rgb(15 23 42 / 0.05);
+  min-height: 0;
+  padding: 1.1rem;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .smart-helm-case-study .sh-outcomes-grid .sh-outcome-card::before {
@@ -5308,28 +5334,30 @@
 
 .smart-helm-case-study .sh-outcomes-grid .sh-outcome-card-title {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0.7rem;
   background: transparent !important;
   border: none;
-  color: #141414 !important;
+  border-bottom: 1px solid rgb(0 0 0 / 0.08);
+  color: rgba(19, 33, 12, 1) !important;
   font-family: var(--font-heading);
-  font-size: 1.12rem;
-  font-weight: 700;
-  line-height: 1.25;
+  font-size: 1.02rem;
+  font-weight: 800;
+  line-height: 1.28;
   letter-spacing: -0.02em;
 }
 
 .smart-helm-case-study .sh-outcomes-grid .sh-outcome-list {
-  margin: 0.7rem 0 0;
-  padding: 0 0 0 1.05rem;
-  color: #2b2b2b;
+  margin: 0.85rem 0 0;
+  padding: 0 0 0 1.1rem;
+  color: rgba(19, 33, 12, 0.88);
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 0.92rem;
+  line-height: 1.62;
+  flex: 1 1 auto;
 }
 
 .smart-helm-case-study .sh-outcomes-grid .sh-outcome-list li + li {
-  margin-top: 0.25rem;
+  margin-top: 0.28rem;
 }
 
 /* Reflection stats: match View Figma button blue */
@@ -5358,4 +5386,33 @@
 
 .smart-helm-case-study .sh-outcomes-section .sh-exp-stat-label {
   color: rgb(255 255 255 / 0.9);
+}
+
+/* ---- Section intro copy: full-width + consistent vertical rhythm ---- */
+.smart-helm-case-study .sh-discovery-section > .section-sub,
+.smart-helm-case-study .sh-research-section > .section-sub,
+.smart-helm-case-study .sh-solution-section > .section-sub {
+  max-width: none;
+  width: 100%;
+  color: rgba(19, 33, 12, 1);
+}
+
+.smart-helm-case-study .sh-discovery-section > .section-sub {
+  margin: 0.55rem 0 1.75rem;
+}
+
+.smart-helm-case-study .sh-research-section > .section-sub {
+  margin: 0.4rem 0 1.65rem;
+}
+
+.smart-helm-case-study .sh-solution-section > .section-sub {
+  margin: 0.4rem 0 1.5rem;
+}
+
+.smart-helm-case-study .sh-app-screens-lead {
+  max-width: none;
+  width: 100%;
+  color: rgba(19, 33, 12, 1);
+  margin-top: 0.4rem;
+  margin-bottom: 2.4rem;
 }

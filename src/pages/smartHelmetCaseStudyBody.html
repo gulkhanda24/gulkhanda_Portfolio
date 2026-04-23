@@ -249,118 +249,168 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
 <!-- DESIGN -->
 <div id="design" class="band fade-in sh-design-band">
   <div class="band-inner sh-design-band-inner">
     <div class="section-label sh-design-section-label">Week 3 · Design</div>
-    <h2 class="section-title" style="margin-top: 8px;">Brainstorming and Information Architecture</h2>
+    <h2 class="section-title sh-design-band-h2">Brainstorming and Information Architecture</h2>
     <p class="section-sub sh-design-week3-lead">
       I started with a broad brainstorming sprint to generate many alternatives fast, without debating quality too early. Then I translated the strongest ideas into one clear app architecture that guided wireframes, flows, and screen priorities.
     </p>
 
-    <!-- Brainstorming + information architecture: single section -->
-    <section class="sh-design-panel sh-design-panel--split fade-in" aria-labelledby="sh-brain-mood-heading">
-      <h3 id="sh-brain-mood-heading" class="sh-design-panel-title">Brainstorming storyboard &amp; information architecture</h3>
-      <p class="sh-design-panel-lead">
-        I mapped every product direction on a sticky-note board, clustered patterns, and prioritized rider safety moments first. From there, I built the final information architecture to connect onboarding, ride states, emergency actions, and account management in one coherent flow.
-      </p>
+    <div class="sh-design-threads">
+    <section class="fade-in sh-design-stacked sh-design-section--storyboard" aria-labelledby="sh-storyboard-heading">
+      <h3 id="sh-storyboard-heading" class="sh-design-panel-title sh-design-section-h">Brainstorming and Storyboard</h3>
       <div class="sh-design-split">
-      <div class="sh-brainstorm-board" aria-label="Brainstorming sticky notes">
+      <div class="sh-brainstorm-board" aria-label="Brainstorming video storyboard style">
         <p class="sh-brainstorm-board-kicker">Smart Helmet: Brainstorming Storyboard</p>
         <div class="sh-brainstorm-grid">
-          <div class="sh-brainstorm-row">
-            <div class="sh-brainstorm-note sh-brainstorm-note--green sh-brainstorm-note--popular">
-              <span class="sh-brainstorm-badge">Most popular idea</span>
-              <strong>Smart Helmet + App Ecosystem</strong>
-              <span>Connected helmet syncing with mobile app, live stats, route, crash detection</span>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n1">
+            <h4 class="sh-brainstorm-scene-label">Scene 1</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Smart Helmet + App Ecosystem</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--lt-green">
-              <strong>Crash Detection Sensor</strong>
-              <span>Auto-calls emergency contacts &amp; shares GPS on impact</span>
+            <p class="sh-brainstorm-scene-body">Connected helmet syncing with mobile app, live stats, route, crash detection</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n2">
+            <h4 class="sh-brainstorm-scene-label">Scene 2</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Crash Detection Sensor</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--lt-green">
-              <strong>Built-in GPS Navigation</strong>
-              <span>Turn-by-turn audio directions via bone conduction speakers</span>
+            <p class="sh-brainstorm-scene-body">Auto-calls emergency contacts &amp; shares GPS on impact</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n3">
+            <h4 class="sh-brainstorm-scene-label">Scene 3</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Built-in GPS Navigation</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--lt-green">
-              <strong>Rear Brake Light</strong>
-              <span>Integrated LED strip that reacts to deceleration</span>
+            <p class="sh-brainstorm-scene-body">Turn-by-turn audio directions via bone conduction speakers</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n4">
+            <h4 class="sh-brainstorm-scene-label">Scene 4</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Rear Brake Light</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--lt-green">
-              <strong>Bluetooth Comms</strong>
-              <span>Rider-to-rider intercom up to 1 km range</span>
+            <p class="sh-brainstorm-scene-body">Integrated LED strip that reacts to deceleration</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n1">
+            <h4 class="sh-brainstorm-scene-label">Scene 5</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Bluetooth Comms</p>
             </div>
-          </div>
-          <div class="sh-brainstorm-row">
-            <div class="sh-brainstorm-note sh-brainstorm-note--white sh-brainstorm-note--narrow">
-              <span>Visor HUD showing speed and battery level of connected e-bike</span>
+            <p class="sh-brainstorm-scene-body">Rider-to-rider intercom up to 1 km range</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n2">
+            <h4 class="sh-brainstorm-scene-label">Scene 6</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Visor HUD showing speed and battery level of connected e-bike</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--white sh-brainstorm-note--narrow">
-              <span>App on phone connecting with helmet via BLE, logs every ride</span>
+            <p class="sh-brainstorm-scene-body">Visor HUD showing speed and battery level of connected e-bike</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n3">
+            <h4 class="sh-brainstorm-scene-label">Scene 7</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">App on phone connecting with helmet via BLE, logs every ride</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--green sh-brainstorm-note--wide">
-              <strong>Virtual Riding Coach</strong>
-              <span>Real-time posture and braking feedback through audio cues</span>
+            <p class="sh-brainstorm-scene-body">App on phone connecting with helmet via BLE, logs every ride</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n4">
+            <h4 class="sh-brainstorm-scene-label">Scene 8</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Virtual Riding Coach</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--green">
-              <strong>Navigation / Communication Kiosk</strong>
-              <span>Public kiosk to pair helmet, update maps &amp; emergency contacts</span>
+            <p class="sh-brainstorm-scene-body">Real-time posture and braking feedback through audio cues</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n1">
+            <h4 class="sh-brainstorm-scene-label">Scene 9</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Navigation / Communication Kiosk</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--green">
-              <strong>Fake Ride Trainer</strong>
-              <span>Indoor stationary rig for safe helmet UX practice off-road</span>
+            <p class="sh-brainstorm-scene-body">Public kiosk to pair helmet, update maps &amp; emergency contacts</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n2">
+            <h4 class="sh-brainstorm-scene-label">Scene 10</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Fake Ride Trainer</p>
             </div>
-          </div>
-          <div class="sh-brainstorm-row">
-            <div class="sh-brainstorm-note sh-brainstorm-note--yellow sh-brainstorm-note--wide">
-              <strong>Augmented Visor Goggles</strong>
-              <span>AR overlay: speed, hazards, weather, lane guidance on visor glass</span>
+            <p class="sh-brainstorm-scene-body">Indoor stationary rig for safe helmet UX practice off-road</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n3">
+            <h4 class="sh-brainstorm-scene-label">Scene 11</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Augmented Visor Goggles</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--yellow">
-              <strong>Radar-Aware Helmet Shell</strong>
-              <span>Blind spots · temple vibration · RECCO for rescue ops</span>
+            <p class="sh-brainstorm-scene-body">AR overlay: speed, hazards, weather, lane guidance on visor glass</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n4">
+            <h4 class="sh-brainstorm-scene-label">Scene 12</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Radar-Aware Helmet Shell</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--yellow">
-              <strong>Smart Helmet Glove Pair</strong>
-              <span>Turn-signal gestures linked to helmet blinkers</span>
+            <p class="sh-brainstorm-scene-body">Blind spots · temple vibration · RECCO for rescue ops</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n1">
+            <h4 class="sh-brainstorm-scene-label">Scene 13</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Smart Helmet Glove Pair</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--yellow">
-              <strong>Augmented Rider Suit</strong>
-              <span>Posture · tracker · airbag trigger</span>
+            <p class="sh-brainstorm-scene-body">Turn-signal gestures linked to helmet blinkers</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n2">
+            <h4 class="sh-brainstorm-scene-label">Scene 14</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Augmented Rider Suit</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--yellow sh-brainstorm-note--narrow">
-              <strong>Intelligent HUD</strong>
-              <span>Beginners · find friends · posture</span>
+            <p class="sh-brainstorm-scene-body">Posture · tracker · airbag trigger</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n3">
+            <h4 class="sh-brainstorm-scene-label">Scene 15</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Intelligent HUD</p>
             </div>
-          </div>
-          <div class="sh-brainstorm-row">
-            <div class="sh-brainstorm-note sh-brainstorm-note--orange">
-              <strong>Wearable Sensor Patch</strong>
-              <span>Fatigue · drowsiness · vibrate · contact emergency services</span>
+            <p class="sh-brainstorm-scene-body">Beginners · find friends · posture</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n4">
+            <h4 class="sh-brainstorm-scene-label">Scene 16</h4>
+            <div class="sh-brainstorm-sticky">
+              <p class="sh-brainstorm-sticky-text">Wearable Sensor Patch</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--orange sh-brainstorm-note--wide">
-              <strong>Smart Helmet Full Feature Set</strong>
-              <span>Speed, elevation, battery · comms · friends on map · route overview · footage · SOS</span>
+            <p class="sh-brainstorm-scene-body">Fatigue · drowsiness · vibrate · contact emergency services</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n1">
+            <h4 class="sh-brainstorm-scene-label">Scene 17</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Smart Helmet Full Feature Set</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--pink">
-              <strong>Group Ride Tracker</strong>
-              <span>Helmet mesh, party position on shared map</span>
+            <p class="sh-brainstorm-scene-body">Speed, elevation, battery · comms · friends on map · route overview · footage · SOS</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n2">
+            <h4 class="sh-brainstorm-scene-label">Scene 18</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Group Ride Tracker</p>
             </div>
-            <div class="sh-brainstorm-note sh-brainstorm-note--purple sh-brainstorm-note--narrow">
-              <span>Smart bike can locate rider &amp; broadcast GPS to group members</span>
+            <p class="sh-brainstorm-scene-body">Helmet mesh, party position on shared map</p>
+          </article>
+          <article class="sh-brainstorm-scene sh-brainstorm-sticky-4n3">
+            <h4 class="sh-brainstorm-scene-label">Scene 19</h4>
+            <div class="sh-brainstorm-sticky sh-brainstorm-sticky--long">
+              <p class="sh-brainstorm-sticky-text">Smart bike can locate rider &amp; broadcast GPS to group members</p>
             </div>
-          </div>
+            <p class="sh-brainstorm-scene-body">Smart bike can locate rider &amp; broadcast GPS to group members</p>
+          </article>
         </div>
       </div>
-
       </div>
+    </section>
 
-      <!-- System architecture -->
-      <div class="sh-system-arch-inline" aria-labelledby="sh-ia-heading">
-      <div class="sh-ia-tree" aria-label="Smart Helmet app system architecture">
-        <div id="sh-ia-heading" class="sh-ia-root">Smart Helmet App</div>
+    <section class="fade-in sh-design-stacked sh-design-section--system-arch" aria-labelledby="sh-system-arch-heading">
+      <div class="sh-system-arch-inline" aria-labelledby="sh-system-arch-heading">
+        <h3 id="sh-system-arch-heading" class="sh-design-panel-title sh-system-arch-heading">System Architecture</h3>
+        <p class="sh-design-panel-lead sh-system-arch-lead">
+          I mapped every product direction on a sticky-note board, clustered patterns, and prioritized rider safety moments first. From there, I built the final information architecture to connect onboarding, ride states, emergency actions, and account management in one coherent flow.
+        </p>
+        <div class="sh-ia-tree" aria-label="Smart Helmet app system architecture">
+        <div class="sh-ia-root">Smart Helmet App</div>
         <div class="sh-ia-level1">
           <article class="sh-ia-branch">
             <h4 class="sh-ia-label">System</h4>
@@ -420,12 +470,14 @@
             <ul class="sh-ia-list"><li>Terms &amp; Conditions</li><li>Privacy Policy</li><li>App Version Info</li></ul>
           </article>
         </div>
-      </div>
-      <p class="sh-ia-footnote">What I delivered: a single architecture map that made feature ownership clear and kept every critical rider journey connected from home to ride, emergency, and support.</p>
+        </div>
+        <p class="sh-ia-footnote">What I delivered: a single architecture map that made feature ownership clear and kept every critical rider journey connected from home to ride, emergency, and support.</p>
       </div>
     </section>
 
-    <div class="sh-actors-rail fade-in" role="list" style="margin-top: 1.5rem;">
+    <section class="fade-in sh-design-stacked sh-design-section--actors-rules" aria-labelledby="sh-actors-rules-heading">
+      <h3 id="sh-actors-rules-heading" class="sh-design-panel-title sh-design-section-h">Actors and Rules</h3>
+    <div class="sh-actors-rail fade-in" role="list">
       <article class="sh-actor-rail-card fade-in" role="listitem">
         <span class="sh-actor-rail-num">Actor 01</span>
         <h3 class="sh-actor-rail-title">Rider</h3>
@@ -447,7 +499,7 @@
         <p class="sh-actor-rail-body">Identity verification for bounded emergency bypass.</p>
       </article>
     </div>
-    <div class="grid-2 sh-design-rules-grid" style="gap: 24px; margin-top: 1.5rem;">
+    <div class="grid-2 sh-design-rules-grid">
       <div class="card sh-design-rule-card">
         <div style="font-weight: 800; margin-bottom: 8px;">Rule 1 · No helmet, no start</div>
         <p style="font-size: 14px; color: var(--ink2); line-height: 1.6; margin: 0;">Ignition unlocks only when helmet state and pairing are valid.</p>
@@ -457,17 +509,44 @@
         <p style="font-size: 14px; color: var(--ink2); line-height: 1.6; margin: 0;">Sync loss, theft movement, and SOS trigger high-priority alerts with traceable logs.</p>
       </div>
     </div>
+    </section>
+    </div>
   </div>
 </div>
 
 <!-- SOLUTION -->
-<div class="divider"></div>
 <div id="solution"></div>
 <section class="fade-in sh-solution-section">
   <div class="section-label">04 · Solution</div>
   <h2 class="section-title">What we built in v1 and what comes next.</h2>
   <p class="section-sub">The shipped foundation enforces compliance and emergency response first, with analytics and deeper controls planned for later phases.</p>
-  <div class="grid-2 sh-solution-grid" style="margin-top: 1.5rem;">
+  <div class="sh-solution-body">
+  <div class="sh-wireframe-section fade-in">
+    <h3 class="sh-wireframe-title">Wireframe</h3>
+    <div class="sh-wireframe-frame sh-wireframe-frame--hd">
+      <img
+        class="sh-wireframe-image"
+        src="/case-studies/smart-helmet/wireframe-hd.png"
+        width="3599"
+        height="4000"
+        srcset="/case-studies/smart-helmet/wireframe-hd.png 3599w"
+        sizes="(max-width: 1200px) 100vw, 1152px"
+        alt="Smart Helmet app wireframe board showing core onboarding, profile, ride, and dashboard screens"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+      />
+    </div>
+    <p class="sh-wireframe-pdf-cta">
+      <a
+        class="sh-wireframe-pdf-link"
+        href="/case-studies/smart-helmet/frame-10.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Open full-resolution PDF (vector)</a>
+    </p>
+  </div>
+  <div class="grid-2 sh-solution-grid">
     <div class="card fade-in sh-solution-card sh-solution-card--violet">
       <div class="sh-solution-card-head">
         <h3 class="sh-solution-title">Must-wear ignition lock</h3>
@@ -529,18 +608,6 @@
       </ul>
     </div>
   </div>
-  <div class="sh-wireframe-section fade-in" style="margin-top: 1.5rem;">
-    <h3 class="sh-wireframe-title">Wireframe</h3>
-    <div class="sh-wireframe-frame">
-      <img
-        class="sh-wireframe-image"
-        src="/case-studies/smart-helmet/wireframe.png"
-        srcset="/case-studies/smart-helmet/wireframe.png 1x, /case-studies/smart-helmet/wireframe@2x.png 2x"
-        alt="Smart Helmet app wireframe board showing core onboarding, profile, ride, and dashboard screens"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
   </div>
 </section>
 
@@ -555,8 +622,6 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
 <!-- OUTCOMES -->
 <div id="outcomes"></div>
 <section class="fade-in sh-outcomes-section sh-brand-section">
@@ -569,7 +634,7 @@
     <div class="sh-exp-stat-card fade-in"><p class="sh-exp-stat-value">10+</p><p class="sh-exp-stat-label">Planned user tests in next cycle</p></div>
     <div class="sh-exp-stat-card fade-in"><p class="sh-exp-stat-value sh-exp-stat-value--warn">1</p><p class="sh-exp-stat-label">Core focus: trust in edge cases</p></div>
   </div>
-  <div class="grid-3 sh-outcomes-grid" style="margin-top: 1.5rem;">
+  <div class="grid-3 sh-outcomes-grid">
     <div class="card fade-in sh-outcome-card">
       <h3 class="sh-outcome-card-title">What worked</h3>
       <ul class="sh-outcome-list">

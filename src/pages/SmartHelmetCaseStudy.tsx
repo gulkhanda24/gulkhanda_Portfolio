@@ -153,7 +153,7 @@ function SmartHelmetAppScreensBand() {
   return (
     <>
       <div id="screens" />
-      <div className="band fade-in">
+      <div className="band fade-in sh-app-screens-band">
         <div className="band-inner sh-app-screens-band-inner">
           <div className="section-label">08 · App Screens</div>
           <h2 className="section-title" style={{ marginBottom: 8 }}>
