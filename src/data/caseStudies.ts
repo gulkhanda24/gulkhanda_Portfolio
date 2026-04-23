@@ -115,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2024",
     title: "Building a personalised AI solution to eliminate redundant tasks & boost productivity",
     description:
-      "End-to-end UX for an enterprise assistant that learns how people work, suggests automations for repetitive tasks, and keeps humans in control — transparency, personalisation, and measurable productivity gains.",
+      "End-to-end UX for an enterprise assistant that learns how people work, suggests automations for repetitive tasks, and keeps humans in control, with transparency, personalisation, and measurable productivity gains.",
     client: "Enterprise B2B SaaS",
     role: "Product Designer",
     heroImage:
@@ -127,7 +127,7 @@ export const caseStudies: CaseStudy[] = [
         subtitle: "Busywork was eating the workday",
         content: [
           "Knowledge workers were losing hours each week to copy-paste between tools, reformatting the same reports, and chasing status updates across chat, email, and project trackers. Generic automation tools either broke on edge cases or felt too risky to adopt without transparency.",
-          "The product goal was clear: reduce redundant work without removing agency — a personalised AI layer that proposes actions, explains why, and learns from feedback over time.",
+          "The product goal was clear: reduce redundant work without removing agency through a personalised AI layer that proposes actions, explains why, and learns from feedback over time.",
         ],
         image:
           "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80",
@@ -144,7 +144,7 @@ export const caseStudies: CaseStudy[] = [
           "Top pain: switching between 4+ apps to complete a single \"small\" deliverable",
           "High anxiety around AI changing data without an audit trail or undo",
           "Power users wanted shortcuts; novices needed guardrails and plain-language explanations",
-          "Personalisation only mattered if it saved time in the first session — not after weeks of training",
+          "Personalisation only mattered if it saved time in the first session, not after weeks of training",
         ],
       },
       {
@@ -162,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Phase 3",
         subtitle: "Design, prototype & validation",
         content: [
-          "High-fidelity flows covered: one-click \"repeat last action\" on structured tasks, natural-language creation of multi-step recipes, and conflict resolution when two automations collide. I paired with engineering on latency states — skeleton proposals, stale-data warnings, and graceful degradation when models were uncertain.",
+          "High-fidelity flows covered: one-click \"repeat last action\" on structured tasks, natural-language creation of multi-step recipes, and conflict resolution when two automations collide. I paired with engineering on latency states: skeleton proposals, stale-data warnings, and graceful degradation when models were uncertain.",
           "Two rounds of moderated usability tests (n=12) refined copy for consent moments, confidence thresholds for auto-run vs. ask-first, and empty states that teach by example.",
         ],
       },
@@ -171,7 +171,7 @@ export const caseStudies: CaseStudy[] = [
         subtitle: "Less repetition, more focus time",
         content: [
           "In pilot, participants reported a median 32% reduction in time spent on self-identified repetitive tasks, with zero critical incidents related to unintended AI writes (rollback and audit log were used in 100% of escalations). Adoption of suggested automations climbed after we added a \"preview diff\" step and per-workspace templates.",
-          "The framework is now the reference pattern for other AI-assisted features in the suite — same trust model, shared components, and a single design language for human–AI collaboration.",
+          "The framework is now the reference pattern for other AI-assisted features in the suite, with the same trust model, shared components, and a single design language for human and AI collaboration.",
         ],
       },
     ],
@@ -182,10 +182,10 @@ export const caseStudies: CaseStudy[] = [
     slug: "ielts-speaking-lab",
     category: "EdTech",
     categoryLabel: "Web · AI & Language Learning",
-    year: "2024 – 2025",
-    title: "IELTS Speaking Lab — personalised Band 7–9 answers from your ideas",
+    year: "2024 to 2025",
+    title: "IELTS Speaking Lab: personalised Band 7 to 9 answers from your ideas",
     description:
-      "An AI-powered web platform that turns a learner's rough ideas into personalised Band 7–9 answers — and builds the vocabulary to sustain them.",
+      "An AI-powered web platform that turns a learner's rough ideas into personalised Band 7 to 9 answers and builds the vocabulary to sustain them.",
     client: "IELTS Speaking Lab (live product)",
     role: "UX Designer · UI Designer · Developer",
     heroImage: "/ielts-speaking-lab/home.png",
@@ -198,8 +198,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "rapido-captain",
     category: "Mobility",
     categoryLabel: "Driver App · Mobility",
-    year: "2023 – 2024",
-    title: "Rapido Captain — Enhancing pick-up accuracy for drivers",
+    year: "2023 to 2024",
+    title: "Rapido Captain: enhancing pick-up accuracy for drivers",
     description:
       "A case study where I improved pick-up accuracy in the driver app by using image view and street view, which helped reduce order cancellations.",
     client: "Rapido",
@@ -207,22 +207,6 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "/rapido-hero-pickup-screen.png",
     tags: ["UX design", "Driver App", "Mobility"],
     /* Long-form layout: RapidoCaptainCaseStudy.tsx */
-    sections: [],
-    nextSlug: "skiosk",
-    nextTitle: "Skiosk",
-  },
-  {
-    slug: "skiosk",
-    category: "HCI",
-    categoryLabel: "Physical prototyping · Research",
-    year: "2023",
-    title: "Skiosk — Ski-slope information kiosk & digital ski pass",
-    description:
-      "A smart information center on the slopes with a large interactive screen, linked to a wearable digital ski pass with GPS — a four-week group design sprint.",
-    client: "Advanced DOIS (group project)",
-    role: "UX Researcher · Designer",
-    heroImage: "https://cdn.prod.website-files.com/6526aaa1b1597702d5fea358/652748a0a7c9cf6733d6d92c_Group%20430-p-1600.png",
-    tags: ["UX Research", "Participatory design", "Storyboarding", "Wizard of Oz", "HCI"],
     sections: [],
     nextSlug: "smart-helmet-bike-care",
     nextTitle: "Smart Helmet & Bike Care",

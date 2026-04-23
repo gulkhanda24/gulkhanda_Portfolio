@@ -9,7 +9,7 @@ import IeltsDesignBoardShowcase from "@/components/IeltsDesignBoardShowcase";
 const RAPIDO_YELLOW = "#FFD500";
 const RAPIDO_YELLOW_SOFT = "#FFEA80";
 
-type ShowcaseTheme = "rapido" | "smartHelm" | "ielts" | "skiosk";
+type ShowcaseTheme = "rapido" | "smartHelm" | "ielts";
 
 const showcaseThemeStyles: Record<
   ShowcaseTheme,
@@ -75,21 +75,6 @@ const showcaseThemeStyles: Record<
     ctaClass:
       "mt-8 inline-flex w-fit items-center rounded-xl bg-[#E8501A] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#c74315]",
   },
-  skiosk: {
-    cardBackground: "linear-gradient(152deg, #f0f9ff 0%, #e0f2fe 38%, #bae6fd 72%, #7dd3fc 100%)",
-    cardShadow: "0 14px 48px rgba(2, 132, 199, 0.2)",
-    brandPillBg: "linear-gradient(125deg, #ecfeff 0%, #cffafe 42%, #a5f3fc 88%, #67e8f9 100%)",
-    brandPillClass: "border border-sky-600/20 shadow-[0_1px_3px_rgba(2,132,199,0.12)]",
-    brandNameClass: "font-heading text-sm font-black tracking-tight text-sky-900",
-    productNameClass:
-      "font-heading text-4xl font-black leading-[1.05] tracking-tight text-neutral-900 md:text-5xl lg:text-[2.75rem]",
-    tagClass:
-      "rounded-full border-2 border-sky-800/30 bg-white/60 px-3 py-1 text-xs font-semibold text-sky-950 backdrop-blur-sm md:text-sm",
-    headlineClass: "font-heading mt-7 text-xl font-bold leading-snug text-neutral-900 md:text-2xl",
-    bodyClass: "mt-3 max-w-lg text-sm leading-relaxed text-neutral-900/82 md:text-base",
-    ctaClass:
-      "mt-8 inline-flex w-fit items-center rounded-xl bg-sky-900 px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-sky-800",
-  },
 };
 
 type StandardProject = {
@@ -132,12 +117,12 @@ const projects: Project[] = [
     slug: "smart-helmet-bike-care",
     brandName: "Smart Helmet",
     productName: "Smart Helmet",
-    headline: "Smart Helmet & Bike Care — connected safety for riders",
+    headline: "Smart Helmet & Bike Care: connected safety for riders",
     description:
-      "IoT helmet companion app: live helmet and bike status, location, emergency controls, and theft reporting — designed for one-glance clarity on the road.",
+      "IoT helmet companion app: live helmet and bike status, location, emergency controls, and theft reporting, designed for one-glance clarity on the road.",
     tags: ["IoT", "UX Research", "Mobile", "Safety"],
     mockupSrc: "/smart-helmet-dashboard-mockup.png",
-    mockupAlt: "Smart Helmet app dashboard — helmet and bike status, map preview, and emergency controls",
+    mockupAlt: "Smart Helmet app dashboard: helmet and bike status, map preview, and emergency controls",
     mockupBg: "linear-gradient(165deg, #f7fefb 0%, #ecfdf5 45%, #dff7ea 100%)",
     mockupPanelTone: "light",
     mockupDeviceFrame: "phone-black",
@@ -148,12 +133,12 @@ const projects: Project[] = [
     slug: "ielts-speaking-lab",
     brandName: "IELTS Speaking Lab",
     productName: "Speaking Lab",
-    headline: "AI-powered answers from your own ideas — and vocabulary that sticks",
+    headline: "AI-powered answers from your own ideas, plus vocabulary that sticks",
     description:
-      "A web platform that turns rough speaking ideas into personalised Band 7–9 answers, with topic-linked word banks and a five-step practice loop.",
+      "A web platform that turns rough speaking ideas into personalised Band 7 to 9 answers, with topic-linked word banks and a five-step practice loop.",
     tags: ["Web", "UX Research", "GenAI", "EdTech"],
     mockupSrc: "/ielts-speaking-lab/home.png",
-    mockupAlt: "IELTS Speaking Lab — home dashboard",
+    mockupAlt: "IELTS Speaking Lab home dashboard",
     mockupBg: "linear-gradient(165deg, #1c1917 0%, #292524 45%, #431407 100%)",
     mockupPanelTone: "dark",
   },
@@ -168,24 +153,8 @@ const projects: Project[] = [
       "A case study where I improved pick-up accuracy in the driver app by using image view and street view, which helped reduce order cancellations.",
     tags: ["UX design", "Driver App", "Mobility"],
     mockupSrc: "/rapido-hero-pickup-screen.png",
-    mockupAlt: "Rapido Captain — driver app pickup map",
+    mockupAlt: "Rapido Captain driver app pickup map",
     mockupBg: "#1e1b4b",
-  },
-  {
-    variant: "showcase",
-    theme: "skiosk",
-    slug: "skiosk",
-    brandName: "Skiosk",
-    productName: "Skiosk",
-    headline: "Ski-slope kiosk & wearable ski pass — four-week design sprint",
-    description:
-      "An information center on the slopes with a large interactive screen, paired with a digital ski pass on the wrist for GPS and collaboration — discovery through video prototype and poster.",
-    tags: ["UX Research", "HCI", "Storyboarding", "Wizard of Oz"],
-    mockupSrc:
-      "https://cdn.prod.website-files.com/6526aaa1b1597702d5fea358/652748a0a7c9cf6733d6d92c_Group%20430-p-1080.png",
-    mockupAlt: "Skiosk system overview — kiosk UI and wearable ski pass",
-    mockupBg: "linear-gradient(165deg, #f8fafc 0%, #e0f2fe 45%, #bae6fd 100%)",
-    mockupPanelTone: "light",
   },
 ];
 

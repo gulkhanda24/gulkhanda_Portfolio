@@ -6,7 +6,6 @@ import RapidoCaptainCaseStudy from "@/pages/RapidoCaptainCaseStudy";
 import CaseStudyDefault from "@/pages/CaseStudyDefault";
 import SmartHelmetCaseStudy from "@/pages/SmartHelmetCaseStudy";
 import IeltsSpeakingLabCaseStudy from "@/pages/IeltsSpeakingLabCaseStudy";
-import SkioskCaseStudy from "@/pages/SkioskCaseStudy";
 
 /**
  * Land on the first case study block (`#case-study-intro`) after route transition.
@@ -71,10 +70,6 @@ const CaseStudyPage = () => {
 
   if (slug === "ielts-speaking-lab") {
     return <IeltsSpeakingLabCaseStudy study={study} />;
-  }
-
-  if (slug === "skiosk") {
-    return <SkioskCaseStudy study={study} />;
   }
 
   return <CaseStudyDefault study={study} slug={slug!} />;

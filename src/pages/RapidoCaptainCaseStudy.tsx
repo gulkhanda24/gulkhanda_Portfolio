@@ -9,7 +9,7 @@ const rapidoAllScreensFlow = [
   {
     src: "/rapido-all-screens-01.png",
     shortLabel: "Pickup map",
-    alt: "Go to pickup — map with route, pickup pin, rider card, message field, and Arrived button",
+    alt: "Go to pickup map with route, pickup pin, rider card, message field, and Arrived button",
   },
   {
     src: "/rapido-all-screens-02.png",
@@ -29,7 +29,7 @@ const rapidoAllScreensFlow = [
   {
     src: "/rapido-all-screens-05.png",
     shortLabel: "Camera",
-    alt: "Camera capture — viewfinder, close control, and yellow shutter",
+    alt: "Camera capture: viewfinder, close control, and yellow shutter",
   },
   {
     src: "/rapido-all-screens-06.png",
@@ -39,7 +39,7 @@ const rapidoAllScreensFlow = [
   {
     src: "/rapido-all-screens-07.png",
     shortLabel: "Chat + photo",
-    alt: "Chat with passenger — thread including sent location photo and quick replies",
+    alt: "Chat with passenger thread including sent location photo and quick replies",
   },
   {
     src: "/rapido-all-screens-08.png",
@@ -167,7 +167,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
           heroIntroRef={heroIntroRef}
           pillText="RAPIDO"
           title="Rapido Captain"
-          subtitle="Enhancing pick-up accuracy · 2023 – 2024"
+          subtitle="Enhancing pick-up accuracy · 2023 to 2024"
           metaRows={[
             { label: "ROLE", value: "Product Designer" },
             { label: "TOOLS", value: "Figma, Miro, Protopie" },
@@ -188,7 +188,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
             },
           ]}
           imageSrc="/rapido-hero-pickup-screen.png"
-          imageAlt="Rapido Captain — Go to pickup map with green route, pickup pin, and rider card"
+          imageAlt="Rapido Captain go to pickup map with green route, pickup pin, and rider card"
         />
 
         {/* Overview */}
@@ -263,7 +263,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
               </div>
               <blockquote className="text-base italic leading-relaxed text-neutral-700 md:text-lg">
                 &ldquo;Sometimes the pin is inside a building, but the customer is on the main road. I have to call to
-                confirm.&rdquo; — Rajesh, 4.8★ Captain
+                confirm.&rdquo; · Rajesh, 4.8★ Captain
               </blockquote>
             </div>
           </div>
@@ -304,7 +304,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
           <div className="mt-10 w-full min-w-0 overflow-hidden rounded-2xl bg-neutral-100">
             <img
               src="/rapido-visual-intelligence-mockup.png"
-              alt="Pickup Screen annotated mockup — pickup marker distance cue, street view ingress from thumbnail, chat and call for quick contact"
+              alt="Pickup Screen annotated mockup: pickup marker distance cue, street view ingress from thumbnail, chat and call for quick contact"
               className="block h-auto w-full max-w-none border-0 object-contain shadow-none ring-0 outline-none [box-shadow:none]"
               loading="lazy"
               decoding="async"
@@ -318,14 +318,14 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
             <p className="mt-4 text-base leading-relaxed text-neutral-600 md:text-lg">
               The Pickup Screen first attempts to load a Street View of the exact pickup spot, showing a 360° real-world
               image with a highlighted marker. If Street View isn&apos;t available, the app automatically switches to a
-              static Image View — a cached photo of the location with the same visual cues — ensuring drivers always have a
+              static Image View, a cached photo of the location with the same visual cues, ensuring drivers always have a
               reliable visual reference regardless of connectivity or data availability.
             </p>
           </div>
           <div className="mt-10 w-full min-w-0 overflow-hidden rounded-2xl bg-neutral-100 p-6 sm:p-8 md:p-10">
             <img
               src="/rapido-street-view-comparison.png"
-              alt="Street View pickup marker and Reset to pickup point — two-column comparison of the driver experience"
+              alt="Street View pickup marker and Reset to pickup point: two-column comparison of the driver experience"
               className="block h-auto w-full max-w-none rounded-lg border-0 object-contain shadow-none ring-0 outline-none [box-shadow:none]"
               loading="lazy"
               decoding="async"
@@ -343,7 +343,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
           <div className="mt-10 w-full min-w-0 overflow-hidden rounded-2xl bg-neutral-100 p-6 sm:p-8 md:p-10">
             <img
               src="/rapido-navigation-screen-mockup.png"
-              alt="Navigation screen — pickup pin with street view thumbnail card, geofence, turn banner, and chat ingress"
+              alt="Navigation screen: pickup pin with street view thumbnail card, geofence, turn banner, and chat ingress"
               className="block h-auto w-full max-w-none rounded-lg border-0 object-contain shadow-none ring-0 outline-none [box-shadow:none]"
               loading="lazy"
               decoding="async"
@@ -351,7 +351,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
           </div>
 
           <div className="mt-16 max-w-3xl">
-            <h4 className="font-heading text-xl font-bold text-neutral-900 md:text-2xl">Go to pickup — full screen flow</h4>
+            <h4 className="font-heading text-xl font-bold text-neutral-900 md:text-2xl">Go to pickup: full screen flow</h4>
             <p className="mt-4 text-base leading-relaxed text-neutral-600 md:text-lg">
               Map overview and rider context, immersive Street View with a clear pickup marker, reset when the view drifts,
               turn-by-turn navigation into the geofence, then camera capture when a photo helps close the loop with the rider.
@@ -382,7 +382,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
           <div className="mt-10 w-full min-w-0 overflow-hidden rounded-2xl bg-neutral-100 p-6 sm:p-8 md:p-10">
             <img
               src="/rapido-chat-photo-camera-mockup.png"
-              alt="Chat — photo capability with shared pickup image and camera integration with Send Photo and Retake"
+              alt="Chat photo capability with shared pickup image and camera integration with Send Photo and Retake"
               className="block h-auto w-full max-w-none rounded-lg border-0 object-contain shadow-none ring-0 outline-none [box-shadow:none]"
               loading="lazy"
               decoding="async"
@@ -391,7 +391,7 @@ export default function RapidoCaptainCaseStudy({ study }: { study: CaseStudy }) 
           <div className="mt-10 w-full min-w-0 overflow-hidden rounded-2xl bg-neutral-100 p-6 sm:p-8 md:p-10">
             <img
               src="/rapido-chat-voice-message-mockup.png"
-              alt="Chat — recording voice with waveform timer, then sent voice message bubble with play control"
+              alt="Chat recording voice with waveform timer, then sent voice message bubble with play control"
               className="block h-auto w-full max-w-none rounded-lg border-0 object-contain shadow-none ring-0 outline-none [box-shadow:none]"
               loading="lazy"
               decoding="async"

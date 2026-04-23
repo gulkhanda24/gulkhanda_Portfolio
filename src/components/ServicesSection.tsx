@@ -30,7 +30,7 @@ const philosophyCards: {
   {
     headline: "Clarity is respect",
     caption:
-      "Hierarchy and copy answer what matters first—attention is finite and never owed to the UI.",
+      "Hierarchy and copy answer what matters first: attention is finite and never owed to the UI.",
     tone: "cream",
   },
   {
@@ -42,7 +42,7 @@ const philosophyCards: {
   {
     headline: "Trust lives off the happy path",
     caption:
-      "Errors, waits, and empty states get the same rigour as the hero flow—that is where belief is won or lost.",
+      "Errors, waits, and empty states get the same rigour as the hero flow. That is where belief is won or lost.",
     tone: "cream",
   },
 ];
@@ -184,7 +184,7 @@ const ServicesSection = () => {
                   “right” mockup in the file.
                 </p>
                 <p>
-                  It is the layer beneath deliverables—the commitments that keep work honest toward the people who use it and
+                  It is the layer beneath deliverables: the commitments that keep work honest toward the people who use it and
                   the organisation that ships it.
                 </p>
               </div>

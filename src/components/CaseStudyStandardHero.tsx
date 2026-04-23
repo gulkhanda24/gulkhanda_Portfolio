@@ -68,8 +68,8 @@ type CaseStudyStandardHeroProps = {
   imageAlt: string;
   /** Match Captain mockup column width */
   imageMaxClassName?: string;
-  /** Bento grid hero (lavender tiles + tall mockup column) — reference portfolio layout. */
-  layout?: "classic" | "bento";
+  /** Hero layouts for different case-study presentation styles. */
+  layout?: "classic" | "bento" | "editorial";
   /** Shown under the pill in bento layout (e.g. year or date range). */
   timeline?: string;
 };
@@ -260,6 +260,78 @@ export default function CaseStudyStandardHero({
     );
   }
 
+  if (layout === "editorial") {
+    return (
+      <section
+        ref={heroIntroRef}
+        id="case-study-intro"
+        className="mb-20 scroll-mt-28 rounded-[1.5rem] border border-neutral-200/90 bg-white p-5 md:rounded-[1.75rem] md:p-7"
+      >
+        <motion.div
+          className="space-y-6"
+          variants={heroTwoColStagger}
+          initial={prefersReducedMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -80px 0px" }}
+        >
+          <motion.div variants={heroLeftStagger} className="space-y-4">
+            <motion.div variants={heroScrollItem} className="flex flex-wrap items-center gap-3">
+              <p
+                className={cn(
+                  "inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider",
+                  caseStudyHeroYellow,
+                )}
+              >
+                {pillText}
+              </p>
+              {timeline ? (
+                <p className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-sky-800">
+                  {timeline}
+                </p>
+              ) : null}
+            </motion.div>
+            <motion.h1
+              variants={heroScrollItem}
+              className="font-heading text-4xl font-bold leading-[1.08] tracking-tight text-neutral-900 md:text-5xl"
+            >
+              {title}
+            </motion.h1>
+            <motion.p variants={heroScrollItem} className="max-w-none text-[1.04rem] leading-relaxed text-neutral-700 md:text-[1.14rem]">
+              {subtitle}
+            </motion.p>
+          </motion.div>
+
+          <motion.div variants={heroScrollItem} className="flex flex-wrap gap-2.5">
+            {metaRows.map((row) => (
+              <span
+                key={row.label}
+                className="inline-flex items-center rounded-full border border-neutral-200 bg-neutral-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-neutral-700 md:text-sm"
+              >
+                {row.value}
+              </span>
+            ))}
+            {metrics
+              ? metrics.map((m) => (
+                  <span
+                    key={m.value + m.description}
+                    className="inline-flex items-center rounded-full border border-neutral-200 bg-neutral-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-neutral-700 md:text-sm"
+                  >
+                    {m.value} · {m.description}
+                  </span>
+                ))
+              : null}
+          </motion.div>
+
+          <motion.div variants={heroScrollItem} className="overflow-hidden rounded-2xl border border-neutral-200/90 bg-neutral-50 shadow-sm">
+            <div className="will-change-transform">
+              <img src={imageSrc} alt={imageAlt} className="block h-auto w-full object-contain object-center" loading="eager" decoding="async" />
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+    );
+  }
+
   return (
     <section
       ref={heroIntroRef}
@@ -295,10 +367,10 @@ export default function CaseStudyStandardHero({
                 <motion.div
                   key={m.value + m.description}
                   variants={heroScrollItem}
-                  className="rounded-2xl border border-neutral-200 bg-white p-5 text-center shadow-sm"
+                  className="flex h-full min-h-0 flex-col justify-center gap-3.5 rounded-xl border border-neutral-200/90 bg-white px-4 py-4 shadow-sm md:rounded-[1.2rem] md:px-5 md:py-5"
                 >
-                  <p className="font-heading text-3xl font-bold text-neutral-900 md:text-4xl">{m.value}</p>
-                  <p className="mt-2 text-xs font-medium leading-snug text-neutral-600">{m.description}</p>
+                  <p className="font-heading text-3xl font-bold leading-none tracking-tight text-neutral-900 md:text-4xl">{m.value}</p>
+                  <p className="text-sm font-medium leading-snug text-neutral-700 md:text-[15px] md:leading-relaxed">{m.description}</p>
                 </motion.div>
               ))}
             </motion.div>

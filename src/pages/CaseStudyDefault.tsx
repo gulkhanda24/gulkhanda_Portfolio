@@ -82,7 +82,7 @@ export default function CaseStudyDefault({ study, slug }: { study: CaseStudy; sl
         subtitle={`${study.categoryLabel} · ${study.year}`}
         metaRows={[
           { label: "ROLE", value: study.role },
-          { label: "TOOLS", value: tools || "—" },
+          { label: "TOOLS", value: tools || "Not listed" },
           { label: "YEAR", value: study.year },
         ]}
         imageSrc={study.heroImage}

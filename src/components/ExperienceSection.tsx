@@ -6,16 +6,16 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const experiences = [
   {
     company: "Zeki Experts",
-    role: "Sr. Product Designer",
-    period: "Mar 2025 — Present",
-    badge: "Product Design",
-    tags: ["SaaS", "B2B", "UX Systems"],
+    role: "Product Engineer",
+    period: "Mar 2025 to Present",
+    badge: "Product & Engineering",
+    tags: ["SaaS", "B2B", "UX", "Full-stack"],
     current: true,
   },
   {
     company: "Sigma Digital Solution",
     role: "UI/UX Designer",
-    period: "Sep 2023 — Aug 2024",
+    period: "Sep 2023 to Aug 2024",
     badge: "Fin-tech",
     tags: ["Mobile Apps", "Web Apps", "Dashboards"],
     current: false,
@@ -23,7 +23,7 @@ const experiences = [
   {
     company: "448 Studio",
     role: "UI/UX Designer",
-    period: "Jan 2022 — Sep 2023",
+    period: "Jan 2022 to Sep 2023",
     badge: "Agency",
     tags: ["Branding", "Digital Products", "Startups"],
     current: false,
@@ -31,7 +31,7 @@ const experiences = [
   {
     company: "Holodeck Technologies",
     role: "UI Designer",
-    period: "Feb 2020 — Jan 2022",
+    period: "Feb 2020 to Jan 2022",
     badge: "AR / VR",
     tags: ["XR", "Mobile", "UI Systems"],
     current: false,
@@ -49,14 +49,14 @@ const education = [
   {
     degree: "Bachelor's in Information Technology",
     school: "Bahria University, Pakistan",
-    period: "2016 — 2020",
+    period: "2016 to 2020",
     credential: "Bachelor's Degree",
     tags: ["Information Systems", "Software", "Academics"],
   },
   {
     degree: "UX Research Certificate",
     school: "Google",
-    period: "2024 — 2025",
+    period: "2024 to 2025",
     credential: "Certificate",
     tags: ["User Research", "Methods", "Insights"],
   },

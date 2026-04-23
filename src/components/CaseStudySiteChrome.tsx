@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { CaseStudy } from "@/data/caseStudies";
 import { caseStudies } from "@/data/caseStudies";
@@ -101,8 +101,7 @@ export default function CaseStudySiteChrome({ study, pageKey, children, subNav }
               to={`/case-study/${prevStudy.slug}`}
               className="group inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
             >
-              <ArrowLeft size={18} className="transition-transform group-hover:-translate-x-1" />
-              ← Previous Project
+              Previous Project
             </Link>
           ) : (
             <span />
@@ -112,8 +111,7 @@ export default function CaseStudySiteChrome({ study, pageKey, children, subNav }
               to={`/case-study/${nextStudy.slug}`}
               className="group inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground sm:ml-auto"
             >
-              Next Project →
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              Next Project
             </Link>
           ) : null}
         </div>
